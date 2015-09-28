@@ -19,12 +19,12 @@
           text-align: center;
           padding-bottom: 30px;
         }
-        #right_col {
-          text-align: right;
-        }
         #algoritm {
           padding: 0;
           margin: auto 30px;
+        }
+        .right_col {
+          text-align: right;
         }
         .math_ml {
           padding-top: 10px;
@@ -81,7 +81,7 @@
               <li>загрузка статики (HTTP-запрос и парсинг)</li>
               <li>исполнение модулей</li>
               <li>инициализация базовых объектов</li>
-              <li>отрисовка</li>
+                <li>отрисовка</li>
             </ul>
 
             <p>Этапы отрисовки любой страницы:</p>
@@ -104,7 +104,7 @@
               В случае ускорения или замедления медиана, конечно, изменится.<br>
               Но она не может рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p> 
 
-            <p class="new_paragraph"><dfn>APDEX</dfn> – метрика, которая сразу говорит: хорошо или плохо. Метрика
+            <p class="new_paragraph"><abbr title="Application Performance Index">APDEX</abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика
               работает очень просто. Мы выбираем временной интервал <var>[0; t]</var>, такой, что если
               время показа страницы попало в него, то пользователь счастлив. Берем еще один
               интервал, <var>(t; 4t]</var> (в четыре раза больше первого), и считаем, что если страница
@@ -114,37 +114,36 @@
               Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
               хорошо или плохо работает почта.
             </p>
-            <p>
-              <p class="topic">Как мы измеряем?</p>
+            
+            <p class="topic">Как мы измеряем?</p>
 
-              <p class="new_paragraph">Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
+            <p class="new_paragraph">Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
               причину замедления: медленнее стал отвечать сервер либо слишком долго
               выполняется <em>JavaScript</em>. Выглядит это примерно так:
-              <pre>
-                <code>
-                  this.timings['look-ma-im-start'] = Date.now();
-                  this.timings['look-ma-finish'] = Date.now();
-                </code>
-              </pre>
-             <p> C помощью <kbd>Date.now()</kbd> мы получаем текущее время. Все тайминги собираются и при
+            </p>
+            <pre>
+              <code>
+                this.timings['look-ma-im-start'] = Date.now();
+                this.timings['look-ma-finish'] = Date.now();
+              </code>
+            </pre>
+            <p> C помощью <kbd>Date.now()</kbd> мы получаем текущее время. Все тайминги собираются и при
               отправке рассчитываются. На этапах разница между <kbd>“end”</kbd> и <kbd>“start”</kbd> не считается,
-              а все вычисления производятся в конце:</p>
-              <pre>
-                <code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
-              </pre>
-              И на сервер прилетают подобные записи: <samp>serverResponse=50&domUpdate=60</samp></p>
+              а все вычисления производятся в конце:
             </p>
+            <pre>
+              <code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
+            </pre>
+            <p>И на сервер прилетают подобные записи: <samp>serverResponse=50&domUpdate=60</samp></p>
             
-            <p>
-              <p class="topic">Как мы ускоряем?</p>
-              Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:          
-              <ul>
-                <li>включаем <em>gzip</em></li>
-                <li>выставляем заголовки кэширования</li>
-                <li>фризим <em>CSS</em>, <em>JS</em>, шаблоны и картинки</li>
-                <li>используем <em>CDN</em></li>
-              </ul>          
-            </p>
+            <p class="topic">Как мы ускоряем?</p>
+            <p>Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:</p>          
+            <ul>
+              <li>включаем <em>gzip</em></li>
+              <li>выставляем заголовки кэширования</li>
+              <li>фризим <em>CSS</em>, <em>JS</em>, шаблоны и картинки</li>
+              <li>используем <em>CDN</em></li>
+            </ul>          
             
             <p class="new_paragraph">
               Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
@@ -158,17 +157,14 @@
               не получили должного распространения в браузерах и на серверах.
             </p>
 
-            <p>
-              Мы же решили сделать свой аналог на <em>JS</em>. Чтобы реализовать этот метод обновления,
-              начали искать реализации diff на <em>JS</em>. На популярных хостингах кода нашли библиотеки:
+            <p>Мы же решили сделать свой аналог на <em>JS</em>. Чтобы реализовать этот метод обновления,
+              начали искать реализации diff на <em>JS</em>. На популярных хостингах кода нашли библиотеки:</p>
               <ul>
                 <li><em>VCDiff</em></li>
                 <li><em>google-diff-patch-match</em></li>
               </ul>
-            </p>
 
-            <p>
-              Для окончательного выбора библиотеки нам нужно сравнить:
+            <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
               <table class="table" cellspacing="0">
                 <thead>
                   <tr>
@@ -190,12 +186,10 @@
                   </tr>
                 </tbody>
               </table>
-            </p>
-
+            
             <p>После того как мы определились с библиотекой для диффа, нужно определиться с тем, где и как хранить статику на клиенте.</p>
             
-            <p>
-              Формат файла с патчами для проекта выглядит так:
+            <p>Формат файла с патчами для проекта выглядит так:</p>
               <pre>
                 <code>
                   [
@@ -212,7 +206,6 @@
                   ]
                 </code>
               </pre>
-            </p>
 
             <p>
               То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
@@ -220,76 +213,76 @@
               ресурса. <em>p</em> — патч для ресурса, который сгенерировал <em>vcdiff</em>. <em>s</em> — чексумма для
               ресурса актуальной версии, чтобы потом можно было проверить правильность
               наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
+            </p>
 
               <dl>
                 <dt><em>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</em></dt>
                 <dd>итерационный метод численной оптимизации, предназначенный для нахождения локального максимума/минимума нелинейного функционала без ограничений.</dd>
-                <blockquote>
-                  <dd class="math_ml">
-                    дано &epsilon;, <var>x</var><sub>0</sub><br>
-                    инициализировать <var>H</var><sub>0</sub><br>
-                    <math><mi>k</mi><mo>=</mo><mn>0</mn></math><br>
-                    while || <math><mrow><msub><mi>&nabla;f</mi><mi>k</mi></msub></mrow></math> || <math><mo>></mo><mi>&epsilon;</mi></math><br>
-                    <p id="algoritm">найти направление 
-                    <math>
-                      <mrow>
-                        <msub><mi>p</mi><mi>k</mi></msub>
-                        <mo>=</mo>
-                        <mo>-</mo>
-                        <msub><mi>C</mi><mi>k</mi></msub>
-                        <msub><mi>&nabla;f</mi><mi>k</mi></msub>
-                      </mrow>
-                    </math><br>
-                    вычислить 
-                    <math>
-                      <mrow>
-                        <msub><mi>x</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub>
-                        <mo>=</mo>
-                        <mrow>
-                          <msub><mi>x</mi><mi>k</mi></msub>
-                          <mo>+</mo>
-                          <msub><mi>&alpha;</mi><mi>k</mi></msub><msub><mi>p</mi><mi>k</mi></msub>
-                        </mrow>
-                        <mtext>,</mtext>
-                        <msub><mi>&alpha;</mi><mi>k</mi></msub>
-                      </mrow>
-                    </math>
-                    удовлетворяет условиям Вольфе<br>
-                    обозначить
-                    <math>
-                      <mrow>
-                        <msub><mi>s</mi><mi>k</mi></msub>
-                        <mo>=</mo>
-                        <msub><mi>x</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub>
-                        <mo>-</mo>
-                        <msub><mi>x</mi><mi>k</mi></msub>
-                      </mrow>
+                <dd class="math_ml">
+                  дано &epsilon;, <var>x</var><sub>0</sub><br>
+                  инициализировать <var>H</var><sub>0</sub><br>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML" ><mi>k</mi><mo>=</mo><mn>0</mn></math><br>
+                  while || <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>&nabla;f</mi><mi>k</mi></msub></mrow></math> || <math><mo>></mo><mi>&epsilon;</mi></math><br>
+                  <p id="algoritm">найти направление 
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                      <msub><mi>p</mi><mi>k</mi></msub>
+                      <mo>=</mo>
+                      <mo>-</mo>
+                      <msub><mi>C</mi><mi>k</mi></msub>
+                      <msub><mi>&nabla;f</mi><mi>k</mi></msub>
+                    </mrow>
+                  </math><br>
+                  вычислить 
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                      <msub><mi>x</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub>
                       <mo>=</mo>
                       <mrow>
-                        <msub><mi>&nabla;f</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub>
-                        <mo>-</mo>
-                        <msub><mi>&nabla;f</mi><mi>k</mi></msub>
+                        <msub><mi>x</mi><mi>k</mi></msub>
+                        <mo>+</mo>
+                        <msub><mi>&alpha;</mi><mi>k</mi></msub><msub><mi>p</mi><mi>k</mi></msub>
                       </mrow>
-                    </math><br>
-                    вычислить
-                    <math>
-                      <mrow><msub><mi>C</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow>
-                    </math><br>
-                    <math><mi>k</mi><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></math><br></p>
-                    end
-                  </dd>
-                </blockquote>
+                      <mtext>,</mtext>
+                      <msub><mi>&alpha;</mi><mi>k</mi></msub>
+                    </mrow>
+                  </math>
+                  удовлетворяет условиям Вольфе<br>
+                  обозначить
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                      <msub><mi>s</mi><mi>k</mi></msub>
+                      <mo>=</mo>
+                      <msub><mi>x</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub>
+                      <mo>-</mo>
+                      <msub><mi>x</mi><mi>k</mi></msub>
+                    </mrow>
+                    <mo>=</mo>
+                    <mrow>
+                      <msub><mi>&nabla;f</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub>
+                      <mo>-</mo>
+                      <msub><mi>&nabla;f</mi><mi>k</mi></msub>
+                    </mrow>
+                  </math><br>
+                  вычислить
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow><msub><mi>C</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow>
+                  </math><br>
+                  <math><mi>k</mi><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></math><br></p>
+                  end
+                </dd>
               </dl>
-            </p>
+            
 
-            <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
-              <aside>
-                <p><dfn>CRC16/32</dfn> - алгоритм нахождения контрольной суммы, предназначенный для проверки целостности данных.<br>
-                   <dfn>md5</dfn> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков» или дайджестов сообщения произвольной длины и последующей проверки их подлинности
-                </p>
-              </aside>
-              Потому что он быстрый, компактный и легок в реализации.</p>
-            </p>
+            <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
+            <aside>
+              <p><dfn>CRC16/32</dfn> - алгоритм нахождения контрольной суммы, предназначенный для проверки целостности данных.<br>
+                 <dfn>md5</dfn> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков» или дайджестов сообщения 
+                 произвольной длины и последующей проверки их подлинности
+              </p>
+            </aside>
+            <p>Потому что он быстрый, компактный и легок в реализации.</p>
+            
 
             <hr>
             <p class="topic">Итог</p>
@@ -324,10 +317,9 @@
             <p>
         
             <footer>
-              <p>Автор: <em>@doochik</em>, С++ разработик
-                <address>Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)</address>
-                Компания: <em>Яндекс</em>
-              </p>
+              <p>Автор: <em>@doochik</em>, С++ разработик</p>
+              <address>Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)</address>
+              <p>Компания: <em>Яндекс</em></p>
             </footer>
           </article>
         </section>
@@ -368,8 +360,8 @@
     <footer>
       <p align="center">&copy;Яндекс</p>
       <table width="100%">
-        <tr><td id="right_col"><address>Электронная почта: <a href="mailto:help@yandex.ru">help@yandex.ru</a></address></td></tr>
-        <tr><td id="right_col"><address>Хохрякова, 10</address></td></tr>
+        <tr><td class="right_col"><address>Электронная почта: <a href="mailto:help@yandex.ru">help@yandex.ru</a></address></td></tr>
+        <tr><td class="right_col"><address>Хохрякова, 10</address></td></tr>
       </table>
     </footer>
     
