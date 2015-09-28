@@ -19,7 +19,7 @@
                 font-family: Calibri;
                 font-size: 110%;
             }
-            code, math, address {
+            code, math, address, pre.algorithm {
                 font-size: 110%;
             }
             table, th, td {
@@ -58,7 +58,7 @@
                 border-bottom: 1px solid black;
                 border-radius: 10px 10px 0px 0px;
             }
-            address.dev {
+            address.author {
                 border:1px solid black;
                 margin: -7px;
                 padding: 10px;
@@ -100,21 +100,25 @@
                     и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
                 </p>
                 <h3>Что мы измеряем</h3>
-                <p>Этапы первой загрузки:</p>
-                <ul>
-                    <li>подготовка</li>
-                    <li>загрузка статистики (HTTP-запрос и парсинг)</li>
-                    <li>исполнение модулей</li>
-                    <li>инициализация базовых объектов</li>
-                    <li>отрисовка</li>
-                </ul>        
-                <p>Этапы отрисовки любой страницы:</p>        
-                <ul>
-                    <li>подготовка к запросу на сервер</li>
-                    <li>запрос данных с сервера</li>
-                    <li>шаблонизация</li>
-                    <li>обновление DOM</li>
-                </ul>
+                <p>
+                    Этапы первой загрузки:
+                    <ul>
+                        <li>подготовка</li>
+                        <li>загрузка статистики (HTTP-запрос и парсинг)</li>
+                        <li>исполнение модулей</li>
+                        <li>инициализация базовых объектов</li>
+                        <li>отрисовка</li>
+                    </ul>        
+                </p>
+                <p>
+                    Этапы отрисовки любой страницы:        
+                    <ul>
+                        <li>подготовка к запросу на сервер</li>
+                        <li>запрос данных с сервера</li>
+                        <li>шаблонизация</li>
+                        <li>обновление DOM</li>
+                    </ul>
+                </p>
                 <p>
                     — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
                     — <q>Что же дальше?</q> - вопрошаете вы<br>
@@ -176,13 +180,13 @@ this.timings['look-ma-finish'] = Date.now();
                 <p>
                     Чтобы снизить время загрузки почты при выходе новых версий,
                     мы уже делаем следующее:
+                    <ul>
+                        <li>включаем gzip</li>
+                        <li>выставляем заголовки кэширования</li>
+                        <li>фризим CSS, JS, шаблоны и картинки</li>
+                        <li>используем CDN</li>
+                    </ul>
                 </p>
-                <ul>
-                    <li>включаем gzip</li>
-                    <li>выставляем заголовки кэширования</li>
-                    <li>фризим CSS, JS, шаблоны и картинки</li>
-                    <li>используем CDN</li>
-                </ul>
                 <p>
                     Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
                     передавать только diff между ней и той, которая сохранена у пользователя?</q>
@@ -197,11 +201,11 @@ this.timings['look-ma-finish'] = Date.now();
                     Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
                     начали искать реализации diff на JS. На популярных хостингах кода нашли
                     библиотеки:
+                    <ul>
+                        <li>VCDiff</li>
+                        <li>google-diff-patch-match</li>
+                    </ul>
                 </p>
-                <ul>
-                    <li>VCDiff</li>
-                    <li>google-diff-patch-match</li>
-                </ul>
                 <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>    
                 <table id="t1">
                     <thead>
@@ -250,7 +254,7 @@ this.timings['look-ma-finish'] = Date.now();
                     <ul type="none">
                         <li><var>k</var> — названия ключа в localStorage для этого ресурса</li> 
                         <li><var>p</var> — патч для ресурса, который сгенерировал vcdiff</li> 
-                        <li><var>s</var> — чексумма для ресурса актуальной версии, чтобы потом можно было проверить     правильность
+                        <li><var>s</var> — чексумма для ресурса актуальной версии, чтобы потом можно было проверить правильность
                         наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера</li>
                     </ul>
                 </p>
@@ -263,7 +267,7 @@ this.timings['look-ma-finish'] = Date.now();
                         без ограничений.
                     </dd>
                 </dl>
-                <pre>
+                <pre class="algorithm">
 дано &epsilon;, <var>x</var><sub>0</sub>
 Инициализировать <var>H</var><sub>0</sub>
 <var>k</var> = 0
@@ -277,20 +281,20 @@ this.timings['look-ma-finish'] = Date.now();
                 </pre>
                 <p>
                     Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
+                    <dl>
+                        <dt>CRC16/32</dt>
+                        <dd>
+                            - алгоритм нахождения контрольной суммы, предназначенный для проверки
+                            целостности данных
+                        </dd>
+                        <dt>md5</dt>
+                        <dd>
+                            - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+                            или дайджестов сообщения произвольной длины и последующей проверки
+                            их подлинности
+                        </dd>
+                    </dl>
                 </p>
-                <dl>
-                    <dt>CRC16/32</dt>
-                    <dd>
-                        - алгоритм нахождения контрольной суммы, предназначенный для проверки
-                        целостности данных
-                    </dd>
-                    <dt>md5</dt>
-                    <dd>
-                        - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
-                        или дайджестов сообщения произвольной длины и последующей проверки
-                        их подлинности
-                    </dd>
-                </dl>
                 <p>
                     Потому что он быстрый, компактный и легок в реализации.
                 </p>
@@ -322,20 +326,18 @@ this.timings['look-ma-finish'] = Date.now();
                         </tr>
                     </tbody>
                 </table>
+                <address class="author">
+                    Автор: @doochik<br>
+                    С++ разработчик<br>
+                    Электронная почта: (doochik@yandex-team.ru)<br>
+                    Компания: <span class="logo">Я</span>ндекс
+                </address>
             </article>
-            <address class="dev">
-                Автор: @doochik<br>
-                С++ разработчик<br>
-                Электронная почта: (doochik@yandex-team.ru)<br>
-                Компания: <span class="logo">Я</span>ндекс
-            </address>
             <section>
                 <div id="cmn-btn">Комментарии (3)</div>
                 <article id="cmn">
                     <header class="comment">
-                        <p>
-                            Mogaika (mogaika@yandex-team.ru) <time>30 ноября 2014 в 17:05</time>
-                        </p>
+                        Mogaika (mogaika@yandex-team.ru) <time>30 ноября 2014 в 17:05</time>
                     </header> 
                     <p> 
                         можете привести сравнение, на сколько быстрее грузится lite версия?
@@ -343,9 +345,7 @@ this.timings['look-ma-finish'] = Date.now();
                 </article>
                 <article id="cmn">
                     <header class="comment">
-                        <p>
-                            JIguse (mrawesome@yandex.ru) <time>29 ноября 2014 в 21:30</time>
-                        </p>
+                        JIguse (mrawesome@yandex.ru) <time>29 ноября 2014 в 21:30</time>
                     </header>
                     <p>
                         Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
@@ -354,9 +354,7 @@ this.timings['look-ma-finish'] = Date.now();
                 </article>
                 <article id="cmn">
                     <header class="comment">
-                        <p>
-                            Brister (brist89@yandex-team.ru) <time>24 ноября 2014 в 13:13</time>
-                        <p>
+                        Brister (brist89@yandex-team.ru) <time>24 ноября 2014 в 13:13</time>
                     </header>
                     
                     <p>
@@ -369,14 +367,14 @@ this.timings['look-ma-finish'] = Date.now();
                 </article>
                 <article id="cmn">
                     <header class="comment">
-                        <p>
-                            alexeimois (test@yandex.ru) <time>22 ноября 2014 в 17:35</time>
-                        </p>
+                        alexeimois (test@yandex.ru) <time>22 ноября 2014 в 17:35</time>
                     </header>
                 
                     <p>
                         Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-                        <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.    ru/metrika/reports/monitoring_timing.xml</a>                  
+                        <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">
+                            help.yandex.ru/metrika/reports/monitoring_timing.xml
+                        </a>                  
                     </p>
                 </article>
             </section>
