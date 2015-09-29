@@ -4,9 +4,8 @@
         <title>Блог компании Яндекс</title>
         <meta charset="UTF-8">
         <meta name="keyword" content="Яндекс, блог">
-      
         <style>
-            header.doc {
+            header.document {
                 background-color:#FFF8DC;
                 text-align: center;
                 font-family: Calibri;
@@ -28,13 +27,13 @@
                  padding: 3px;
                  text-align: center;
             }
-            table#t1 thead {
+            table#libsTable thead {
                 background-color: #00BFFF;
             }
-            table#t2 thead {
+            table#statsTable thead {
                 background-color: #A9A9A9;
             }
-            div#cmn-btn {
+            div.commentButton {
                 background-color: #B0C4DE;
                 border: 1px solid black;
                 border-radius: 10px;
@@ -44,7 +43,7 @@
                 margin-bottom: 10px;
                 margin-left: 5px;
             }
-            article#cmn {
+            article.comment {
                 background-color: #FDF5E6;
                 text-indent: 7px;
                 padding: 1px;
@@ -84,7 +83,7 @@
         </style>
     </head>
     <body>
-        <header class="doc">
+        <header class="document">
             <h1>Блог компании <span class="logo">Я</span>ндекс.</h1>
         </header>
         <main>
@@ -111,7 +110,7 @@
                     </ul>        
                 </p>
                 <p>
-                    Этапы отрисовки любой страницы:        
+                    Этапы отрисовки любой страницы:
                     <ul>
                         <li>подготовка к запросу на сервер</li>
                         <li>запрос данных с сервера</li>
@@ -142,7 +141,6 @@
                     страница показана за это время, то пользователь в целом удовлетворен скоростью работы,
                     но уже не настолько счастлив. И применяем формулу:
                 </p>
-            
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mfrac>
                         <mrow>0.5*(кол-во счастливых пользователей + кол-во удовлетворенных)</mrow>
@@ -175,7 +173,6 @@ this.timings['look-ma-finish'] = Date.now();
                 </code>
                 <p>И на сервер прилетают подобные записи:</p>
                 <code>serverResponse=50&domUpdate=60</code>
-                
                 <h3>Как мы ускоряем</h3>
                 <p>
                     Чтобы снизить время загрузки почты при выходе новых версий,
@@ -193,24 +190,22 @@ this.timings['look-ma-finish'] = Date.now();
                     В браузере же останется просто наложить патч на клиенте.
                 </p>
                 <p>
-                    На самое деле эта идея не нова. Уже существуют стандарты для 
-                    <abbr title="Hypertext Transfer Protocol">HTTP</abbr> — например,
-                    <a href="http://tools.ietf.org/html/rfc3229">RFC 3229</a> «Delta encoding in 
-                    <abbr title="Hypertext Transfer Protocol">HTTP</abbr>»
+                    На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
+                    <a href="http://tools.ietf.org/html/rfc3229">RFC 3229</a> «Delta encoding in HTTP»
                     и «Google SDHC», — но по разным причинам они не получили должного распространения 
                     в браузерах и на серверах.
                 </p>
                 <p>
-                    Мы же решили сделать свой аналог на <abbr title="JavaScript">JS</abbr>. Чтобы реализовать этот метод обновления,
-                    начали искать реализации diff на <abbr title="JavaScript">JS</abbr>. На популярных хостингах кода нашли
+                    Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
+                    начали искать реализации diff на JS. На популярных хостингах кода нашли
                     библиотеки:
                     <ul>
                         <li>VCDiff</li>
                         <li>google-diff-patch-match</li>
                     </ul>
                 </p>
-                <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>    
-                <table id="t1">
+                <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
+                <table id="libsTable">
                     <thead>
                         <th>Библиотека</th>
                         <th>IE 9</th>
@@ -261,7 +256,6 @@ this.timings['look-ma-finish'] = Date.now();
                         проверить правильность наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера</li>
                     </ul>
                 </p>
-                
                 <dl>
                     <dt>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</dt>
                     <dd>
@@ -303,7 +297,7 @@ this.timings['look-ma-finish'] = Date.now();
                 <p>
                     Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:
                 </p>
-                <table id="t2">
+                <table id="statsTable">
                     <thead>
                         <th>Релиз</th>
                         <th>С патчем </th>
@@ -335,8 +329,8 @@ this.timings['look-ma-finish'] = Date.now();
                 </address>
             </article>
             <section>
-                <div id="cmn-btn">Комментарии (3)</div>
-                <article id="cmn">
+                <div class="commentButton">Комментарии (3)</div>
+                <article class="comment">
                     <header class="comment">
                         Mogaika (mogaika@yandex-team.ru) <time>30 ноября 2014 в 17:05</time>
                     </header> 
@@ -344,7 +338,7 @@ this.timings['look-ma-finish'] = Date.now();
                         можете привести сравнение, на сколько быстрее грузится lite версия?
                     </p>
                 </article>
-                <article id="cmn">
+                <article class="comment">
                     <header class="comment">
                         JIguse (mrawesome@yandex.ru) <time>29 ноября 2014 в 21:30</time>
                     </header>
@@ -353,29 +347,26 @@ this.timings['look-ma-finish'] = Date.now();
                         подробностями о внутренней работе сервисов.
                     </p>
                 </article>
-                <article id="cmn">
+                <article class="comment">
                     <header class="comment">
                         Brister (brist89@yandex-team.ru) <time>24 ноября 2014 в 13:13</time>
                     </header>
-                    
                     <p>
                         (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
                         Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                         хорошо или плохо работает почта.
                     </p>
-                    
                     <p>наверное все-таки от 0.5 до 1</p>
                 </article>
-                <article id="cmn">
+                <article class="comment">
                     <header class="comment">
                         alexeimois (test@yandex.ru) <time>22 ноября 2014 в 17:35</time>
                     </header>
-                
                     <p>
                         Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
                         <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">
                             help.yandex.ru/metrika/reports/monitoring_timing.xml
-                        </a>                  
+                        </a>
                     </p>
                 </article>
             </section>
