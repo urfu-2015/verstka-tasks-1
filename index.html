@@ -26,18 +26,36 @@
 	color: maroon;
 	font-weight: bold;
    }
+   .bibl-table-one th {
+	border-bottom: 1px dashed black;
+   }
+   .bibl-table-one th:not(:last-child), 
+   .bibl-table-one td:not(:last-child) {
+	border-right: 1px dashed black;
+   }
+   .bibl-table-one th, 
+   .bibl-table-one td {
+	padding: 5px;
+   }
+  
+   .bibl-table-two th:not(:last-child), 
+   .bibl-table-two td:not(:last-child) {
+	border-right: 1px dashed black;
+   }
+   .bibl-table-two th, 
+   .bibl-table-two td {
+	padding: 5px;
+   }
    </style>
   </head>
   <body>
   <div class="text">
   <span class="center"><h1>Блог компании&nbsp;<span class="red">Я</span>ндекс.</h1></span>
   <span class="center"><h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2></span>
-	<br>
 	Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то, какой он красивый, ни то,
 	какой он удобный. Никому не понравится, когда все тормозит. Мы регулярно добавляем в Яндекс.Почту новую
 	функциональность, иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код и новая
-	логика. Всё это напрямую влияет на скорость работы интерфейса.
-	<br>
+	логика. Всё это напрямую влияет на скорость работы интерфейса.	
 	<h3>Что мы измеряем</h3>
 	<h4>Этапы первой загрузки:</h4>
 	<ul type="square">
@@ -54,7 +72,7 @@
 		<li>шаблонизация;</li>
 		<li>обновление DOM.</li>
 	</ul>
-	<span class="italic" class="bold">
+	<span class="italic">
 			— «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы
 			<br>
 			— «Что же дальше?» - вопрошаете вы
@@ -64,7 +82,7 @@
 			— «А что будем считать?» - уточняете вы
 	</span>
 	<p>
-		Как вы знаете,&nbsp;<span class="bold" class="definition">медиана</span>&nbsp;– это серединное, а не среднее значение в выборке.
+		Как вы знаете,&nbsp;<span class="bold definition">медиана</span>&nbsp;– это серединное, а не среднее значение в выборке.
 		Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5. В общем случае медиана
 		отлично показывает, сколько грузится средний пользователь.
 	</p>
@@ -88,14 +106,14 @@
 	<h3>Как мы измеряем</h3>
 	<p>
 		Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять причину замедления: медленнее
-		стал отвечать сервер либо слишком долго выполняется&nbsp;<span class="italic" class="bold">JavaScript</span>. Выглядит это примерно так:
+		стал отвечать сервер либо слишком долго выполняется&nbsp;<span class="italic bold">JavaScript</span>. Выглядит это примерно так:
 	</p>
 	<code>this.timings['look-ma-im-start'] = Date.now();</code>
 	<br>
 	<code>this.timings['look-ma-finish'] = Date.now();</code>
 	<p>
-		C помощью&nbsp;<b>Date.now()</b> мы получаем текущее время. Все тайминги собираются и при
-		отправке рассчитываются. На этапах разница между&nbsp;<span class="italic" class="bold">“end”</span>&nbsp;и&nbsp;<span class="italic" class="bold">“start”</span>
+		C помощью&nbsp;<code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
+		отправке рассчитываются. На этапах разница между&nbsp;<span class="italic bold">“end”</span>&nbsp;и&nbsp;<span class="italic bold">“start”</span>
 		&nbsp;не считается, а все вычисления производятся в конце:
 	</p>
 	<code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
@@ -104,7 +122,7 @@
 	<h3>Как мы ускоряем</h3>
 	<p>Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:</p>
 	<ul type="square">
-		<li>включаем&nbsp;<span class="italic" class="bold">gzip</span>;</li>
+		<li>включаем&nbsp;<span class="italic bold">gzip</span>;</li>
 		<li>выставляем заголовки кэширования;</li>
 		<li>фризим&nbsp;<span class="bold">CSS</span>,&nbsp;<span class="bold"JS</span>, шаблоны и картинки;</li>
 		<li>используем&nbsp;<span class="bold">CDN</span>;</li>
@@ -130,12 +148,27 @@
 		<code>- google-diff-patch-match</code>
 	</span>
 	<h4>Для окончательного выбора библиотеки нам нужно сравнить:</h4>
-	<pre>
-	Библиотека      | IE 9          | Opera 12
-	----------      | ----          | --------
-	vcdiff          | 8             | 5
-	google diff     | 1363          | 76
-	</pre>
+	<table class="bibl-table-one">
+		<thead>
+			<tr>
+				<th>Библиотека</th>
+				<th>IE 9</th>
+				<th>Opera 12</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>vcdiff</td>
+				<td>8</td>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td>google diff</td>
+				<td>1363</td>
+				<td>76</td>
+			</tr>
+		</tbody>
+	</table>
 	<p>
 		После того как мы определились с библиотекой для диффа, нужно определиться с тем, где и как хранить статику
 		на клиенте.
@@ -159,8 +192,8 @@
 	</pre>
 	<p>
 		<span class="italic">То есть это обычный массив из объектов.&nbsp;<span class="underline">&nbsp;объект — отдельный ресурс</span></span>. У
-		каждого объекта есть три свойства.&nbsp;<span class="bold">k</span>&nbsp;— названия ключа в&nbsp;<span class="italic" class="bold">localStorage</span>
-		&nbsp;для этого ресурса.&nbsp;<b>p</b>&nbsp;— патч для ресурса, который сгенерировал&nbsp;<span class="italic" class="bold">vcdiff</span>.
+		каждого объекта есть три свойства.&nbsp;<span class="bold">k</span>&nbsp;— названия ключа в&nbsp;<span class="italic bold">localStorage</span>
+		&nbsp;для этого ресурса.&nbsp;<b>p</b>&nbsp;— патч для ресурса, который сгенерировал&nbsp;<span class="italic bold">vcdiff</span>.
 		&nbsp;<span class="bold">s</span>&nbsp;— чексумма для ресурса актуальной версии, чтобы потом можно было проверить
 		правильность наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
 		<br>
@@ -196,12 +229,32 @@
 	</p>
 	<h3>Итог</h3>
 	<p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
-	<pre>
-	Релиз  | С патчем     | Без патча
-	7.7.20  | 397          | 174 549
-	7.7.21  | 383          | 53 995
-	7.7.22  | 483          | 3 995
-	</pre>
+	<table class="bibl-table-two">
+		<thead>
+			<tr>
+				<th>Релиз</th>
+				<th>С патчем</th>
+				<th>Без патча</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>7.7.20</td>
+				<td>397</td>
+				<td>174 549</td>
+			</tr>
+			<tr>
+				<td>7.7.21</td>
+				<td>383</td>
+				<td>53 995</td>
+			</tr>
+			<tr>
+				<td>7.7.22</td>
+				<td>483</td>
+				<td>3 995</td>
+			</tr>
+		</tbody>
+	</table>
 	<dl>
 		<dt><span class="bold">Автор:</span>&nbsp;<span class="italic">@doochik</span></dt>
 		<dt>С++ разработчик</dt>
@@ -228,7 +281,7 @@
 					<br>
 					&nbsp;&nbsp;help.yandex.ru/metrika/reports/monitoring_timing.xml
 				</p>
-				<footer><p>© Яндекс,&nbsp;<span class="bold" class="italic">help@yandex.ru</span>, Хохрякова, 10</p></footer>
+				<footer><p>© Яндекс,&nbsp;<span class="bold italic">help@yandex.ru</span>, Хохрякова, 10</p></footer>
 		</section>
   </div>
   </body>
