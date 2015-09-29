@@ -1,0 +1,17 @@
+span {
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Comic Sans MS";
+}
+#margins {
+    margin-left: 25px;
+    font-style: normal;
+    font-weight: normal;
+}
+#marginsk {
+    margin-left: 25px;
+}
+#bold {
+    font-weight: bold;
+    font-style: normal;
+}
