@@ -3,15 +3,22 @@ span {
     font-weight: bold;
     font-family: "Comic Sans MS";
 }
-#margins {
+.margins {
     margin-left: 25px;
     font-style: normal;
     font-weight: normal;
 }
-#marginsk {
+.marginsk {
     margin-left: 25px;
 }
-#bold {
+.bold {
     font-weight: bold;
     font-style: normal;
+}
+th {
+    width: 100px;
+}
+tr {
+    text-align: center;
+    width: 20px;
 }

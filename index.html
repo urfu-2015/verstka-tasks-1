@@ -170,7 +170,11 @@
             клиенте. Чексумма вычисляется по алгоритму Флетчера.
         </p>
          <dl>
-            <dt>Алгоритм Бройдена &mdash; Флетчера &mdash; Гольдфарба &mdash; Шанно (BFGS)</dt>
+            <dt>Алгоритм Бройдена &mdash; Флетчера &mdash; Гольдфарба &mdash; Шанно 
+                <abbr title="Алгоритм Бройдена &mdash; Флетчера &mdash; Гольдфарба &mdash; Шанно">
+                    (BFGS)
+                </abbr>
+            </dt>
             <dd>
                 &mdash; итерационный метод численной оптимизации, предназначенный для нахождения локального 
                 максимума/минимума нелинейного функционала без ограничений.
@@ -180,18 +184,18 @@
             дано  <span>&epsilon;, x<sub>0</sub></span>
             <br>инициализировать <span>H<sub>0</sub></span>
             <br><span>k</span> = 0
-            <br><span id="bold">while</span> ‖&nabla;<span>&fnof;<sub>k</sub></span>‖<span>&gt;&epsilon;</span>
-            <br><span id="margins">найти направление</span> 
+            <br><span class="bold">while</span> ‖&nabla;<span>&fnof;<sub>k</sub></span>‖<span>&gt;&epsilon;</span>
+            <br><span class="margins">найти направление</span> 
             <span>
                 p<sub>k</sub> = &minus;C<sub>k</sub>&nabla;&fnof;<sub>k</sub>
             </span>
-            <br><span id="margins">вычислить</span> 
+            <br><span class="margins">вычислить</span> 
             <span>
                 x<sub>k+1</sub> = x<sub>k</sub> &plus; &alpha;<sub>k</sub>p<sub>k</sub>, 
                 &alpha;<sub>k</sub>
             </span>
             удовлетворяет условиям Вольфе
-            <br><span id="margins">обозначить</span> 
+            <br><span class="margins">обозначить</span> 
             <span>
                 s<sub>k</sub> = x<sub>k+1</sub> &minus; x<sub>k</sub>
             </span> 
@@ -199,9 +203,9 @@
             <span>
                 y<sub>k</sub> = &nabla;&fnof;<sub>k+1</sub> &minus; &nabla;&fnof;<sub>k</sub>
             </span>
-            <br><span id="margins">вычислить</span> <span>C<sub>k+1</sub></span>
-            <br><span id="marginsk">k = k&plus;1</span>
-            <br><span id="bold">end</span>
+            <br><span class="margins">вычислить</span> <span>C<sub>k+1</sub></span>
+            <br><span class="marginsk">k = k&plus;1</span>
+            <br><span class="bold">end</span>
         </p>
         <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
         <p>
@@ -218,9 +222,9 @@
         <table>
             <thead>
                 <tr>
-                    <th width="100px">Релиз</th>
-                    <th width="100px">С патчем</th>
-                    <th width="100px">Без патча</th>
+                    <th wclassth="100px">Релиз</th>
+                    <th wclassth="100px">С патчем</th>
+                    <th wclassth="100px">Без патча</th>
                 </tr>
             </thead>
             <tbody>
