@@ -9,39 +9,137 @@
 
 		<style type="text/css">
 			body {
+				margin: 0px;
 				font-family: "Lucida Sans Unicode";
 				font-style: normal;
 			}
 
-			header {
+			.ya {
+				color: red;
+			}
 
+			section {
+				margin: 0px 0px 0px 0px;
+			}
+
+			table {
+				margin: 20px 0px 30px 27%;
+				text-align: center;
+			}
+
+			th {
+				width: 200px;
+				border-bottom: 3px solid #000000;
+			}
+
+			.top-head {
+				margin: 0 auto!important;
+				padding-top: 2px;
+				padding-bottom: 10px;
+              	float: none!important;
+				background-color: #FFDB4C;
+			}
+
+			.top-head .top-text {
+				padding-left: 8px;
+				padding-right: 8px;
+
+			}
+
+			#main-section {
+				padding-left: 10px;
+				width: 80%;
+			}
+
+			#contact {
+				width: 100%;
+				height: 100px;
+				position: fixed;
+			}
+
+			#contact p {
+				margin: 0px 0px 10px 0px;
+			}
+
+			#contact aside {
+				background: #F0F0F0;
+			    padding: 10px;
+			    width: 17.8%;
+			    float: right;
+			}
+
+			pre {
+				padding-left: 6%;
+			}
+
+			blockquote {
+				background-color: #DDDDDD;
+				padding: 9px 32px 9px 32px;
+			}
+
+			#posts article {
+				margin: 6px 30px 6px 0px;
+				padding: 3px 6px 3px 6px;
+				border: 1px dotted #000000;
+			}
+
+			#posts li {
+				list-style: none;
 			}
 
 			#body-footer {
-				height: 200px;
+				height: 50px;
 				width: 100%;
-				background-color: #E1E1E1;
+				background-color: #D7D7D7;
 				color: #74706B;
 				text-align: center;
 			}
+
+			#body-footer p {
+				padding-top: 12px;
+			}
+
 		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script>
+			$(window).scroll(function() {
+				if ($('body').height() <= ($(window).height() + $(window).scrollTop())) {
+			        $('#contact').animate({ 'opacity': 0.2 }, 250);
+			    }
+			    else
+			    {
+			    	$('#contact').animate({ 'opacity': 1.0 }, 250);	
+			    }
+			});
+		</script>
 	</head>
 
     <body>
-    	<hgroup>
-	    	<h2>Блог компании Яндекс.</h2>
-			<h1>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1>
-		</hgroup>
-
-		<section>
-			<p>
+		<div class="top-head">
+		   	<hgroup class="top-text">
+		    	<h2>Блог компании <span class="ya">Я</span>ндекс.</h2>
+				<h1><span class="ya">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1>
+			</hgroup>
+			<p class="top-text">
 				Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
 				какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
 				тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
 				иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
 				и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
 			</p>
-
+		</div>
+		<div id="contact">
+			<aside>
+				<address>
+					<p>Автор: <cite>@doochik</cite></p>
+					<p>С++ разработик</p>
+					<p>Электронная почта: (<a href="doochik@yandex-team.ru">doochik@yandex-team.ru</a>)</p>
+					<p>Компания: Яндекс</p>
+				</address>
+			</aside>
+		</div>
+		<section id="main-section">	
 			<h3>Что мы измеряем</h3>
 
 			<p>Этапы первой загрузки:</p>
@@ -85,7 +183,7 @@
 			<p>(<var>кол-во счастливых пользователей</var> + <var>кол-во удовлетворенных</var> / <var>2</var>) / (<var>кол-во всех</var>).
 			Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
 			хорошо или плохо работает почта.</p>
-
+			<hr>
 			<h3>Как мы измеряем</h3>
 
 			<p>Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
@@ -98,7 +196,6 @@ this.timings['look-ma-im-start'] = Date.now();
 this.timings['look-ma-finish'] = Date.now();
 				</code>
 			</pre>
-
 
 			<p>C помощью <samp>Date.now()</samp> мы получаем текущее время. Все тайминги собираются и при
 			отправке рассчитываются. На этапах разница между “end” и “start” не считается,
@@ -117,7 +214,7 @@ var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'
 serverResponse=50&domUpdate=60
 				</code>
 			</pre>
-
+			<hr>
 			<h3>Как мы ускоряем</h3>
 
 			<p>Чтобы снизить время загрузки почты при выходе новых версий,
@@ -129,7 +226,6 @@ serverResponse=50&domUpdate=60
 				<li>фризим CSS, JS, шаблоны и картинки;</li>
 				<li>используем CDN;</li>
 			</ul>
-
 
 			<p>Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
 			передавать только diff между ней и той, которая сохранена у пользователя?</q>
@@ -147,7 +243,7 @@ serverResponse=50&domUpdate=60
 				<li>google-diff-patch-match</li>
 			</ul>
 
-			<>Для окончательного выбора библиотеки нам нужно сравнить:</>
+			<p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
 
 			<table>
 				<thead>
@@ -233,7 +329,7 @@ serverResponse=50&domUpdate=60
 			</p>
 
 			<p>Потому что он быстрый, компактный и легок в реализации.</p>
-
+			<hr>
 			<h3>Итог</h3>
 
 			<p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
@@ -287,23 +383,15 @@ serverResponse=50&domUpdate=60
 					</tr>
 				</tbody>
 			</table>
+		</section>
 
-			<footer>
-				<address>
-					<p>Автор: <cite>@doochik</cite></p>
-					<p>С++ разработик</p>
-					<p>Электронная почта: (<a href="doochik@yandex-team.ru">doochik@yandex-team.ru</a>)</p>
-					<p>Компания: Яндекс</p>
-				</address>
-			</footer>
-		</section>	
-
+		<hr>
 		<section id="posts">
 			<header>
 				<h4>Комментарии (3):</h4>
 			</header>
 
-			<ul type="">
+			<ul>
 				<li>
 					<article>
 						Mogaika (<a href="mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) <time>30 ноября 2014 в 17:05</time>
@@ -344,9 +432,11 @@ serverResponse=50&domUpdate=60
 		</section>
 
 		<footer id="body-footer">
-			<address>
-				<p>&copy; Яндекс, <a href="mailto: help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</p>
-			</address>
+			<div id="footer-end">
+				<address>
+					<p>&copy; Яндекс, <a href="mailto: help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</p>
+				</address>
+			</div>
 		</footer>
     </body>
 
