@@ -62,8 +62,8 @@
         }
         table
         {
-            border: 5px groove #36648B;
-            /*border-collapse: collapse;*/
+            border: 5px solid #36648B;
+            border-collapse: collapse;
             border-radius: 5px;
         }
         th
@@ -80,6 +80,16 @@
         {
             background-color: white;
             border-radius: 10px;
+        }
+        div.one_indent
+        {
+            position: relative;
+            left: 40px;
+        }
+        div.algorithm
+        {
+            position: relative;
+            left: 100px;
         }
     </style>
 
@@ -204,9 +214,11 @@
 
             <p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
             начали искать реализации diff на JS. На популярных хостингах кода нашли
-            библиотеки:
-            - VCDiff
-            - google-diff-patch-match</p>
+            библиотеки:</p>
+            <ul>
+                <li>VCDiff</li>
+                <li>google-diff-patch-match</li>
+            </ul>
 
             <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
 
@@ -273,6 +285,175 @@
             </dl>
 
             <p>Потому что он быстрый, компактный и легок в реализации.</p>
+
+            <div class="algorithm">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mtext>дано &epsilon;, </mtext>
+                    <msub><mi>x</mi><mn>0</mn></msub>
+                </math>
+                <br> 
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mtext>инициализировать&nbsp;</mtext>
+                    <msub>
+                        <mi>H</mi>
+                        <mn>0</mn>
+                    </msub>
+                </math>
+                <br>
+
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mpadded><mi>k</mi><mo>=</mo><mn>0</mn></mpadded>
+                </math>
+                <br>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mtext>while&nbsp;</mtext>
+                    <mpadded>
+                        <mo minsize="1">|</mo>
+                        <mo minsize="1">|</mo>
+                        <mi>&nabla;</mi>
+                        <msub>
+                            <mi>f</mi>
+                            <mi>k</mi>
+                        </msub>
+                        <mo minsize="1">|</mo>
+                        <mo minsize="1">|</mo>
+                        <mo>&gt;</mo>
+                        <mi>&epsilon;</mi>
+                    </mpadded>
+                </math>
+                <br>
+                <div class="one_indent">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>найти направление&nbsp;</mtext>
+                        <mpadded>
+                            <msub>
+                                <mi>p</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <mo>-</mo>
+                            <msub>
+                                <mi>C</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mi>&nabla;</mi>
+                            <msub>
+                                <mi>f</mi>
+                                <mi>k</mi>
+                            </msub>
+                        </mpadded>
+                    </math>
+                    <br>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mpadded>
+                            <mtext>вычислить&nbsp;</mtext>
+                            <msub>
+                                <mi>x</mi>
+                                <mpadded>
+                                    <mi>k</mi>
+                                    <mo>+</mo>
+                                    <mn>1</mn>
+                                </mpadded>
+                            </msub>
+                                <mo>=</mo>
+                            <msub>
+                                <mi>x</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mo>+</mo>
+                            <msub>    
+                                <mi>&alpha;</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <msub>
+                                <mi>x</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mtext>,&nbsp;</mtext>
+                            <msub>    
+                                <mi>&alpha;</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mtext>&nbsp;удовлетворяет условиям Вольфе&nbsp;</mtext>
+                        </mpadded>
+                    </math>
+                    <br>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>обозначить&nbsp;</mtext>
+                        <mpadded>
+                            <msub>
+                                <mi>s</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <msub>
+                                <mi>x</mi>
+                                <mpadded>
+                                    <mi>k</mi>
+                                    <mo>+</mo>
+                                    <mi>1</mi>
+                                </mpadded>
+                            </msub>
+                            <mo>-</mo>
+                            <msub>
+                                <mi>x</mi>
+                                <mi>k</mi>
+                            </msub>
+                        </mpadded>
+                        <mtext>и&nbsp;</mtext>
+                        <mpadded>
+                            <msub>
+                                <mi>y</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <mi>&nabla;</mi>
+                            <msub>
+                                <mi>f</mi>
+                                <mpadded>
+                                    <mi>k</mi>
+                                    <mo>+</mo>
+                                    <mn>1</mn>
+                                </mpadded>
+                            </msub>
+                            <mo>-</mo>
+                            <msub>
+                                <mi>f</mi>
+                                <mi>k</mi>
+                            </msub>
+                            <mo>-</mo>
+                            <msub>
+                                <mi>x</mi>
+                                <mi>k</mi>
+                            </msub>
+                        </mpadded>
+                    </math>
+                    <br>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>вычислить&nbsp;</mtext>
+                        <msub>
+                            <mi>C</mi>
+                            <mpadded>
+                                <mi>k</mi>
+                                <mn>1</mn>
+                            </mpadded>
+                        </msub>
+                    </math>
+                    <br>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mpadded>
+                            <mi>k</mi>
+                            <mo>=</mo>
+                            <mi>k</mi>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                        </mpadded>
+                    </math>
+                </div>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mtext>end</mtext>
+                </math>
+            </div>
 
             <h3>Итог</h3>
 
