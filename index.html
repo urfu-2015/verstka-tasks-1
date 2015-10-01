@@ -7,9 +7,9 @@
 			body {
 				padding: 2% 5%;
 			}
-			p {
+			/*p {
 				max-width: 768px;
-			}
+			}*/
 			table, th, td {
 				padding: 5px;
 				text-align: center;
@@ -19,27 +19,32 @@
 			thead {
 				background-color: #0080FF;
 			}
-			ul#comments li {
+			.comm {
 				max-width: 768px;
+				border-radius: 5px;
 				border: 1px solid black;
-				border-radius: 5px;
-				margin-bottom: 10px;
-				list-style-type: none;
 				padding: 10px;
-				background-color:  #0080FF;
-				color: white;
+				margin: 15px 25px;
+				background-color: #0080FF;
 			}
-			ul#comments li a{
-				/*color: #FFC03F;*/
-				text-decoration: underline;
+			.comm-head {
 				color: white;
+				padding-bottom: 10px;
+				border-bottom: 1px solid black;
 			}
-			ul#comments li p {
-				padding: 10px;
+			.comm-body {
 				border-radius: 5px;
-				border-top: 1px solid black;
-				background-color: #FFFFFF;
-				color: black;
+				margin-top: 10px;
+				padding: 10px;
+				background-color: white;
+			}
+			.comm-body p {
+				margin: 0;
+				padding: 0;
+			}
+			main {
+				margin: auto;
+				max-width: 768px;
 			}
 		</style>
 	</head>
@@ -99,14 +104,12 @@
 					рассказать, сколько пользователей ускорилось, а сколько замедлилось.
 				</p>
 				<p>
-					<abbr>APDEX</abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика
-					работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
-					время показа страницы попало в него, то пользователь счастлив. Берем еще один
-					интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
-					показана за это время, то пользователь в целом удовлетворен скоростью работы,
-					но уже не настолько счастлив. И применяем формулу:
-				</p>
-				<p>
+					<dfn><abbr title="Application Performance Index">APDEX</abbr></dfn> – метрика, 
+					которая сразу говорит: хорошо или плохо. Метрика работает очень просто. Мы выбираем 
+					временной интервал [0; t], такой, что если время показа страницы попало в него, то 
+					пользователь счастлив. Берем еще один интервал, (t; 4t] (в четыре раза больше первого), 
+					и считаем, что если страница показана за это время, то пользователь в целом удовлетворен 
+					скоростью работы, но уже не настолько счастлив. И применяем формулу:<br>
 					<em>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
 					(кол-во всех).</em><br> Получается значение от нуля до единицы, которое, 
 					видимо, лучше всего показывает, хорошо или плохо работает почта.
@@ -116,22 +119,23 @@
 					Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
 					причину замедления: медленнее стал отвечать сервер либо слишком долго
 					выполняется JavaScript. Выглядит это примерно так:
-				</p>
-				<p>
-					<code>this.timings['look-ma-im-start'] = Date.now();</code><br>
-					<code>this.timings['look-ma-finish'] = Date.now();</code>
+					<pre>
+						<code>
+this.timings['look-ma-im-start'] = Date.now();
+this.timings['look-ma-finish'] = Date.now();
+						</code>
+					</pre>
 				</p>
 				<p>
 					C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги 
 					собираются и при отправке рассчитываются. На этапах разница между 
 					<em>“end”</em> и <em>“start”</em> не считается, а все вычисления производятся 
 					в конце:
-				</p>
-				<p>
-					<code>
-						var totalTime = this.timings['look-ma-finish'] - 
-						this.timings['look-ma-im-start'];
-					</code>
+					<pre>
+						<code>
+var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
+						</code>
+					</pre>
 				</p>
 				<p>
 					И на сервер прилетают подобные записи:<br>
@@ -235,13 +239,13 @@
 					Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
 				</p>
 				<p>
-					<abbr>CRC16/32</abbr> - алгоритм нахождения контрольной суммы, предназначенный для 
-					проверки целостности данных
+					<dfn><abbr title="Cyclic Redundancy Check">CRC16/32</abbr></dfn> - алгоритм нахождения 
+					контрольной суммы, предназначенный для  проверки целостности данных
 				</p>
 				<p>
-					<abbr>md5</abbr> - 128-битный алгоритм хеширования. Предназначен для создания 
-					«отпечатков» или дайджестов сообщения произвольной длины и последующей проверки
-					их подлинности.
+					<dfn><abbr title="Message-Digest Algorithm">md5</abbr></dfn> - 128-битный алгоритм 
+					хеширования. Предназначен для создания  «отпечатков» или дайджестов сообщения 
+					произвольной длины и последующей проверки их подлинности.
 				</p>
 				<p>
 					Потому что он быстрый, компактный и легок в реализации.
@@ -298,80 +302,108 @@
 						</p>
 					end
 				</p>
-			</article>
-			<article>
-				<hr>
-					<address>
-						Автор: @doochik<br>
-						С++ разработик<br>
-						Электронная почта: 
-							(<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
-						Компания: Яндекс
-					</address>
-				<hr>
+				<footer>
+					<hr>
+						<address>
+							Автор: @doochik<br>
+							С++ разработик<br>
+							Электронная почта: 
+								(<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
+							Компания: Яндекс
+						</address>
+					<hr>
+				</footer>
 			</article>
 			<article>
 				<p>
 					<h3>Комментарии (3):</h3>
-					<ul id="comments">
-						<li>
-							<article>
-								<address>
-									 <strong>Mogaika</strong> (<a href="mailto:mogaika@yandex-team.ru">
-									mogaika@yandex-team.ru</a>) <time>30 ноября 2014 в 17:05</time>
-								</address>
-								<p>
-									А можете привести сравнение, на сколько быстрее грузится lite версия?
-								</p>
-							</article>
-						</li>
-						<li>
-							<article>
-								<address>
-									 <strong>JIguse</strong> (<a href="mailto:mrawesome@yandex.ru">
-									mrawesome@yandex.ru</a>) <time>29 ноября 2014 в 21:30</time>
-								</address>
-								<p>
-									Спасибо за статью, познавательно. Здорово, что Яндекс делится 
-									некоторыми подробностями о внутренней работе сервисов.
-								</p>
-							</article>
-						</li>
-						<li>
-							<article>
-								<address>
-									 <strong>Brister</strong> (<a href="mailto:brist89@yandex-team.ru">
-									brist89@yandex-team.ru</a>) <time>24 ноября 2014 в 13:13</time>
-								</address>
-								<p>
-									<em>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
-										(кол-во всех)</em>.
-									Получается значение от нуля до единицы, которое, видимо, лучше всего 
-									показывает, хорошо или плохо работает почта.
-								</p>
-								<p>
-									наверное все-таки от 0.5 до 1
-								</p>
-							</article>
-						</li>
-						<li>
-							<article>
-								<address>
-									 <strong>alexeimois</strong> 
-									(<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
-									<time>22 ноября 2014 в 17:35</time>
-								</address>
-								<p>
-									Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-									help.yandex.ru/metrika/reports/monitoring_timing.xml
-								</p>
-							</article>
-						</li>
-					</ul>
+					<section>
+						<article>
+							<div class="comm">
+								<div class="comm-head">
+									<address>
+										 <strong>Mogaika</strong> (<a href="mailto:mogaika@yandex-team.ru">
+										mogaika@yandex-team.ru</a>)
+									</address>
+									<time datetime="2014-11-30 17:05">
+										 30 ноября 2014 в 17:05
+									</time>
+								</div>
+								<div class="comm-body">
+									<p>
+										А можете привести сравнение, на сколько быстрее грузится lite версия?
+									</p>
+								</div>
+							</div>
+						</article>
+						<article>
+							<div class="comm">
+								<div class="comm-head">
+									<address>
+										 <strong>JIguse</strong> (<a href="mailto:mrawesome@yandex.ru">
+										mrawesome@yandex.ru</a>)
+									</address>
+									<time datetime="2014-11-29 21:30">
+										 29 ноября 2014 в 21:30
+									</time>
+								</div>
+								<div class="comm-body">
+									<p>
+										Спасибо за статью, познавательно. Здорово, что Яндекс делится 
+										некоторыми подробностями о внутренней работе сервисов.
+									</p>
+								</div>
+							</div>
+						</article>
+						<article>
+							<div class="comm">
+								<div class="comm-head">
+									<address>
+										 <strong>Brister</strong> (<a href="mailto:brist89@yandex-team.ru">
+										brist89@yandex-team.ru</a>)
+									</address>
+									<time datetime="2014-11-24 13:13">
+										 24 ноября 2014 в 13:13
+									</time>
+								</div>
+								<div class="comm-body">
+									<p>
+										<em>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
+											(кол-во всех)</em>.
+										Получается значение от нуля до единицы, которое, видимо, лучше всего 
+										показывает, хорошо или плохо работает почта.
+									</p>
+									<p>
+										наверное все-таки от 0.5 до 1
+									</p>
+								</div>
+							</div>
+						</article>
+						<article>
+							<div class="comm">
+								<div class="comm-head">
+									<address>
+										 <strong>alexeimois</strong> 
+										(<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
+										<time>22 ноября 2014 в 17:35</time>
+									</address>
+									<time datetime="2014-11-22 17:35">
+										 22 ноября 2014 в 17:35
+									</time>
+								</div>
+								<div class="comm-body">
+									<p>
+										Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+										help.yandex.ru/metrika/reports/monitoring_timing.xml
+									</p>
+								</div>
+							</div>
+						</article>
+					</section>
 				</p>
 			</article>
 		</main>
-		<footer>
+		<footer style="text-align: center;">
 			© Яндекс, help@yandex.ru, Хохрякова, 10
 		</footer>
 	</body>
