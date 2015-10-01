@@ -154,6 +154,21 @@ var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'
     ресурса актуальной версии, чтобы потом можно было проверить правильность
     наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.</p>
 
+<blockquote>
+    дано <i>&epsilon;, x</i><sub>0</sub><br>
+    инициализировать <i>H</i><sub>0</sub><br>
+    <i>k = </i>0<br>
+    <b>while</b> <i>||</i>&Del;<i>&fnof;<sub>k</sub>|| &gt; &epsilon;</i><br>
+    <blockquote>
+        найти направление <i>p<sub>k</sub> = -C<sub>k</sub></i>&Del;<i>&fnof;<sub>k</sub></i><br>
+        вычислить x<sub><i>k+</i>1</sub><i> = x<sub>k</sub> + &alpha;<sub>k</sub>p<sub>k</sub> , &alpha;<sub>k</sub></i> удволетворяет условиям Вольфе<br>
+        обозначить <i>s<sub>k</sub> = x</i><sub><i>k+</i>1</sub> - <i>x<sub>k</sub></i> и <i>y<sub>k</sub> = </i>&Del;&fnof;<sub><i>k+</i>1</sub> - &Del;<i>&fnof;<sub>k</sub></i><br>
+        вычислить <i>C</i><sub><i>k+</i>1</sub><br>
+        <i>k = k +</i> 1
+    </blockquote>
+    <b>end</b>
+</blockquote>
+
 <p>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)
     — итерационный метод численной оптимизации, предназначенный для
     нахождения локального максимума/минимума нелинейного функционала
