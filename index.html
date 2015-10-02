@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang = "ru">
     <head>
     <title>Блог компании Яндекс</title>
-    <meta charset="utf-8">
-    <meta name="keyword" content="Яндекс, блог">
+    <meta charset = "utf-8">
+    <meta name = "keyword" content = "Яндекс, блог">
     <style>
         body {
             font-family: Verdana, sans-serif;
@@ -59,9 +59,7 @@
         </p>
 
         <h3>Что мы измеряем</h3>        
-        <p>
-            Этапы первой загрузки:
-        </p>
+        <p>Этапы первой загрузки:</p>
         
         <ul>
             <li>подготовка;</li>
@@ -71,9 +69,7 @@
             <li>отрисовка.</li>
         </ul>
 
-        <p>
-            Этапы отрисовки любой страницы:
-        </p>
+        <p>Этапы отрисовки любой страницы:</p>
         <ul>
             <li>подготовка к запросу на сервер;</li>
             <li>запрос данных с сервера;</li>
@@ -95,7 +91,7 @@
             рассказать, сколько пользователей ускорилось, а сколько замедлилось.
         </p>
         <p>
-            <abbr title="Application Performance Index"><b>APDEX</b></abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика<br>
+            <abbr title = "Application Performance Index">APDEX</abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика<br>
             работает очень просто. Мы выбираем временной интервал <var>[0; t]</var>, такой, что если<br>
             время показа страницы попало в него, то пользователь счастлив. Берем еще один<br>
             интервал, <var>(t; 4t]</var> (в четыре раза больше первого), и считаем, что если страница<br>
@@ -130,9 +126,7 @@
         <p>
             <code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
         </p>
-        <p>
-            И на сервер прилетают подобные записи:
-        </p>
+        <p>И на сервер прилетают подобные записи:</p>
         <p>
             <code>serverResponse=50&domUpdate=60</code>
         </p>
@@ -143,31 +137,29 @@
             мы уже делаем следующее:
         </p>
         <ul>
-            <li>включаем <abbr title="сокращение от GNU Zip">gzip</abbr>;</li>
+            <li>включаем <abbr title = "сокращение от GNU Zip">gzip</abbr>;</li>
             <li>выставляем заголовки кэширования;</li>
-            <li>фризим <abbr title="Cascading Style Sheets">CSS</abbr>,<abbr title="JavaScript">JS</abbr>, шаблоны и картинки;</li>
-            <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
+            <li>фризим <abbr title = "Cascading Style Sheets">CSS</abbr>,<abbr title = "JavaScript">JS</abbr>, шаблоны и картинки;</li>
+            <li>используем <abbr title = "Content Delivery Network">CDN</abbr>;</li>
         </ul>
         <p>
             Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой<br>
-            передавать только <abbr title=
-            "утилита сравнения файлов, выводящая разницу между двумя файлами">
-            diff</abbr> между ней и той, которая сохранена у пользователя?</q><br>
+            передавать только diff между ней и той, которая сохранена у пользователя?</q><br>
             В браузере же останется просто наложить патч на клиенте.<br>
         </p>
         <p>
             На самое деле эта идея не нова. Уже существуют стандарты для
-            <abbr title="HyperText Transfer Protocol">HTTP</abbr> — например,<br>
-            <abbr title="Request for Comments">RFC</abbr> 3229 <q>Delta encoding in
-            <abbr title="HyperText Transfer Protocol">HTTP</abbr></q> и
-            <q>Google <abbr title="Secure Digital High Capacity">
+            <abbr title = "HyperText Transfer Protocol">HTTP</abbr> — например,<br>
+            <abbr title = "Request for Comments">RFC</abbr> 3229 <q>Delta encoding in
+            <abbr title = "HyperText Transfer Protocol">HTTP</abbr></q> и
+            <q>Google <abbr title = "Secure Digital High Capacity">
             SDHC</abbr></q>, — но по разным причинам они<br>
             не получили должного распространения в браузерах и на серверах.
         </p>
         <p>
-            Мы же решили сделать свой аналог на <abbr title="JavaScript">JS</abbr>.
+            Мы же решили сделать свой аналог на <abbr title = "JavaScript">JS</abbr>.
             Чтобы реализовать этот метод обновления,<br>
-            начали искать реализации <code>diff</code> на <abbr title="JavaScript">JS</abbr>.
+            начали искать реализации <code>diff</code> на <abbr title = "JavaScript">JS</abbr>.
             На популярных хостингах кода нашли<br>
             библиотеки:
             <ul type = "square">
@@ -175,9 +167,7 @@
                 <li>google-diff-patch-match</li>
             </ul>
         </p>
-        <p>
-            Для окончательного выбора библиотеки нам нужно сравнить:
-        </p>
+        <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
         <table>
             <thead>
                 <tr>
@@ -205,25 +195,24 @@
             </tbody>
         </table>
     <p>
-        После того как мы определились с библиотекой для диффа, нужно определиться с тем,<br>
-        где и как хранить статику на клиенте.
+        После того как мы определились с библиотекой для диффа, нужно определиться с тем,где и как хранить статику на клиенте.
     </p>
-    <p>
-        Формат файла с патчами для проекта выглядит так:
-    </p>
+    <p>Формат файла с патчами для проекта выглядит так:</p>
     <pre>
-        <code>[
-        {
-            "k": "jane.css",
-            "p": [patch],
-            "s": 4554
-        },
-        {
-            "k": "jane.css",
-            "p": [patch],
-            "s": 4554
-        }
-        ]</code>
+        <code>
+        [
+            {
+                "k": "jane.css",
+                "p": [patch],
+                "s": 4554
+            },
+            {
+                "k": "jane.css",
+                "p": [patch],
+                "s": 4554
+            }
+        ]
+        </code>
     </pre>
     <p>
         То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У<br>
@@ -247,9 +236,7 @@
         <q>отпечатков</q>или дайджестов сообщения произвольной длины и последующей проверки
         их подлинности.</dd>
     </p>
-    <p>
-        Потому что он быстрый, компактный и легок в реализации.
-    </p>
+    <p>Потому что он быстрый, компактный и легок в реализации.</p>
 
     <h3>Итог</h3>
     <p>
@@ -285,25 +272,23 @@
     <p>
         Автор: <code>@doochik</code><br>
         <code>С++</code> разработик<br>
-        Электронная почта: (<a href="mailto:test@yandex.ru">doochik@yandex-team.ru</a>)<br>
+        Электронная почта: (<a href = "mailto:test@yandex.ru">doochik@yandex-team.ru</a>)<br>
         Компания: <span>Я</span>ндекс
     </p>
+    <p>Комментарии (3):</p>
     <p>
-        Комментарии (3):
-    </p>
-    <p>
-        - Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
+        - Mogaika (<a href = "mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
         <time>30 ноября 2014 в 17:05</time>
     </p>
         <dd>А можете привести сравнение, на сколько быстрее грузится <code>lite</code> версия?</dd>
     <p>
-        - JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
+        - JIguse (<a href = "mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
         <time>29 ноября 2014 в 21:30</time>
     </p>
         <dd>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
         подробностями о внутренней работе сервисов.</dd>
     <p>
-        - Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru<a>) 
+        - Brister (<a href = "mailto:brist89@yandex-team.ru">brist89@yandex-team.ru<a>) 
         <time>24 ноября 2014 в 13:13</time>
     </p>
         <dd>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
@@ -313,14 +298,14 @@
             наверное все-таки от 0.5 до 1</dd>
         </p>
     <p>
-        - alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
+        - alexeimois (<a href = "mailto:test@yandex.ru">test@yandex.ru</a>) 
         <time>22 ноября 2014 в 17:35</time>
     </p>
         <dd>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-        <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></dd>
+        <a href = "help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></dd>
     <footer>
         <p>
-            © <span>Я</span>ндекс, <a href="mailto:help@yandex.ru">help@yandex.ru<a>, Хохрякова, 10
+            © <span>Я</span>ндекс, <a href = "mailto:help@yandex.ru">help@yandex.ru<a>, Хохрякова, 10
         </p>
     </footer>
   </body>
