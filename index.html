@@ -18,9 +18,9 @@
 <body>
     <header><h1>Блог компании <span class="red">Я</span>ндекс.</h1></header>
     <main>
-        <article>
+        <section>
             <header><h1>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1></header>
-            <>
+            <article>
                 <p>Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
                 какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
                 тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
@@ -144,18 +144,18 @@
                 где и как хранить статику на клиенте.</p>
                 <p>Формат файла с патчами для проекта выглядит так:</p>
                 <pre>
-                [
-                    {
-                        "k": "jane.css",
-                        "p": [patch],
-                        "s": 4554
-                    },
-                    {
-                        "k": "jane.css",
-                        "p": [patch],
-                        "s": 4554
-                    }
-                ]
+        [
+            {
+                "k": "jane.css",
+                "p": [patch],
+                "s": 4554
+            },
+            {
+                "k": "jane.css",
+                "p": [patch],
+                "s": 4554
+            }
+        ]
                 </pre>
                 <p>То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
                 каждого объекта есть три свойства. <var>k</var> — названия ключа в localStorage для этого
@@ -170,18 +170,18 @@
 
                 <h3>Алгоритм Флетчера</h3>
                 <pre>
-                дано &epsilon;, x<sub>0</sub>
-                инициализировать H<sub>0</sub>
-                k = 0
-                <span class="bold">while</span> ||&Del;f<sub>k</sub>||>&epsilon;
-                    найти направление p<sub>k</sub>=-C<sub>k</sub>&Del;f<sub>k</sub>
-                    вычислить x<sub>k+1</sub>=x<sub>k</sub>+&alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub>
-                    удовлетворяет условиям Вольфре
-                    обозначить s<sub>k</sub>=x<sub>k+1</sub> - x<sub>k</sub>
-                             и y<sub>k</sub>=&Del;f<sub>k+1</sub> - &Del;f<sub>k</sub>
-                    вычислить C<sub>k+1</sub>
-                    k=k+1
-                <span class="bold">end</span>
+        дано &epsilon;, x<sub>0</sub>
+        инициализировать H<sub>0</sub>
+        k = 0
+        <span class="bold">while</span> ||&Del;f<sub>k</sub>||>&epsilon;
+            найти направление p<sub>k</sub>=-C<sub>k</sub>&Del;f<sub>k</sub>
+            вычислить x<sub>k+1</sub>=x<sub>k</sub>+&alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub>
+            удовлетворяет условиям Вольфре
+            обозначить s<sub>k</sub>=x<sub>k+1</sub> - x<sub>k</sub>
+                     и y<sub>k</sub>=&Del;f<sub>k+1</sub> - &Del;f<sub>k</sub>
+            вычислить C<sub>k+1</sub>
+            k=k+1
+        <span class="bold">end</span>
                 </pre>
                 <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:<br>
                 <dfn><abbr title="Cyclic redundancy check">CRC16/32</abbr></dfn> - алгоритм нахождения контрольной суммы,
@@ -219,14 +219,14 @@
                         </tr>
                     </tbody>
                 </table>
-            </article>
+                </article>
             <footer>
                 <address>
                         Автор: @doochik<br>
                         С++ разработик<br>
                         Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
                         Компания: Яндекс
-                    </address>
+                </address>
             </footer>
         </section>
         <section>
