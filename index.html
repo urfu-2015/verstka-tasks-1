@@ -14,10 +14,6 @@
         });
 </script>
     <style>
-        /*div.wrapper
-        {
-            text-align: justify;
-        }*/
         body
         {
             width: 950px;
@@ -115,7 +111,7 @@
 
                 <h3>Что мы измеряем</h3>
 
-                <p>Этапы первой загрузки:</p>
+                Этапы первой загрузки:<br>
                 <ul>
                     <li>подготовка;</li>
                     <li>загрузка статики (HTTP-запрос и парсинг);</li>
@@ -124,7 +120,7 @@
                     <li>отрисовка.</li>
                 </ul>
 
-                <p>Этапы отрисовки любой страницы:</p>
+                Этапы отрисовки любой страницы:<br>
                 <ul>
                     <li>подготовка к запросу на сервер;</li>
                     <li>запрос данных с сервера;</li>
@@ -150,9 +146,9 @@
                         <abbr title="Application Performance Index">APDEX</abbr>
                     </dfn> 
                 – метрика, которая сразу говорит: хорошо или плохо. Метрика
-                работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
+                работает очень просто. Мы выбираем временной интервал [0; <var>t</var>], такой, что если
                 время показа страницы попало в него, то пользователь счастлив. Берем еще один
-                интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
+                интервал, (<var>t</var>; 4<var>t</var>] (в четыре раза больше первого), и считаем, что если страница
                 показана за это время, то пользователь в целом удовлетворен скоростью работы,
                 но уже не настолько счастлив. И применяем формулу:
 
@@ -171,24 +167,17 @@
             причину замедления: медленнее стал отвечать сервер либо слишком долго
             выполняется JavaScript. Выглядит это примерно так:</p>
 
-            <pre>
-            <code>this.timings['look-ma-im-start'] = Date.now();
-            this.timings['look-ma-finish'] = Date.now();</code>
-            </pre>
+            <pre><code>this.timings['look-ma-im-start'] = Date.now();
+this.timings['look-ma-finish'] = Date.now();</code></pre>
 
-            <p>C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при
+            <p>C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
             отправке рассчитываются. На этапах разница между “end” и “start” не считается,
             а все вычисления производятся в конце:</p>
 
-            <pre>
-            <code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
-            </pre>
+            <pre><code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code></pre>
 
             <p>И на сервер прилетают подобные записи:</p>
-            <pre>
-
-            <code>serverResponse=50&amp;domUpdate=60</code>
-            </pre>
+            <pre><code>serverResponse=50&amp;domUpdate=60</code></pre>
 
             <h3>Как мы ускоряем</h3>
 
@@ -248,8 +237,7 @@
             где и как хранить статику на клиенте.</p>
 
             <p>Формат файла с патчами для проекта выглядит так:</p>
-            <pre>
-                <code>[
+            <pre><code>[
                     {
                         "k": "jane.css",
                         "p": [patch],
@@ -485,25 +473,28 @@
                     </tr>
                 </tbody>
             </table>
-
-            <div>Автор: @doochik</div>
-            <div>С++ разработик</div>
-            <address>Электронная почта: 
-                <a href="mailto:doochik@yandex-team.ru">(doochik@yandex-team.ru)</a>
-            </address>
-            <div>Компания: Яндекс</div>
         </article>
+        <footer>
+                Автор: @doochik<br>
+                С++ разработик<br>
+                <address>Электронная почта: 
+                    <a href="mailto:doochik@yandex-team.ru">(doochik@yandex-team.ru)</a>
+                </address>
+                Компания: Яндекс<br>
+        </footer>
     </main>
         <section id="comments">
             <h2>Комментарии (3):</h2>
             <article>
-                <h6>Mogaika (mogaika@yandex-team.ru) <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></h6>
+                <h6>Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
+                <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></h6>
                 <div>
                     <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
                 </div>
             </article>
             <article>
-                <h6>JIguse (mrawesome@yandex.ru) <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></h6>
+                <h6>JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 
+                <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></h6>
                 <div>
                     <p>Спасибо за статью, познавательно. 
                     Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.
@@ -511,7 +502,8 @@
                 </div>
             </article>
             <article>
-                <h6>Brister (brist89@yandex-team.ru) <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></h6>
+                <h6>Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
+                <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></h6>
                 <div>
                     <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
                     Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
@@ -521,7 +513,8 @@
                 </div>
             </article>
             <article>
-                <h6>alexeimois (test@yandex.ru) <time datetime="2014-11-22T17:35">22 ноября 2014 в 17:35</time></h6>
+                <h6>alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
+                <time datetime="2014-11-22T17:35">22 ноября 2014 в 17:35</time></h6>
                 <div>
                     <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
                     <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
