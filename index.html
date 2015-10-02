@@ -60,7 +60,6 @@
             {
                 border: 1px solid black;
             }
-            {}
         </style>
     </head>
     <body>
@@ -84,7 +83,7 @@
                         <h4>Этапы первой загрузки:</h4>
                         <ul>
                             <li>подготовка</li>
-                            <li>загрузка статики (HTTP-запрос и парсинг)</li>
+                            <li>загрузка статики (<abbr title="HyperText Transfer Protocol">HTTP</abbr>-запрос и парсинг)</li>
                             <li>исполнение модулей</li>
                             <li>инициализация базовых объектов</li>
                             <li>отрисовка</li>
@@ -94,14 +93,14 @@
                             <li>подготовка к запросу на сервер</li>
                             <li>запрос данных с сервера</li>
                             <li>шаблонизация</li>
-                            <li>обновление DOM</li>
+                            <li>обновление <abbr title="Document Object Model">DOM</abbr></li>
                         </ul>
                         <p>
-                            — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q>
+                            &ndash; <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q>
                             - говорим мы<br>
-                            — <q>Что же дальше?</q> - вопрошаете вы<br>
-                            — <q>А давай построим график!</q> - отвечаем мы<br>
-                            — <q>А что будем считать?</q> - уточняете вы<br>
+                            &ndash; <q>Что же дальше?</q> - вопрошаете вы<br>
+                            &ndash; <q>А давай построим график!</q> - отвечаем мы<br>
+                            &ndash; <q>А что будем считать?</q> - уточняете вы<br>
                         </p>
                         <p class="new_paragraph">
                             Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
@@ -156,17 +155,21 @@
                         <ul>
                             <li>включаем <em>gzip</em></li>
                             <li>выставляем заголовки кэширования</li>
-                            <li>фризим <em>CSS</em>, <em>JS</em>, шаблоны и картинки</li>
-                            <li>используем <em>CDN</em></li>
+                            <li>
+                                фризим <abbr title="Cascading Style Sheets">CSS</abbr>, 
+                                <abbr title="JavaScript">JS</abbr>, шаблоны и картинки
+                            </li>
+                            <li>используем <abbr title="Content Delivery Network">CDN</abbr></li>
                         </ul>          
                         <p class="new_paragraph">
                             Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
-                            передавать только diff между ней и той, которая сохранена у пользователя?</q>.
+                            передавать только <em>diff</em> между ней и той, которая сохранена у пользователя?</q>.
                             В браузере же останется просто наложить патч на клиенте.
                         </p>
                         <p>
-                            На самое деле эта идея не нова. Уже существуют стандарты для <em>HTTP</em>
-                            — например, <cite>RFC 3229 «Delta encoding in HTTP»</cite> и
+                            На самое деле эта идея не нова. Уже существуют стандарты для
+                            <em>HTTP</em> — например,
+                            <cite>RFC 3229 «Delta encoding in HTTP»</cite> и
                             <cite>«Google SDHC»</cite>, — но по разным причинам они не получили должного
                             распространения в браузерах и на серверах.
                         </p>
@@ -225,9 +228,9 @@
                         <p>
                             То есть это обычный массив из объектов. Каждый объект — отдельный ресурс.
                             У каждого объекта есть три свойства. 
-                            <em>k</em> — названия ключа в <em>localStorage</em> для этого ресурса. 
-                            <em>p</em> — патч для ресурса, который сгенерировал <em>vcdiff</em>. 
-                            <em>s</em> — чексумма для ресурса актуальной версии, чтобы потом можно было
+                            <var>k</var> — названия ключа в <em>localStorage</em> для этого ресурса. 
+                            <var>p</var> — патч для ресурса, который сгенерировал <em>vcdiff</em>. 
+                            <var>s</var> — чексумма для ресурса актуальной версии, чтобы потом можно было
                             проверить правильность наложения патча на клиенте. 
                             Чексумма вычисляется по алгоритму Флетчера.
                         </p>
@@ -374,7 +377,7 @@
                         <h3>Комментарии (3):</h3>
                     </header>
                     <article>
-                        - Mogaika 
+                        &ndash; Mogaika 
                         <em>(<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)</em>
                         <p class="date"><time>30-11-2014 17:05</time></p>
                         <p class="comment">
@@ -382,7 +385,7 @@
                         </p>
                     </article>
                     <article>
-                        - JIguse
+                        &ndash; JIguse
                         <em>(<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)</em>
                         <p class="date"><time>29-11-2014 21:30</time></p>
                         <p class="comment">
@@ -391,7 +394,7 @@
                         </p>
                     </article>
                     <article>
-                        - Brister
+                        &ndash; Brister
                         <em>(<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>)</em> 
                         <p class="date"><time>24-11-2014 13:13</time></p>
                         <p class="comment">
@@ -404,7 +407,7 @@
                         <p class="comment">наверное все-таки от 0.5 до 1</p>
                     </article>          
                     <article>
-                        - alexeimois
+                        &ndash; alexeimois
                         <em>(<a href="mailto:test@yandex.ru">test@yandex.ru</a>)</em>
                         <p class="date"><time>22-11-2014 17:35</time></p>
                         <p class="comment">
