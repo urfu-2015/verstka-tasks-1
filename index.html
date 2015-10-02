@@ -7,9 +7,6 @@
             .red {
                 color: red;
             }
-            .center {
-                text-align: center;
-            }
             .bibl-table-one th {
                 border-bottom: 1px dashed black;
             }
@@ -33,8 +30,8 @@
     </head>
     <body>
         <div class="text">
-            <h1><span class="center">Блог компании&nbsp;<span class="red">Я</span>ндекс.</span></h1>
-            <h2><span class="center">ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</span></h2>
+            <h1>Блог компании&nbsp;<span class="red">Я</span>ндекс.</h1>
+            <h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
             <p>
                 Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то, какой он красивый, ни то,
                 какой он удобный. Никому не понравится, когда все тормозит. Мы регулярно добавляем в Яндекс.Почту новую
@@ -84,10 +81,10 @@
                 удовлетворен скоростью работы, но уже не настолько счастлив. И применяем формулу:
             </p>
             <p>
-                <em>
+                <blockquote>
                     (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех). Получается значение от
                     нуля до единицы, которое, видимо, лучше всего показывает, хорошо или плохо работает почта.
-                </em>
+                </blockquote>
             </p>
             <h3>Как мы измеряем</h3>
             <p>
@@ -112,8 +109,8 @@
             <ul type="square">
                 <li>включаем <abbr title="GNU Zip">gzip;</abbr></li>
                 <li>выставляем заголовки кэширования;</li>
-                <li>фризим <abbr title="Cascading Style Sheets">CSS<abbr>,&nbsp;<abbr title="JavaScript">JS<abbr>, шаблоны и картинки;</li>
-                <li>используем&nbsp;<abbr title="Content Delivery Network">CDN<abbr>;</li>
+                <li>фризим <abbr title="Cascading Style Sheets">CSS<abbr>,&nbsp;<abbr title="JavaScript">JS</abbr>, шаблоны и картинки;</li>
+                <li>используем&nbsp;<abbr title="Content Delivery Network">CDN</abbr>;</li>
             </ul>
             <p>
                 Мы подумали:&nbsp;<q>А что если хранить где-то старую версию файлов, а при выходе новой передавать только
@@ -130,10 +127,10 @@
                 Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления, начали искать
                 реализации&nbsp;<mark>diff</mark>&nbsp;на JS. На популярных хостингах кода нашли библиотеки:
             </p>
-            <strong>
-                <code>- VCDiff</code>
-                <br>
-                <code>- google-diff-patch-match</code>
+            <ul>
+                <li>&nbsp;VCDiff</li>
+                <li>&nbsp;google-diff-patch-match</li>
+            </ul>
             </strong>
             <h4>Для окончательного выбора библиотеки нам нужно сравнить:</h4>
             <table class="bibl-table-one">
@@ -199,7 +196,7 @@
                 <div><strong>end</strong></div>
             </div>
             <p>
-                <cite>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</cite> — итерационный метод численной оптимизации,
+                <dfn>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</dfn>&nbsp;— итерационный метод численной оптимизации,
                 предназначенный для нахождения локального максимума/минимума нелинейного функционала без ограничений.
             </p>
             <p>
@@ -245,34 +242,47 @@
             <dl>
                 <dt>Автор:&nbsp;<em>@doochik</em></dt>
                 <dt>С++ разработчик</dt>
-                <dt>Электронная почта:&nbsp;<em>(doochik@yandex-team.ru)<em></dt>
+                <dt>Электронная почта:&nbsp;<em>(doochik@yandex-team.ru)</em></dt>
                 <dt>Компания:&nbsp;Яндекс</dt>
             </dl>
             <h4>Комментарии (3):</h4>
             <section>
-                <article>- Mogaika (mogaika@yandex-team.ru)<time>&nbsp;30 ноября 2014 в 17:05<time></article>
-                <p>&nbsp;&nbsp;А можете привести сравнение, на сколько быстрее грузится&nbsp;<cite>lite</cite>&nbsp;версия?</p>
-                <article>- JIguse (mrawesome@yandex.ru)<time>&nbsp;29 ноября 2014 в 21:30</time></article>
-                <p>
-                    &nbsp;&nbsp;Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.
-                </p>
-                <article>- Brister (brist89@yandex-team.ru)<time>&nbsp;24 ноября 2014 в 13:13</time></article>
-                <p>
-                    &nbsp;&nbsp;(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-                    Получается значение от нуля до единицы, которое, видимо, лучше всего показывает, хорошо 
-                    <br>
-                    &nbsp;&nbsp;или плохо работает почта.
-                    <br>
-                    <br>
-                    &nbsp;&nbsp;наверное все-таки от 0.5 до 1
-                </p>
-                <article>- alexeimois (test@yandex.ru)<time>&nbsp;22 ноября 2014 в 17:35</time></article>
-                <p>
-                    &nbsp;&nbsp;Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-                    <br>
-                    &nbsp;&nbsp;help.yandex.ru/metrika/reports/monitoring_timing.xml
-                </p>
-                <footer><p>© Яндекс,&nbsp;<em>help@yandex.ru</em>, Хохрякова, 10</p></footer>
+                <article>
+                    <p>
+                        <address>- Mogaika (mogaika@yandex-team.ru)<time>&nbsp;30 ноября 2014 в 17:05</time></address>
+                        <br>
+                        &nbsp;&nbsp;А можете привести сравнение, на сколько быстрее грузится lite версия?
+                    </p>
+                </article>
+                <article>
+                    <p>
+                        <address>- JIguse (mrawesome@yandex.ru)<time>&nbsp;29 ноября 2014 в 21:30</time></address>
+                        <br>
+                        &nbsp;&nbsp;Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.
+                    </p>
+                </article>
+                <article>
+                    <p>
+                        <address>- Brister (brist89@yandex-team.ru)<time>&nbsp;24 ноября 2014 в 13:13</time></address>
+                        <br>
+                        <blockquote>
+                            (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+                            Получается значение от нуля до единицы, которое, видимо, лучше всего показывает, хорошо или плохо работает почта.
+                        </blockquote>
+                        <br>
+                        &nbsp;&nbsp;наверное все-таки от 0.5 до 1
+                    </p>
+                </article>
+                <article>
+                    <p>
+                        <address>- alexeimois (test@yandex.ru)<time>&nbsp;22 ноября 2014 в 17:35</time></address>
+                        <br>
+                        &nbsp;&nbsp;Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                        <br>
+                        &nbsp;&nbsp;help.yandex.ru/metrika/reports/monitoring_timing.xml
+                    </p>
+                </article>
+                <footer><address>© Яндекс, help@yandex.ru, Хохрякова, 10</address></footer>
             </section>
         </div>
     </body>
