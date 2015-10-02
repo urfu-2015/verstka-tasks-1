@@ -6,56 +6,55 @@
         <style>
             span.user-name
             {
-                font-weight : bold;
+                font-weight: bold;
             }
 
             ul.square-icon-list
             {
-                list-style-type : square;
+                list-style-type: square;
             }
 
-            span.math
+            var
             {
-                font-weight : bold;
-                font-style : italic;
+                font-weight: bold;
             }
             
             section
             {
-                margin-left : 15%;
-                margin-right : 15%;
+                margin-left: 15%;
+                margin-right: 15%;
             }
 
             h1,
             h2,
             h3
             {
-                text-align : center;
+                text-align: center;
             }
 
             table
             {
-                margin-left : auto;
-                margin-right : auto;
-                text-align : center;
-                border-collapse : collapse;
-                border : 2px solid #fff;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                border-collapse: collapse;
+                border: 2px solid #fff;
             }
 
             th
             {
-                border-bottom : 2px dashed #000;
-                border-right : 2px dashed #000;
+                border-bottom: 2px dashed #000;
+                border-right: 2px dashed #000;
             }
 
             td
             {
-                border-right : 2px dashed #000;
+                border-right: 2px dashed #000;
             }
 
-            div
+            aside.formula
             {
-                border : 1px solid #000;
+                border: 1px solid #000;
             }
         </style>
     </head>
@@ -76,7 +75,7 @@
                 <p>Этапы первой загрузки:</p>
                 <ul>
                     <li>подготовка;</li>                
-                    <li>загрузка статики (HTTP-запрос и парсинг);</li>              
+                    <li>загрузка статики (<abbr="HyperText Transfer Protocol">HTTP</abbr>-запрос и парсинг);</li>              
                     <li>исполнение модулей;</li>
                     <li>инициализация базовых объектов;</li>
                     <li>отрисовка.</li>
@@ -88,16 +87,16 @@
                     <li>шаблонизация;</li>
                     <li>обновление DOM.</li>
                 </ul>
-                <pre>
-— «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы
-— «Что же дальше?» - вопрошаете вы
-— «А давай построим график!» - отвечаем мы
-— «А что будем считать?» - уточняете вы
-                </pre>
                 <p>
-                    Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
+                    — «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы<br>
+                    — «Что же дальше?» - вопрошаете вы<br>
+                    — «А давай построим график!» - отвечаем мы<br>
+                    — «А что будем считать?» - уточняете вы
+                </p>
+                <p>
+                    Как вы знаете, <dt>медиана</dt> <dd>– это серединное, а не среднее значение в выборке.
                     Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
-                    В общем случае медиана отлично показывает, сколько грузится средний пользователь.
+                    В общем случае медиана отлично показывает, сколько грузится средний пользователь.</dd>
                 </p>
                 <p>
                     В случае ускорения или замедления медиана, конечно, изменится. Но она не может
@@ -105,15 +104,15 @@
                 </p>
                 <p>
                     <abbr title="Application Performance Index">APDEX</abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика
-                    работает очень просто. Мы выбираем временной интервал <span class="math">[0; t]</span>, такой, что если
+                    работает очень просто. Мы выбираем временной интервал <var>[0; t]</var>, такой, что если
                     время показа страницы попало в него, то пользователь счастлив. Берем еще один
-                    интервал, <span class="math">(t; 4t]</span> (в четыре раза больше первого), и считаем, что если страница
+                    интервал, <var>(t; 4t]</var> (в четыре раза больше первого), и считаем, что если страница
                     показана за это время, то пользователь в целом удовлетворен скоростью работы,
                     но уже не настолько счастлив. И применяем формулу:
                 </p>
                 <p>
-                    <span class="math">(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
-                    (кол-во всех).</span>
+                    (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
+                    (кол-во всех).
                     Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                     хорошо или плохо работает почта.
                 </p>
@@ -157,16 +156,16 @@
                     В браузере же останется просто наложить патч на клиенте.
                 </p>
                 <p>
-                    На самое деле эта идея не нова. Уже существуют стандарты для <abbr="HyperText Transfer Protocol">HTTP</abbr> — например,
+                    На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
                     RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разным причинам они
                     не получили должного распространения в браузерах и на серверах.
                 </p>
                 <p>
-                    Мы же решили сделать свой аналог на <abbr>JS</abbr>. Чтобы реализовать этот метод обновления,
+                    Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
                     начали искать реализации diff на JS. На популярных хостингах кода нашли
                     библиотеки:
                 </p>
-                <ul class="squareIconListList">
+                <ul class="square-icon-list">
                     <li>VCDiff</li>
                     <li>google-diff-patch-match</li>
                 </ul>
@@ -209,8 +208,8 @@
                 </code>
                 <p>
                     То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
-                    каждого объекта есть три свойства. k — названия ключа в localStorage для этого
-                    ресурса. p — патч для ресурса, который сгенерировал vcdiff. s — чексумма для
+                    каждого объекта есть три свойства. <var>k</var> — названия ключа в localStorage для этого
+                    ресурса. <var>p</var> — патч для ресурса, который сгенерировал vcdiff. <var>s</var> — чексумма для
                     ресурса актуальной версии, чтобы потом можно было проверить правильность
                     наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
                 </p>
@@ -220,29 +219,29 @@
                     нахождения локального максимума/минимума нелинейного функционала
                     без ограничений.
                 </dd>
-                <div class="formula">
+                <aside class="formula">
                     <h3>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно</h3>
                     <pre>
-Дано <span class="math">&epsilon;, x<sub>0</sub></span>
-Инициализировать <span class="math">H<sub>0</sub></span>
-<span class="math">k = 0</span>
-while <span class="math">||&nabla;&fnof;<sub>k</sub>||>&epsilon;</span>
-    найти направление <span class="math">p<sub>k</sub> = -C<sub>k</sub>&nabla;&fnof;<sub>k</sub></span>
-    вычислить <span class="math">x<sub>k+1</sub> = x<sub>k</sub> + &alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub></span> удовлетворяет условиям Вольфе
-    обозначить <span class="math">s<sub>k</sub> = x<sub>k+1</sub> - x<sub>k</sub> и y<sub>k</sub> = &nabla;&fnof;<sub>k+1</sub> - &nabla;&fnof;<sub>k</sub></span>
-    вычислить <span class="math">С<sub>k+1</sub></span>
-    <span class="math">k = k + 1</span>
+Дано <var>&epsilon;</var>, <var>x<sub>0</sub></var>
+Инициализировать <var>H<sub>0</sub></var>
+<var>k = 0</var>
+while <var>||&nabla;&fnof;<sub>k</sub>||>&epsilon;</var>
+    найти направление <var>p<sub>k</sub></var> = <var>-C<sub>k</sub></var><var>&nabla;&fnof;<sub>k</sub></var>
+    вычислить <var>x<sub>k+1</sub></var> = <var>x<sub>k</sub></var> + <var>&alpha;<sub>k</sub></var><var>p<sub>k</sub></var>, <var>&alpha;<sub>k</sub></var> удовлетворяет условиям Вольфе
+    обозначить <var>s<sub>k</sub></var> = <var>x<sub>k+1</sub></var> - <var>x<sub>k</sub></var> и <var>y<sub>k</sub></var> = <var>&nabla;&fnof;<sub>k+1</sub></var> - <var>&nabla;&fnof;<sub>k</sub></var>
+    вычислить <var>С<sub>k+1</sub></var>
+    <var>k</var> = <var>k</var> + 1
 end 
                     </pre>
-                </div>
+                </aside>
                 <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
                 <dl>
-                    <dt>CRC16/32</dt>
+                    <dt><abbr title="Cyclic redundancy check">CRC</abbr>16/32</dt>
                     <dd>
                         - алгоритм нахождения контрольной суммы, предназначенный для проверки
                         целостности данных  
                     </dd>                   
-                    <dt>md5</dt>
+                    <dt><abbr title="Message Digest 5">md5</abbr></dt>
                     <dd>
                         - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
                         или дайджестов сообщения произвольной длины и последующей проверки
@@ -276,47 +275,46 @@ end
                 </table>
             </article>
             <article>       
-                <addr>
+                <address>
                     Автор: @doochik<br>
                     С++ разработик<br>
                     Электронная почта: doochik@yandex-team.ru<br>
                     Компания: Яндекс<br>
-                </addr>
+                </address>
             </article>
         </section>
         <section>
             <h3>Комментарии (3):</h3>
             <article>
-                <addr><span class="user-name">Mogaika</span> (mogaika@yandex-team.ru)</addr> 
-                <time>30 ноября 2014</time> в <time>17:05</time>
+                <address><span class="user-name">Mogaika</span> (mogaika@yandex-team.ru)</address> 
+                <time datetime="2014-10-30T17:05">30 ноября 2014 в 17:05</time>
                 <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
             </article>
             <article>
-                <addr><span class="user-name">JIguse</span> (mrawesome@yandex.ru)</addr> 
-                <time>29 ноября 2014</time> в <time>21:30</time>
+                <address><span class="user-name">JIguse</span> (mrawesome@yandex.ru)</address> 
+                <time datetime="2014-10-29T21:30">29 ноября 2014 в 21:30</time>
                 <p>
                     Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
                     подробностями о внутренней работе сервисов.
                 </p>
             </article>
             <article>
-                <addr><span class="user-name">Brister</span> (brist89@yandex-team.ru)</addr> 
-                <time>24 ноября 2014</time> в <time>13:13</time>
+                <address><span class="user-name">Brister</span> (brist89@yandex-team.ru)</address> 
+                <time datetime="2014-10-24T13:13">24 ноября 2014 в 13:13</time>
                 <p>
-                    <q>
+                    <blockquote>
                         кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
                         Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                         хорошо или плохо работает почта.
-                    </q>
+                    </blockquote>
                     <br>
                     наверное все-таки от 0.5 до 1
                 </p>
             </article>
             <article>
-                <addr><span class="user-name">alexeimois</span> (test@yandex.ru)</addr> 
-                <time>22 ноября 2014</time> в <time>17:35</time>
-                <p>
-                    Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                <address><span class="user-name">alexeimois</span> (test@yandex.ru)</address> 
+                <time datetime="2014-10-22T17:35">22 ноября 2014 в 17:35</time>
+                <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
                     <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">
                         help.yandex.ru/metrika/reports/monitoring_timing.xml
                     </a>
@@ -324,7 +322,7 @@ end
             </article>
         </section>
         <footer>
-            <addr>© Яндекс, help@yandex.ru, Хохрякова, 10</addr>    
+            <address>© Яндекс, help@yandex.ru, Хохрякова, 10</address>    
         </footer>
     </body>
 </html>
