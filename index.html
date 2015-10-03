@@ -7,9 +7,10 @@
 			body {
 				padding: 2% 5%;
 			}
-			/*p {
+			main {
+				margin: auto;
 				max-width: 768px;
-			}*/
+			}
 			table, th, td {
 				padding: 5px;
 				text-align: center;
@@ -19,48 +20,54 @@
 			thead {
 				background-color: #0080FF;
 			}
-			.comm {
+			.comments {
 				max-width: 768px;
 				border-radius: 5px;
 				border: 1px solid black;
-				padding: 10px;
+				padding: 10px 10px 0px;
 				margin: 15px 25px;
 				background-color: #0080FF;
 			}
-			.comm-head {
+			.comments header {
 				color: white;
 				padding-bottom: 10px;
 				border-bottom: 1px solid black;
 			}
-			.comm-head a {
+			.comments header a {
 				color: white;
 			}
-			.comm-body {
+			.comments p {
 				border-radius: 5px;
 				margin-top: 10px;
 				padding: 10px;
 				background-color: white;
 			}
-			.comm-body p {
-				margin: 0;
-				padding: 0;
+			#solution {
+				margin-top: -1em;
+				margin-bottom: 0;
+				padding-left: 2em;
 			}
-			main {
-				margin: auto;
-				max-width: 768px;
+			h1 {
+				text-align: center;
+			}
+			.red-lt {
+				color: red;
+			}
+			.footer-center{
+				text-align: center;
 			}
 		</style>
 	</head>
 	<body>
 		<header>
-			<h1 style="text-align: center;">
-				Блог компании <span style="color: red;">Я</span>ндекс.
+			<h1>
+				Блог компании <span class="red-lt">Я</span>ндекс.
 			</h1>
 		</header>
 		<main>
 			<article>
 				<h2>
-					<span style="color: red;">Я</span>НДЕКС.ПОЧТА: 
+					<span class="red-lt">Я</span>НДЕКС.ПОЧТА: 
 					КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ
 				</h2>
 				<p>
@@ -289,7 +296,7 @@ var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'
 					Инициализировать <var>H</var><sub>0</sub><br>
 					<var>k</var> = 0<br>
 					while ||<var>&nabla;</var> || > <var>&epsilon;</var>
-						<p style="margin-top: -1em; margin-bottom: 0; padding-left: 2em;">
+						<p id="solution">
 							Найти направление <var>p</var><sub>k</sub> = 
 								-<var>C</var><sub>k</sub><var>&nabla;</var> <var>f</var><sub>k</sub><br>
 							Вычислить <var>x</var><sub>k+1</sub> = 
@@ -318,95 +325,77 @@ var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'
 				</footer>
 			</article>
 			<article>
-				<p>
-					<h3>Комментарии (3):</h3>
-					<section>
-						<article>
-							<div class="comm">
-								<div class="comm-head">
-									<address>
-										 <strong>Mogaika</strong> (<a href="mailto:mogaika@yandex-team.ru">
-										mogaika@yandex-team.ru</a>)
-									</address>
-									<time datetime="2014-11-30 17:05">
-										 30 ноября 2014 в 17:05
-									</time>
-								</div>
-								<div class="comm-body">
-									<p>
-										А можете привести сравнение, на сколько быстрее грузится lite версия?
-									</p>
-								</div>
-							</div>
-						</article>
-						<article>
-							<div class="comm">
-								<div class="comm-head">
-									<address>
-										 <strong>JIguse</strong> (<a href="mailto:mrawesome@yandex.ru">
-										mrawesome@yandex.ru</a>)
-									</address>
-									<time datetime="2014-11-29 21:30">
-										 29 ноября 2014 в 21:30
-									</time>
-								</div>
-								<div class="comm-body">
-									<p>
-										Спасибо за статью, познавательно. Здорово, что Яндекс делится 
-										некоторыми подробностями о внутренней работе сервисов.
-									</p>
-								</div>
-							</div>
-						</article>
-						<article>
-							<div class="comm">
-								<div class="comm-head">
-									<address>
-										 <strong>Brister</strong> (<a href="mailto:brist89@yandex-team.ru">
-										brist89@yandex-team.ru</a>)
-									</address>
-									<time datetime="2014-11-24 13:13">
-										 24 ноября 2014 в 13:13
-									</time>
-								</div>
-								<div class="comm-body">
-									<p>
-										<em>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
-											(кол-во всех)</em>.
-										Получается значение от нуля до единицы, которое, видимо, лучше всего 
-										показывает, хорошо или плохо работает почта.
-									</p>
-									<p>
-										наверное все-таки от 0.5 до 1
-									</p>
-								</div>
-							</div>
-						</article>
-						<article>
-							<div class="comm">
-								<div class="comm-head">
-									<address>
-										 <strong>alexeimois</strong> 
-										(<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
-										<time>22 ноября 2014 в 17:35</time>
-									</address>
-									<time datetime="2014-11-22 17:35">
-										 22 ноября 2014 в 17:35
-									</time>
-								</div>
-								<div class="comm-body">
-									<p>
-										Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-										help.yandex.ru/metrika/reports/monitoring_timing.xml
-									</p>
-								</div>
-							</div>
-						</article>
-					</section>
-				</p>
+				<h3>Комментарии (3):</h3>
+				<section>
+					<article class="comments">
+						<header>
+							<address>
+								 <strong>Mogaika</strong> (<a href="mailto:mogaika@yandex-team.ru">
+								mogaika@yandex-team.ru</a>)
+							</address>
+							<time datetime="2014-11-30 17:05">
+								 30 ноября 2014 в 17:05
+							</time>
+						</header>
+						<p>
+							А можете привести сравнение, на сколько быстрее грузится lite версия?
+						</p>
+					</article>
+					<article class="comments">
+						<header>
+							<address>
+								 <strong>JIguse</strong> (<a href="mailto:mrawesome@yandex.ru">
+								mrawesome@yandex.ru</a>)
+							</address>
+							<time datetime="2014-11-29 21:30">
+								 29 ноября 2014 в 21:30
+							</time>
+						</header>
+						<p>
+							Спасибо за статью, познавательно. Здорово, что Яндекс делится 
+							некоторыми подробностями о внутренней работе сервисов.
+						</p>
+					</article>
+					<article class="comments">
+						<header>
+							<address>
+								 <strong>Brister</strong> (<a href="mailto:brist89@yandex-team.ru">
+								brist89@yandex-team.ru</a>)
+							</address>
+							<time datetime="2014-11-24 13:13">
+								 24 ноября 2014 в 13:13
+							</time>
+						</header>
+						<p>
+							<em>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
+								(кол-во всех)</em>.
+							Получается значение от нуля до единицы, которое, видимо, лучше всего 
+							показывает, хорошо или плохо работает почта.
+						</p>
+						<p>
+							наверное все-таки от 0.5 до 1
+						</p>
+					</article>
+					<article class="comments">
+						<header>
+							<address>
+								 <strong>alexeimois</strong> 
+								(<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
+								<time>22 ноября 2014 в 17:35</time>
+							</address>
+							<time datetime="2014-11-22 17:35">
+								 22 ноября 2014 в 17:35
+							</time>
+						</header>
+						<p>
+							Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+							help.yandex.ru/metrika/reports/monitoring_timing.xml
+						</p>
+					</article>
+				</section>
 			</article>
 		</main>
-		<footer style="text-align: center;">
+		<footer class="footer-center">
 			© Яндекс, help@yandex.ru, Хохрякова, 10
 		</footer>
 	</body>
