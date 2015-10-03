@@ -5,10 +5,10 @@
         <title>Яндекс.Блог</title>
         <style>
             .letter {
-            color:red;
+                color: red;
             }
-            .header-space{
-            text-align: center;
+            .header-space {
+                text-align: center;
             }
         </style>
     </head>
@@ -30,7 +30,7 @@
             <li>подготовка;</li>
             <li>
                 загрузка статики (
-                <aabr title="HyperText Transfer Protocol">HTTP</aabr>
+                <abbr title="HyperText Transfer Protocol">HTTP</abbr>
                 -запрос и парсинг);
             </li>
             <li>исполнение модулей;</li>
@@ -45,8 +45,7 @@
             <li>обновление<abbr title="Document Object Model">DOM.</abbr</li>
         </ul>
         <p>
-            — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> 
-            - говорим мы
+            — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы
             <br>
             — <q>Что же дальше?</q> - вопрошаете вы
             <br>
@@ -55,7 +54,8 @@
             — <q>А что будем считать?</q> - уточняете вы
         </p>
         <p>
-            Как вы знаете,<dfn><a href="https://ru.wikipedia.org/wiki/Медиана_%28статистика%29">медиана</a></dfn>– это серединное, а не среднее значение в выборке.
+            Как вы знаете, <dfn><a href="https://ru.wikipedia.org/wiki/Медиана_%28статистика%29">медиана</a></dfn>– 
+            это серединное, а не среднее значение в выборке.
             Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
             В общем случае медиана отлично показывает, сколько грузится средний пользователь.
         </p>
@@ -64,8 +64,8 @@
             рассказать, сколько пользователей ускорилось, а сколько замедлилось.
         </p>
         <p>
-            <dfn><abbr title="Application Performance Index">
-            <a href="https://en.wikipedia.org/wiki/Apdex">APDEX</a></abbr></dfn> – метрика, которая сразу говорит: хорошо или плохо. Метрика
+            <dfn><abbr title="Application Performance Index"><a href="https://en.wikipedia.org/wiki/Apdex">APDEX</a></abbr></dfn> –
+            метрика, которая сразу говорит: хорошо или плохо. Метрика
             работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
             время показа страницы попало в него, то пользователь счастлив. Берем еще один
             интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
@@ -75,8 +75,8 @@
         <p>            
             (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
         </p>
-        Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-        хорошо или плохо работает почта.
+            Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+            хорошо или плохо работает почта.
         </p>
         <h3>Как мы измеряем</h3>
         <p>
@@ -85,8 +85,8 @@
             выполняется JavaScript. Выглядит это примерно так:
         </p>
         <pre>
-                <code>this.timings['look-ma-im-start'] = Date.now();</code>
-                <code>this.timings['look-ma-finish'] = Date.now();</code>
+                <code>this.timings['look-ma-im-start'] = Date.now();
+                this.timings['look-ma-finish'] = Date.now();</code>
         </pre>
         <p>
             C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
@@ -96,8 +96,8 @@
         <p>
             <code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
         </p>
-        И на сервер прилетают подобные записи:
-        <p>
+            И на сервер прилетают подобные записи:
+        <p>             
             <code>serverResponse=50&domUpdate=60</code>
         </p>
         <h3>Как мы ускоряем</h3>
@@ -106,12 +106,12 @@
             мы уже делаем следующее:
         </p>
         <ul>
-            <li>включаем<A href="https://ru.wikipedia.org/wiki/Gzip">gzip</a>;</li>
+            <li>включаем<a href="https://ru.wikipedia.org/wiki/Gzip">gzip</a>;</li>
             <li>выставляем заголовки кэширования;</li>
-            <li>фризим<abbr title="Cascading Style Sheets"><A href="https://ru.wikipedia.org/wiki/CSS">CSS</a></abbr>,              <abbr title="Java Script"><A href="https://ru.wikipedia.org/wiki/JavaScript">JS</a></abbr>, 
-                шаблоны и картинки;
+            <li>фризим<abbr title="Cascading Style Sheets"><a href="https://ru.wikipedia.org/wiki/CSS">CSS</a></abbr>, <abbr title="Java Script"><a href="https://ru.wikipedia.org/wiki/JavaScript">JS</a></abbr>, 
+            шаблоны и картинки;
             </li>
-            <li>используем<abbr title="Content Delivery Network"><A href="https://ru.wikipedia.org/wiki/Content_Delivery_Network">CDN</a></abbr>;</li>
+            <li>используем<abbr title="Content Delivery Network"><a href="https://ru.wikipedia.org/wiki/Content_Delivery_Network">CDN</a></abbr>;</li>
         </ul>
         </p>
         <p>
@@ -162,20 +162,20 @@
             Формат файла с патчами для проекта выглядит так:
         <pre>
         <code>
-[
-    {
-        "k": "jane.css",
-        "p": [patch],
-        "s": 4554
-    },
-    {
-        "k": "jane.css",
-        "p": [patch],
-        "s": 4554
-    }
-]
+            [      
+                {
+                    "k": "jane.css",
+                    "p": [patch],
+                    "s": 4554
+                },
+                {
+                    "k": "jane.css",
+                    "p": [patch],
+                    "s": 4554
+                }
+            ]
         </code>
-    </pre>
+        </pre>
         </p>
         <p>
             То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
@@ -191,7 +191,7 @@
             нахождения локального максимума/минимума нелинейного функционала
             без ограничений.
         </p>
-        <div class="task">
+        <article>
             дано <b>&epsilon;</b>,<var>x<sub>0</sub></var>
             <br>
             инициализировать <b><var>H<sub>0</sub></var></b>
@@ -211,7 +211,7 @@
             &nbsp;&nbsp;<var>k</var> = <var>k</var> + 1
             <br>
             <b>end</b>
-        </div>
+        </article>
         <p>
             Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
         <dl>
@@ -228,7 +228,7 @@
             </dd>
         </dl>
         </p>
-        Потому что он быстрый, компактный и легок в реализации.
+            Потому что он быстрый, компактный и легок в реализации.
         <h3>Итог</h3>
         <p>
             Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:
@@ -257,21 +257,17 @@
         </p>
         <footer>
             <address>
-                Автор:@doochik
-                <br>
-                С++ разработик
-                <br>
-                Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)
-                <br>
-                Компания: Яндекс
-                <br>
+                Автор:@doochik<br>   
+                С++ разработик<br>
+                Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>) <br>
+                Компания: Яндекс <br> 
             </address>
         </footer>
         <h2>Комментарии (3):</h2>
         <article>
             <address>
                 Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
-                <timepubdate datetime="2014-11-30T17:05">
+                <time pubdate datetime="2014-11-30T17:05">
                 30 ноября 2014 в 17:05</time>
             </address>
             <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
@@ -287,23 +283,23 @@
         <article>
             <address>
                 Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
-                <timepubdate datetime="2015-11-24T13:13">
+                <time pubdate datetime="2015-11-24T13:13">
                 24 ноября 2014 в 13:13</time>
             </address>
             <p>
-                (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-                <br>
+                <blockquote>
+                (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>     
                 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                 хорошо или плохо работает почта.
-                <br>
-                <br>
+                </blockquote>
+                <br>           
                 наверное все-таки от 0.5 до 1
             </p>
         </article>
         <article>
             <address>
                 alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
-                <timepubdate datetime="2015-11-22T17:35">
+                <time pubdate datetime="2015-11-22T17:35">
                 22 ноября 2014 в 17:35</time>
             </address>
             <p>
