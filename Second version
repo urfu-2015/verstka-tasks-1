@@ -1,36 +1,34 @@
+<!DOCTYPE html>
 <html>
     <!-- Ваш замечательный код -->
 <head>
-	     <base target="_blank" />
-        <meta charset="utf-8">
-        <title>Яндекс.Блог</title>
+    <base target="_blank" />
+    <meta charset="utf-8">
+    <title>Яндекс.Блог</title>
 </head>
 
 <body>
 
-<p><h1>Блог компании Яндекс.</h1></p>
-	  
-<p><h3><b>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</b></h3></p>
-	  
+<h1>Блог компании Яндекс.</h1>
+<h3>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h3>
 <p>Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
 какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
 тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
 иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
 и новая логика. Всё это напрямую влияет на скорость работы интерфейса.</p>
 	   
-<p><h3>Что мы измеряем</h3> </p>
-
+<h3>Что мы измеряем</h3>
 <p>Этапы первой загрузки:</p>
 
 <ul>
-	<li>подготовка;</li>
-	<li>загрузка статики (HTTP-запрос и парсинг);</li>
-	<li>исполнение модулей;</li>
-	<li>инициализация базовых объектов;</li>
-	<li>отрисовка.</li>
+   <li>подготовка;</li>
+   <li>загрузка статики (HTTP-запрос и парсинг);</li>
+   <li>исполнение модулей;</li>
+   <li>инициализация базовых объектов;</li>
+   <li>отрисовка.</li>
 </ul>
 	   
-<p><h3>Этапы отрисовки любой страницы:</h3></p>
+<h3>Этапы отрисовки любой страницы:</h3>
 	   
 <ul>
 	<li>подготовка к запросу на сервер;</li>
@@ -51,7 +49,7 @@
 <p>В случае ускорения или замедления медиана, конечно, изменится. Но она не может
 рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
 
-<p><cite><dfn>APDEX</dfn></cite> – метрика, которая сразу говорит: хорошо или плохо. Метрика
+<p><dfn>APDEX</dfn> – метрика, которая сразу говорит: хорошо или плохо. Метрика
 работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
 время показа страницы попало в него, то пользователь счастлив. Берем еще один
 интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
@@ -62,7 +60,7 @@
 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
 хорошо или плохо работает почта.</p>
 
-<p><h3>Как мы измеряем</h3></p>
+<h3>Как мы измеряем</h3>
 	   
 <p>Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
 причину замедления: медленнее стал отвечать сервер либо слишком долго
@@ -76,12 +74,13 @@
 отправке рассчитываются. На этапах разница между <q>end</q> и <q>start</q> не считается,
 а все вычисления производятся в конце:</p>
 
-<p><code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code></p>
+<code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
 	   
 <p>И на сервер прилетают подобные записи:</p>
 <code>serverResponse=50&domUpdate=60</code>
 	   
-<p><h3> Как мы ускоряем</h3></p>
+<h3> Как мы ускоряем</h3>
+
 <p>Чтобы снизить время загрузки почты при выходе новых версий,
 мы уже делаем следующее:</p>
         
@@ -104,39 +103,35 @@ RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, — но по ра
 начали искать реализации diff на JS. На популярных хостингах кода нашли
 библиотеки:</p>
 
-<p>- VCDiff</p>
-<p>- google-diff-patch-match</p>
+<ul>
+   <li>VCDiff</li>
+   <li>google-diff-patch-match</li>
+</ul>
 		
 <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
 
 <table border=1 cellpadding=3>
-		
- <thead>
+   <thead>
+    <tr>
+	 <th>Библиотека</th>
+	 <th>IE 9</th>
+	 <th>Opera 12</th>
+    </tr>
+   </thead>
  
-   <tr>
-	<th>Библиотека</th>
-	<th>IE 9</th>
-	<th>Opera 12</th>
-   </tr>
-   
- </thead>
- 
- <tbody>
-		       
-   <tr>
-	<td>vcdiff</td>
-	<td>8</td>
-	<td>5</td>
-   </tr>
+   <tbody>
+    <tr>
+	 <td>vcdiff</td>
+	 <td>8</td>
+	 <td>5</td>
+    </tr>
 			   
-   <tr>
-	<td>google diff</td>
-	<td>1363</td>
-	<td>76</td>
-  </tr>
-  
- </tbody>
- 
+    <tr>
+	 <td>google diff</td>
+	 <td>1363</td>
+	 <td>76</td>
+    </tr>
+   </tbody>
 </table>			
 			  
 <p>После того как мы определились с библиотекой для диффа, нужно определиться с тем,
@@ -167,130 +162,109 @@ RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, — но по ра
 ресурса актуальной версии, чтобы потом можно было проверить правильность
 наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.</p>
 
-            
-			
-			
 <p>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (<abbr title="Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно">BFGS</abbr>)
 — итерационный метод численной оптимизации, предназначенный для
 нахождения локального максимума/минимума нелинейного функционала
 без ограничений.</p>
-
-<p>дано <cite>&epsiv;</cite>, <cite>x<sub>0</sub></cite></p> 
-<p>инициализировать <cite>H<sub>0</sub></cite></p>
+<p>дано &epsiv;, x<sub>0</sub></p> 
+<p>инициализировать H<sub>0</sub></p>
 <p>k <mo>=</mo> 0</p>
-<p><strong>while</strong> &mid;&mid;&nabla;<cite>&fpartint;<sub>k</sub></cite>&mid;&mid; &gt <cite>&epsiv;</cite></p>
-    <p>найти направление <cite>&rho;<sub>k</sub></cite> <mo>=</mo> <mo>-</mo><cite>C<sub>k</sub></p></cite>
-    <p>вычислить <cite>x</cite><sub><cite>k</cite><mo>+</mo>1</sub> <mo>=</mo> <cite>x</cite><sub><cite>k</cite></sub> <mo>+<mo> <cite>&alpha;<sub>k</sub> &rho;<sub>k</sub> , &alpha;<sub>k</sub></cite>   удовлетворяет условиям Вольфе</p>
-    <p>обозначить <cite>s<sub>k</sub></cite> <mo>=</mo> <cite>x</cite><sub><cite>k</cite><mo>+<mo>1</sub> 
-    <mo>-</mo> <cite>x<sub>k</sub></cite> и <cite>y<sub>k</sub></cite> 
-    <mo>=</mo> &nabla;<cite>&fpartint;</cite><sub><cite>k</cite><mo>+<mo>1</sub> <mo>-<mo>
-    &nabla;<cite>&fpartint;<sub>k</sub></cite> </p>
-    <p>вычислить <cite>C</cite><sub><cite>k</cite><mo>+</mo>1</sub></p>
-    <p><cite>k</cite> <mo>=</mo> <cite>k</cite> <mo>+<mo>1 </p>
+<p><strong>while</strong> &mid;&mid;&nabla;&fpartint;<sub>k</sub>&mid;&mid; &gt &epsiv;</p>
+   <p>найти направление &rho;<sub>k</sub> <mo>=</mo> <mo>-</mo>C<sub>k</sub></p>
+   <p>вычислить x<sub>k<mo>+</mo>1</sub> <mo>=</mo> x<sub>k</sub> <mo>+<mo> &alpha;<sub>k</sub> 
+   &rho;<sub>k</sub> , &alpha;<sub>k</sub> удовлетворяет условиям Вольфе</p>
+   <p>обозначить s<sub>k</sub> <mo>=</mo> x<sub>k<mo>+<mo>1</sub> 
+   <mo>-</mo> x<sub>k</sub> и y<sub>k</sub> 
+   <mo>=</mo> &nabla;&fpartint;<sub>k<mo>+<mo>1</sub> <mo>-<mo>
+   &nabla;&fpartint;<sub>k</sub></p>
+   <p>вычислить C<sub>k<mo>+</mo>1</sub></p>
+   <p>k <mo>=</mo> k <mo>+<mo>1 </p>
 <p><strong>end</strong></p>
-   
+  
 <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
-    CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
-    целостности данных md5 - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
-    или дайджестов сообщения произвольной длины и последующей проверки
-    их подлинности.</p>
-           
-		   
-		   
-		   
+CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
+целостности данных md5 - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+или дайджестов сообщения произвольной длины и последующей проверки
+их подлинности.</p>
 <p>Потому что он быстрый, компактный и легок в реализации.</p>
-		   
-    <p> <h2> Итог </h2> </p>
-		   
+
+<h2>Итог</h2>
 <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
 		   
-		   
-		   
-		   
 <table border=1 cellpadding=3>
+   <thead>
+    <tr>
+     <th>Релиз</th>
+     <th> С патчем </th>
+     <th> Без патча</th>
+    </tr>
+   </thead>
  
- <thead>
-  <tr>
-	<th>Релиз</th>
-	<th> С патчем </th>
-	<th> Без патча</th>
-  </tr>
- </thead>
- 
- <tbody>
- 
-  <tr>
-   <td>7.7.20 </td>
-   <td>397 </td>
-   <td>174&nbsp;549</td>
-  </tr>
+   <tbody>
+    <tr>
+     <td>7.7.20 </td>
+     <td>397 </td>
+     <td>174&nbsp;549</td>
+    </tr>
 			   
-  <tr>
-   <td>7.7.21 </td>
-   <td>383</td>
-   <td>53&nbsp; 995</td>
-  </tr>
+    <tr>
+     <td>7.7.21 </td>
+     <td>383</td>
+     <td>53&nbsp; 995</td>
+    </tr>
 			   
-  <tr>
-   <td>7.7.22</td>
-   <td>483 </td>
-   <td>3&nbsp;995</td>
-  </tr>
- 
- </tbody>
-
- </table>	
+    <tr>
+     <td>7.7.22</td>
+     <td>483 </td>
+     <td>3&nbsp;995</td>
+    </tr>
+   </tbody>
+</table>	
 		   
 <p><small>Автор: @doochik</small></p>	
- <head>
-  <meta name="author" content="@doochik">
- </head>
-			
+<meta name="author" content="@doochik">
+ 
 <p><small>С++ разработик</small></p>
 <p><small>Компания: Яндекс</small></p>
 <address>
-<small>Электронная почта: <a href="doochik@yandex-team.ru">doochik@yandex-team.ru</a></small>
+<small>Электронная почта: <a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a></small>
 </address>
 			
 <section>
 
-    <h1>Комментарии (3):</h1>
+   <h1>Комментарии (3):</h1>
 		
 <article> 
-    <address>- Mogaika (<a href="mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
-	<time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></address>
-	<p> А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
+   <address>- Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
+   <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></address>
+   <p> А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
 </article>
 		
 <article> 
-	<address>- JIguse (<a href="mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
-	<time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></address>
-    <p>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+   <address>- JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
+   <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></address>
+   <p>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
   подробностями о внутренней работе сервисов.</p>
 </article>
 		
 <article> 
-
-	<address>- Brister (<a href="brist89@yandex-team.ru">(brist89@yandex-team.ru</a>)
-	<time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address>
-    <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+   <address>- Brister (<a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru</a>)
+   <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address>
+   <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
 хорошо или плохо работает почта.</p>
-
 <p>наверное все-таки от 0.5 до 1</p>
-
 </article>
 		
 <article> 
-	<address>- alexeimois (<a href="test@yandex.ru">(test@yandex.ru)</a>)
-	<time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address>
-    <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:</p>
-    <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
+   <address>- alexeimois (<a href="mailto:test@yandex.ru">(test@yandex.ru)</a>)
+   <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address>
+   <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:</p>
+   <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
 </article>
-
 </section>
 		 
-<p>&copy;Яндекс, <a href="help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</p>
+<p>&copy;Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</p>
 	 
 </body>
 </html>
