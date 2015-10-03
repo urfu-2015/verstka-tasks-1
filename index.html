@@ -11,6 +11,7 @@
                 color: #333;
                 line-height: 1.5;
             }
+
             h1,
             h2,
             h3 {
@@ -142,10 +143,10 @@
                 сколько пользователей ускорилось, а сколько замедлилось.
             </p>
             <p>
-                <abbr title="Application Performance Index">APDEX</abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика 
-                работает очень просто. Мы выбираем временной интервал [0; t], такой, что если время показа 
-                страницы попало него, то пользователь счастлив. Берем еще один интервал, (t; 4t] 
-                (в четыре раза больше первого), и считаем, что если страница показана за это время, то 
+                <abbr title="Application Performance Index">APDEX</abbr> – метрика, которая сразу говорит: 
+                хорошо или плохо. Метрика работает очень просто. Мы выбираем временной интервал [0; t], такой, 
+                что если время показа страницы попало него, то пользователь счастлив. Берем еще один интервал, 
+                (t; 4t] (в четыре раза больше первого), и считаем, что если страница показана за это время, то 
                 пользователь в целом удовлетворен скоростью работы, но уже не настолько счастлив. 
                 И применяем формулу:
             </p>
@@ -300,17 +301,17 @@ this.timings['look-ma-finish'] = Date.now();
                 </tr>
             </table>
             <section class="article__meta meta">
-                <span class="meta__item">Автор: С++ разработик @doochik</span>
-                <span class="meta__item">
+                <div class="meta__item">Автор: С++ разработик @doochik</div>
+                <div class="meta__item">
                     Эл. почта: <a href="mailto:doochik@yandex-team.ru">(doochik@yandex-team.ru)</a>
-                </span>
-                <span class="meta_item">Компания: <span class="brand">Я</span>ндекс</span>
+                </div>
+                <div class="meta__item">Компания: <span class="brand">Я</span>ндекс</div>
             </section>
             <section class="comments">
                 <h2>Комментарии (3):</h2>
                 <article class="comment">
                     <div class="comment__meta">
-                        &mdash; <span class="brand">M</span>ogaika 
+                        &mdash; <span class="brand">M</span>ogaika
                         <a href="mailto:mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a>
                         <time>30 ноября 2014 в 17:05</time>
                     </div>
@@ -318,39 +319,42 @@ this.timings['look-ma-finish'] = Date.now();
                 </article>
                 <article class="comment">
                     <div class="comment__meta">
-                        &mdash; <span class="brand">J</span>Iguse 
-                        <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a> 
+                        &mdash; <span class="brand">J</span>Iguse
+                        <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a>
                         <time>29 ноября 2014 в 21:30</time>
                     </div>
                     <p>
-                        Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми подробностями
+                        Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми подробностями 
                         о внутренней работе сервисов.
-                   </p>
+                    </p>
                 </article>
                 <article class="comment">
                     <div class="comment__meta">
-                        &mdash; <span class="brand">B</span>rister 
+                        &mdash; <span class="brand">B</span>rister
                         <a href="mailto:mrawesome@yandex.ru">(brist89@yandex-team.ru)</a>
                         <time>24 ноября 2014 в 13:13</time>
                     </div>
                     <p>
-                        (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-                        Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-                        хорошо или плохо работает почта.
-                        наверное все-таки от 0.5 до 1
-                  </p>
+                        (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех). 
+                        Получается значение от нуля до единицы, которое, видимо, лучше всего показывает, 
+                        хорошо или плохо работает почта. наверное все-таки от 0.5 до 1
+                    </p>
                 </article>
                 <article class="comment">
                     <div class="comment__meta">
-                        &mdash; <span class="brand">a</span>lexeimois 
+                        &mdash; <span class="brand">a</span>lexeimois
                         <a href="mailto:mrawesome@yandex.ru">(test@yandex.ru)</a>
                         <time>22 ноября 2014 в 17:35</time>
+                    </div>
                     <p>
-                        Мы измеряем скорость загрузки с помощью Яндекс.Метрики: 
+                        Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
                         <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
                     </p>
                 </article>
             </section>
         </article>
+        <footer class="footer">
+        	&copy; Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10
+        </footer>
     </body>
 </html>
