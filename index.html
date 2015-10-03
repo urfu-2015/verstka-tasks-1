@@ -4,8 +4,14 @@
         <meta charset="utf-8">
         <title>Яндекс.Блог</title>
         <style>
-            span {
+            .red {
                 color: red;
+            }
+            .bold {
+                font-weight: bold;
+            }
+            .algorithm {
+                margin-left: 40px;
             }
         </style>
     </head>
@@ -16,11 +22,11 @@
         <main>
             <article>
                 <section>
-                    <h2><span>Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
+                    <h2><span class="red">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
                     <p>
                         Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
                         какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-                        тормозит. Мы регулярно добавляем в <mark><span>Я</span>ндекс.Почту</mark>
+                        тормозит. Мы регулярно добавляем в <mark><span class="red">Я</span>ндекс.Почту</mark>
                         новую функциональность,
                         иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
                         и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
@@ -100,7 +106,7 @@
                     И на сервер прилетают подобные записи:
                 </p>
             <pre>
-                <samp>serverResponse=50&domUpdate=60</samp>
+                <samp>serverResponse=50&amp;domUpdate=60</samp>
             </pre>
                     <h3>Как мы ускоряем</h3>
                     <p>
@@ -194,10 +200,30 @@
                         <dd>— итерационный метод численной оптимизации, предназначенный для
                         нахождения локального максимума/минимума нелинейного функционала
                         без ограничений.</dd>
-                        <dd>
-                            <!--вставить алгоритм-->
-                        </dd>
                     </dl>
+                    <div class="algorithm">
+                        <h4>Алгоритм:</h4>
+                        дано &epsilon;, <var>x<sub>0</sub></var><br>
+                        инициализировать <var>H<sub>0</sub></var><br>
+                        <var>k</var> = 0<br>
+                        <span class="bold">while</span> ||&nabla;
+                        <var>f<sub>k</sub></var>|| &gt; &epsilon;<br>
+                        <div class="algorithm">
+                            найти направление
+                            <var>p<sub>k</sub></var> = <var>-C<sub>k</sub></var>&nabla;
+                            <var>f<sub>k</sub></var><br>
+                            вычислить <var>x<sub>k+1</sub></var> =
+                            <var>x<sub>k</sub></var> + <var>&alpha;<sub>k</sub></var><var>p<sub>k</sub></var>,
+                            <var>&alpha;<sub>k</sub></var> удовлетворяет условиям Вольфе<br>
+                            обозначить <var>s<sub>k</sub></var> =
+                            <var>x<sub>k+1</sub></var> - <var>x<sub>k</sub></var> и
+                            <var>y<sub>k</sub></var> = &nabla;
+                            <var>f<sub>k+1</sub></var> - &nabla;<var>f<sub>k</sub></var><br>
+                            вычислить <var>C<sub>k+1</sub></var><br>
+                            <var>k</var> = <var>k+1</var><br>
+                        </div>
+                        <span class="bold">end</span>
+                    </div>
                     <p>
                     Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
                     </p>
@@ -243,7 +269,7 @@
                         <dt>Автор:</dt> <dd>@doochik</dd>
                         <dd>С++ разработик</dd>
                         <dt>Электронная почта:</dt> <dd>(doochik@yandex-team.ru)</dd>
-                        <dt>Компания:</dt> <dd><span>Я</span>ндекс</dd>
+                        <dt>Компания:</dt> <dd><span class="red">Я</span>ндекс</dd>
                     </dl>
                 </section>
                 <section>
@@ -262,7 +288,7 @@
                         </p>
                         <p>
                             Спасибо за статью, познавательно.
-                            Здорово, что <span>Я</span>ндекс делится некоторыми
+                            Здорово, что <span class="red">Я</span>ндекс делится некоторыми
                             подробностями о внутренней работе сервисов.
                         </p>
                     </article>
@@ -282,7 +308,7 @@
                             - <strong>alexeimois (test@yandex.ru)</strong> <time>22 ноября 2014 в 17:35</time>
                         </p>
                         <p>
-                            Мы измеряем скорость загрузки с помощью <mark><span>Я</span>ндекс.Метрики</mark>:
+                            Мы измеряем скорость загрузки с помощью <mark><span class="red">Я</span>ндекс.Метрики</mark>:
                             <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">
                                 help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
                         </p>
@@ -291,7 +317,7 @@
             </article>
         </main>
         <footer>
-            <p><address>&copy; <span>Я</span>ндекс, help@yandex.ru, Хохрякова, 10</address></p>
+            <p><address>&copy; <span class="red">Я</span>ндекс, help@yandex.ru, Хохрякова, 10</address></p>
         </footer>
     </body>
 </html>
