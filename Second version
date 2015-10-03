@@ -2,10 +2,10 @@
 <html>
     <!-- Ваш замечательный код -->
 <head>
-    <base target="_blank" />
-    <meta charset="utf-8">
-    <title>Яндекс.Блог</title>
-</head>
+	     <base target="_blank" />
+        <meta charset="utf-8">
+        <title>Яндекс.Блог</title>
+    </head>
 
 <body>
 
@@ -22,7 +22,7 @@
 
 <ul>
    <li>подготовка;</li>
-   <li>загрузка статики (HTTP-запрос и парсинг);</li>
+   <li>загрузка статики (<abbr title="HyperText Transfer Protocol">HTTP</abbr>-запрос и парсинг);</li>
    <li>исполнение модулей;</li>
    <li>инициализация базовых объектов;</li>
    <li>отрисовка.</li>
@@ -34,7 +34,7 @@
 	<li>подготовка к запросу на сервер;</li>
 	<li>запрос данных с сервера;</li>
 	<li>шаблонизация;</li>
-	<li>обновление DOM.</li>
+	<li>обновление <abbr title="Document Object Model">DOM</abbr>.</li>
 </ul>
 	   
 <p> — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<p>
@@ -49,7 +49,8 @@
 <p>В случае ускорения или замедления медиана, конечно, изменится. Но она не может
 рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
 
-<p><dfn>APDEX</dfn> – метрика, которая сразу говорит: хорошо или плохо. Метрика
+<p><dfn><abbr title="Application Performance Index">APDEX</abbr></dfn> – метрика, 
+которая сразу говорит: хорошо или плохо. Метрика
 работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
 время показа страницы попало в него, то пользователь счастлив. Берем еще один
 интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
@@ -87,20 +88,22 @@
 <ul>
 	<li>включаем gzip;</li>
     <li>выставляем заголовки кэширования;</li>
-    <li>фризим CSS, JS, шаблоны и картинки;</li>
-	<li>используем CDN;</li>
+    <li>фризим <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;</li>
+	<li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
 </ul>
 		
 <p>Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
 передавать только diff между ней и той, которая сохранена у пользователя?</q>
 В браузере же останется просто наложить патч на клиенте.</p>
 	  
-<p>На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, — но по разным причинам они
+<p>На самое деле эта идея не нова. Уже существуют стандарты для <abbr title="HyperText Transfer Protocol">HTTP</abbr> — например,
+RFC 3229 <q>Delta encoding in <abbr title="HyperText Transfer Protocol">HTTP</abbr></q>
+и <q>Google SDHC</q>, — но по разным причинам они
 не получили должного распространения в браузерах и на серверах.</p>
 	   
-<p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
-начали искать реализации diff на JS. На популярных хостингах кода нашли
+<p>Мы же решили сделать свой аналог на <abbr title="JavaScript">JS</abbr>. 
+Чтобы реализовать этот метод обновления,
+начали искать реализации diff на <abbr title="JavaScript">JS</abbr>. На популярных хостингах кода нашли
 библиотеки:</p>
 
 <ul>
@@ -169,21 +172,26 @@ RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, — но по ра
 <p>дано &epsiv;, x<sub>0</sub></p> 
 <p>инициализировать H<sub>0</sub></p>
 <p>k <mo>=</mo> 0</p>
-<p><strong>while</strong> &mid;&mid;&nabla;&fpartint;<sub>k</sub>&mid;&mid; &gt &epsiv;</p>
-   <p>найти направление &rho;<sub>k</sub> <mo>=</mo> <mo>-</mo>C<sub>k</sub></p>
-   <p>вычислить x<sub>k<mo>+</mo>1</sub> <mo>=</mo> x<sub>k</sub> <mo>+<mo> &alpha;<sub>k</sub> 
-   &rho;<sub>k</sub> , &alpha;<sub>k</sub> удовлетворяет условиям Вольфе</p>
-   <p>обозначить s<sub>k</sub> <mo>=</mo> x<sub>k<mo>+<mo>1</sub> 
-   <mo>-</mo> x<sub>k</sub> и y<sub>k</sub> 
-   <mo>=</mo> &nabla;&fpartint;<sub>k<mo>+<mo>1</sub> <mo>-<mo>
-   &nabla;&fpartint;<sub>k</sub></p>
-   <p>вычислить C<sub>k<mo>+</mo>1</sub></p>
-   <p>k <mo>=</mo> k <mo>+<mo>1 </p>
+<p><strong>while</strong> &mid;&mid;<var>&nabla;</var><var>&fpartint;</var><sub><var>k</var></sub>
+   &mid;&mid; &gt <var>&epsiv;</var></p>
+   <p>найти направление <var>&rho;</var><sub><var>k</var></sub> <mo>=</mo> 
+   <mo>-</mo><var>C</var><sub><var>k</var></sub></p>
+   <p>вычислить <var>x</var><sub><var>k</var><mo>+</mo>1</sub> <mo>=</mo> 
+   <var>x</var><sub><var>k</var></sub> <mo>+<mo> <var>&alpha;</var><sub><var>k</var></sub> 
+   <var>&rho;</var><sub><var>k</var></sub> , <var>&alpha;</var><sub><var>k</var></sub> 
+   удовлетворяет условиям Вольфе</p>
+   <p>обозначить <var>s</var><sub><var>k</var></sub> <mo>=</mo> <var>x</var><sub><var>k</var><mo>+<mo>1</sub> 
+   <mo>-</mo> <var>x</var><sub><var>k</var></sub> и <var>y</var><sub><var>k</var></sub> 
+   <mo>=</mo> <var>&nabla;</var><var>&fpartint;</var><sub><var>k</var><mo>+<mo>1</sub> <mo>-<mo>
+   <var>&nabla;</var><var>&fpartint;</var><sub><var>k</var></sub></p>
+   <p>вычислить <var>C</var><sub><var>k</var><mo>+</mo>1</sub></p>
+   <p><var>k</var> <mo>=</mo> <var>k</var> <mo>+<mo>1 </p>
 <p><strong>end</strong></p>
   
-<p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
-CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
-целостности данных md5 - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+<p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
+<p><dfn>CRC16/32</dfn> - алгоритм нахождения контрольной суммы, предназначенный для проверки
+целостности данных </p>
+<p><dfn>md5</dfn> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
 или дайджестов сообщения произвольной длины и последующей проверки
 их подлинности.</p>
 <p>Потому что он быстрый, компактный и легок в реализации.</p>
