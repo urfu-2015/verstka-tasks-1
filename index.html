@@ -163,10 +163,12 @@
                 замедления: медленнее стал отвечать сервер либо слишком долго выполняется JavaScript. 
                 Выглядит это примерно так:
             </p>
-            <pre class="code"><code>
+            <pre class="code">
+            	<code>
 this.timings['look-ma-im-start'] = Date.now();
 this.timings['look-ma-finish'] = Date.now();
-            </code></pre>
+            	</code>
+            </pre>
             <p>
                 C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
                 отправке рассчитываются. На этапах разница между “end” и “start” не считается, а все 
@@ -226,7 +228,8 @@ this.timings['look-ma-finish'] = Date.now();
                 хранить статику на клиенте.
             </p>
             <p>Формат файла с патчами для проекта выглядит так:</p>
-            <pre class="code"><code>
+            <pre class="code">
+            	<code>
 [
     {
         "k": "jane.css",
@@ -239,7 +242,8 @@ this.timings['look-ma-finish'] = Date.now();
         "s": 4554
     }
 ]
-            </code></pre>
+            	</code>
+            </pre>
             <p>
                 То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У каждого объекта 
                 есть три свойства. <var>k</var> — названия ключа в localStorage для этого ресурса. <var>p</var> 
@@ -354,7 +358,7 @@ this.timings['look-ma-finish'] = Date.now();
             </section>
         </article>
         <footer class="footer">
-        	&copy; Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10
+        	<address>&copy; Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</address>
         </footer>
     </body>
 </html>
