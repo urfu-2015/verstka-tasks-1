@@ -72,7 +72,10 @@
 					<li> обновление DOM. </li>
 				</ul>
 				<blockquote>
-					<p> &ndash; <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> &ndash; говорим мы </p>
+					<p> 
+						&ndash; <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> 
+						&ndash; говорим мы
+					</p>
 					<p> &ndash; <q>Что же дальше?</q> &ndash; вопрошаете вы </p>
 					<p> &ndash; <q>А давай построим график!</q> &ndash; отвечаем мы </p>
 					<p> &ndash; <q>А что будем считать?</q> &ndash; уточняете вы </p>
@@ -93,11 +96,11 @@
 						</a> 
 					</cite> 
 					– метрика, которая сразу говорит: хорошо или плохо. 
-					Метрика работает очень просто. Мы выбираем временной интервал <var> [0; t] </var>, такой, 
-					что если время показа страницы попало в него, то пользователь счастлив. Берем еще один
-					интервал, <var> (t; 4t] </var> (в четыре раза больше первого), и считаем, что если страница
-					показана за это время, то пользователь в целом удовлетворен скоростью работы,
-					но уже не настолько счастлив. И применяем формулу:	
+					Метрика работает очень просто. Мы выбираем временной интервал <var> [0; t] </var>, 
+					такой, что если время показа страницы попало в него, то пользователь счастлив. 
+					Берем еще один интервал, <var> (t; 4t] </var> (в четыре раза больше первого), и считаем, 
+					что если страница показана за это время, то пользователь в целом удовлетворен скоростью 
+					работы,	но уже не настолько счастлив. И применяем формулу:	
 				</p>
 				<p> 
 					<blockquote> 
@@ -143,23 +146,30 @@
 					</code>
 				</p>
 				<p>
-					C помощью <code> Date.now() </code> мы получаем текущее время. Все тайминги собираются и при
-					отправке рассчитываются. На этапах разница между <em> “end” </em> и <em> “start” </em> не 
-					считается, а все вычисления производятся в конце:
+					C помощью <code> Date.now() </code> мы получаем текущее время. 
+					Все тайминги собираются и при отправке рассчитываются. 
+					На этапах разница между <em> “end” </em> и <em> “start” </em> не считается, 
+					а все вычисления производятся в конце:
 				</p>
 				<p>
-					<code> var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start']; </code>
+					<code> 
+						var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
+					</code>
 				</p>
 				<p> И на сервер прилетают подобные записи: </p>
-				<p> <var>serverResponse</var>=50&&amp;<var>domUpdate</var>=60 </p>
+				<p> <var> serverResponse </var> = 50&&amp; <var> domUpdate </var>=60 </p>
 			</article>
 			<article>
 				<h3> Как мы ускоряем </h3>				
-				<ul> <string> Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее: </string>
+				<ul> 
+					<string> 
+						Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:
+					</string>
 					<li> включаем <abbr title="GNU Zip"> gzip </abbr>; </li>
 					<li> выставляем заголовки кэширования; </li>
 					<li> фризим 
-						<abbr title="Cascading Style Sheets"> CSS </abbr>, <abbr title="JavaScript"> JS </abbr>, 
+						<abbr title="Cascading Style Sheets"> CSS </abbr>, 
+						<abbr title="JavaScript"> JS </abbr>, 
 						шаблоны и картинки; </li>
 					<li> используем CDN; </li>
 				</ul>
@@ -170,7 +180,10 @@
 				</p> 
 				<p>
 					На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-					<cite><a href="http://www.ietf.org/rfc/rfc3229">RFC 3229 Delta encoding in HTTP</a></cite> и 
+					<cite>
+						<a href="http://www.ietf.org/rfc/rfc3229">RFC 3229 Delta encoding in HTTP</a>
+					</cite> 
+					и 
 					<cite>
 						<a href="http://lists.w3.org/Archives/Public/ietf-http-wg/2008JulSep/att-0441/
 						Shared_Dictionary_Compression_over_HTTP.pdf"> 
@@ -180,12 +193,15 @@
 					не получили должного распространения в браузерах и на серверах.
 				</p>	
 				<p>
-					Мы же решили сделать свой аналог на <abbr title="JavaScript"> JS </abbr>. Чтобы реализовать этот метод 
-					обновления,	начали искать реализации diff на <abbr title="JavaScript"> JS </abbr>. 
+					Мы же решили сделать свой аналог на <abbr title="JavaScript"> JS </abbr>. 
+					Чтобы реализовать этот метод обновления, начали искать реализации diff на 
+					<abbr title="JavaScript"> JS </abbr>. 
 					На популярных хостингах кода нашли библиотеки:
 					<ul>
 						<li style="list-style-type: none"> &mdash; 
-							<cite> <a href="https://en.wikipedia.org/wiki/VCDIFF"> VCDiff </a> </cite>
+							<cite> 
+								<a href="https://en.wikipedia.org/wiki/VCDIFF"> VCDiff </a> 
+							</cite>
 						</li>
 						<li style="list-style-type: none"> &mdash; google-diff-patch-match </li>
 					</ul>
@@ -238,10 +254,11 @@
 				<p> 
 					То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
 					каждого объекта есть три свойства. k — названия ключа в <var>localStorage</var> для этого
-					ресурса. <var>p</var> — патч для ресурса, который сгенерировал <em>vcdiff</em>. <var>s</var> — 
-					чексумма для ресурса актуальной версии, чтобы потом можно было проверить правильность
-					наложения патча на клиенте. Чексумма вычисляется по алгоритму 
-					<a href="https://ru.wikipedia.org/wiki/Алгоритм_Бройдена_—_Флетчера_—_Гольдфарба_—_Шанно"> Флетчера</a>.
+					ресурса. <var>p</var> — патч для ресурса, который сгенерировал <em>vcdiff</em>. 
+					<var>s</var> — чексумма для ресурса актуальной версии, чтобы потом можно было проверить 
+					правильность наложения патча на клиенте. Чексумма вычисляется по алгоритму 
+					<a href="https://ru.wikipedia.org/wiki/Алгоритм_Бройдена_—_Флетчера_—_Гольдфарба_—_Шанно"> 
+					Флетчера </a>.
 				</p>
 				<p>
 					Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно 
@@ -256,29 +273,37 @@
 					дано <strong> <em> &#x03B5; x<sub>0</sub> </strong> </em> <br>
 					инициализировать <strong> <em> &Eta;<sub>0</sub></strong> </em> <br>
 					<strong> <em> k = 0 </strong> </em> <br>
-					<strong> while </strong> ||<strong> <em> &nabla; &fnof;<sub>0</sub></strong> </em>|| <br>
+					<strong> while </strong> ||<strong> <em> &nabla; &fnof;<sub>0</sub></strong> </em>|| 
+					<br>
 					&#9; найти направление 
-						<strong><em>p<sub>k</sub> = &ndash; C<sub>k</sub>&nabla;&fnof;<sub>k</sub></em></strong>
+						<strong>
+							<em>p<sub>k</sub> = &ndash; C<sub>k</sub>&nabla;&fnof;<sub>k</sub></em>
+						</strong>
 					<br>
 					&#9; вычислить 
 						<strong><em>
 							x<sub>k+1</sub> = x<sub>k</sub> + &#x03B1;<sub>k</sub>p<sub>k</sub>
 						</em></strong>
-						, <strong><em> &#x03B1;<sub>k</sub> </em></strong> удовлетворяет условиям Вольфе
+						, 
+						<strong>
+							<em> &#x03B1;<sub>k</sub> </em>
+						</strong> удовлетворяет условиям Вольфе
 					<br>
 					&#9; обозначить
-						<strong><em> s<sub>k</sub> = x<sub>k+1</sub> &ndash; x<sub>k</sub> </em></strong>
+						<strong><em> 
+							s<sub>k</sub> = x<sub>k+1</sub> &ndash; x<sub>k</sub> 
+						</em></strong>
 						и 
 						<strong><em> 
-							y<sub>k</sub> = &nabla; &fnof;<sub>k+1</sub> &ndash; &nabla; &fnof;<sub>k</sub> 
+							y<sub>k</sub> = &nabla; &fnof;<sub>k+1</sub> &ndash; &nabla; &fnof;<sub>k</sub>
 						</em></strong>
 					<br>
 					&#9; вычислить 
 						<strong> <em> C<sub>k+1</sub> </em> </strong>
 					<br>
-					&#9; <strong> <em> k = k + 1 </em></strong>
+					&#9; <strong> <em> k = k + 1 </em> </strong>
 					<br>
-					<strong> end</strong>
+					<strong> end </strong>
 					</p>
 				</p>
 				<p>
@@ -347,7 +372,9 @@
 				<article class="comment">
 					<address> Mogaika (mogaika@yandex-team.ru) </address>
 					<time datetime=2014-11-30T17:05> 30 ноября 2014 в 17:05 </time>
-					<blockquote> А можете привести сравнение, на сколько быстрее грузится lite версия? </blockquote> 
+					<blockquote> 
+						А можете привести сравнение, на сколько быстрее грузится lite версия? 
+					</blockquote> 
 				</article>
 				<article class="comment">
 					<address> JIguse (mrawesome@yandex.ru) </address> 
@@ -361,7 +388,9 @@
 					<address> Brister (brist89@yandex-team.ru) </address> 
 					<time datetime=2014-11-24T13:13> 24 ноября 2014 в 13:13 </time>
 					<blockquote>
-						<q> (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех). </q>
+						<q> 
+							(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех). 
+						</q>
 						<br>
 						Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
   						хорошо или плохо работает почта.
@@ -373,7 +402,9 @@
 					<time datetime=2014-11-22T17:35> 22 ноября 2014 в 17:35 </time>
 					<blockquote>
 						Мы измеряем скорость загрузки с помощью 
-  						<a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">Яндекс.Метрики</a>.
+  						<a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">
+  							Яндекс.Метрики
+  						</a>.
 					</blockquote> 
 				</article>
 			</article>
