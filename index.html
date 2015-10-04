@@ -12,33 +12,33 @@
                 background-color: #ECEBEC;
             }
 
-            .header_block
+            .header
             {
                 width: 100%;
                 background-color: #B1E9F2;
             }
 
-            .header_block 
+            .header
             h1
             {
-                padding: 0px 15px 15px 15px;
-                margin-bottom: 0px;
+                padding: 0 15px 15px 15px;
+                margin-bottom: 0;
             }
 
-            .header_block 
+            .header
             h2
             {
-                padding: 0px 20px 20px 20px;
+                padding: 0 20px 20px 20px;
                 text-align: center;
-                margin-bottom: 0px;
-                margin-top: 0px;
+                margin-bottom: 0;
+                margin-top: 0;
             }
 
-            .article
+            article
             {
                 border: 1px groove #D0DBDC; /* Параметры границы */
                 background: white; /* Цвет фона */
-                padding: 0px 15px 15px 15px; /* Поля вокруг текста */
+                padding: 0 15px 15px 15px; /* Поля вокруг текста */
             }
 
             .first_letter
@@ -81,7 +81,20 @@
                 color: green;
             }
 
-            .inline_block{
+            .my_table
+            {
+            	border: 1px solid;
+            }
+
+            .my_table
+           	td
+           	{
+           		padding: 10px;
+           		border: 1px groove;
+            }
+
+            .inline_block
+            {
                 display: inline-block;
             }
 
@@ -92,8 +105,8 @@
 
             .tip 
             {
-                width: 0px;
-                height: 0px;
+                width: 0;
+                height: 0;
                 position: absolute;
                 background: transparent;
                 border: 10px solid #ccc;
@@ -107,6 +120,15 @@
                 border-left-color: transparent;
                 border-bottom-color: transparent;  
             }
+
+            dd
+            {
+		   		font-style: italic; /* Курсивное начертание текста */
+		   	}
+		    dt
+		   	{
+		   		margin-bottom: 1em; /* Отступ сверху */
+		   	}
 
             .dialogbox .body 
             {
@@ -130,7 +152,7 @@
                 color: #797979;
             }
 
-            .footer
+            footer
             {
                 float: right;
             }
@@ -138,38 +160,42 @@
         <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
     </head>
     <body>
-        <div class='header_block'>
-            <h1>Блог компании <span class='first_letter'>Я</span>ндекс.</h1>
-            <h2><span class='first_letter'>Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
+        <div class="header">
+            <h1>Блог компании <span class="first_letter">Я</span>ндекс.</h1>
+            <h2><span class="first_letter">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
         </div>
-        <div class='article'>
+        <article>
             <p>
                 Если ваш сайт <strong>медленно</strong> грузится, вы рискуете тем, что люди не оценят ни то,
                 какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-                тормозит. Мы регулярно добавляем в <span class='first_letter'>Я</span>ндекс. Почту новую функциональность,
+                тормозит. Мы регулярно добавляем в <span class="first_letter">Я</span>ндекс. Почту новую функциональность,
                 иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
                 и новая логика. Всё это напрямую влияет на <strong>скорость</strong> работы интерфейса.
             </p>
-            <div class='margin_left'>
+            <div class="margin_left">
                 <h3>Что мы измеряем</h3>
                 <ul>
-                    <li><h4>Этапы первой загрузки:</h4>
+                    <li>
+                    	<h4>Этапы первой загрузки:</h4>
                         <ul>
-                            <li> подготовка;
-                            <li> загрузка статики (HTTP-запрос и парсинг);
-                            <li> исполнение модулей;
-                            <li> инициализация базовых объектов;
-                            <li> отрисовка.
-                        </ul>
-                    <li><h4>Этапы отрисовки любой страницы:</h4>
+                            <li> подготовка;</li>
+                            <li> загрузка статики (HTTP-запрос и парсинг);</li>
+                            <li> исполнение модулей;</li>
+                            <li> инициализация базовых объектов;</li>
+                            <li> отрисовка.</li>
+                    	</ul>
+                    </li>
+                    <li>
+                    	<h4>Этапы отрисовки любой страницы:</h4>
                         <ul>
-                            <li> подготовка к запросу на сервер;
-                            <li> запрос данных с сервера;
-                            <li> шаблонизация;
-                            <li> обновление DOM.
+                            <li> подготовка к запросу на сервер;</li>
+                            <li> запрос данных с сервера;</li>
+                            <li> шаблонизация;</li>
+                            <li> обновление DOM.</li>
                         </ul>
+                    </li>
                 </ul>
-                <div class='quotes_block'>
+                <div class="quotes_block">
                     <p>
                         — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
                         — <q>Что же дальше?</q> - вопрошаете вы<br>
@@ -187,13 +213,13 @@
                     рассказать, сколько пользователей ускорилось, а сколько замедлилось.
                 </p>
                 <p>
-                    APDEX – метрика, которая сразу говорит: хорошо или плохо. Метрика
+                    <abbr title="Application Performance Index">APDEX</abbr> – метрика, которая сразу говорит: хорошо или плохо. Метрика
                     работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
                     время показа страницы попало в него, то пользователь счастлив. Берем еще один
                     интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
                     показана за это время, то пользователь в целом удовлетворен скоростью работы,
                     но уже не настолько счастлив. И применяем формулу:
-                    <math class='my_math' xmlns="http://www.w3.org/1998/Math/MathML">
+                    <math class="my_math" xmlns="http://www.w3.org/1998/Math/MathML">
                       <mfrac>
                         <mrow>
                             <mo>(</mo>
@@ -219,14 +245,14 @@
                     хорошо или плохо работает почта.
                 </p>
             </div>
-			<div class='margin_left'>
+			<div class="margin_left">
 				<h3>Как мы измеряем</h3>
 				<p>
 					Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
 					причину замедления: медленнее стал отвечать сервер либо слишком долго
 					выполняется JavaScript. Выглядит это примерно так:
 				</p>
-				<code class='my_code'>
+				<code class="my_code">
 					this.timings['look-ma-im-start'] = Date.now();
 					<br>
 					this.timings['look-ma-finish'] = Date.now();
@@ -236,25 +262,27 @@
 					отправке рассчитываются. На этапах разница между “end” и “start” не считается,
 					а все вычисления производятся в конце:
 				</p>
-				<code class='my_code'>
+				<code class="my_code">
 					var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
 				</code>
                 <p>
                     И на сервер прилетают подобные записи:
-                    <code class='my_code'> serverResponse=50&domUpdate=60</code>
+                    <code class="my_code"> serverResponse=50&domUpdate=60</code>
                 </p>
             </div>
-            <div class='margin_left'>
+            <div class="margin_left">
                 <h3>Как мы ускоряем</h3>
                 <p>
                     Чтобы снизить время загрузки почты при выходе новых версий,
                     мы уже делаем следующее:
                 </p>
                 <ul>
-                    <li>включаем gzip;
-                    <li>выставляем заголовки кэширования;
-                    <li>фризим CSS, JS, шаблоны и картинки;
-                    <li>используем CDN;
+                    <li>включаем gzip;</li>
+                    <li>выставляем заголовки кэширования;</li>
+                    <li>
+                    	фризим <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="Java Script">JS</abbr>, шаблоны и картинки;
+                	</li>
+                    <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
                 </ul>
             </div>
             <p>
@@ -263,29 +291,35 @@
                 В браузере же останется просто наложить патч на клиенте.
             </p>
             <p>
-                На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-                <strong>RFC 3229 «Delta encoding in HTTP»</strong> и <stroing>«Google SDHC»</stroing>, — но по разным причинам они
+                На самое деле эта идея не нова. Уже существуют стандарты для <abbr title="HyperText Transfer Protocol">HTTP</abbr> — например,
+                <strong>
+                	<abbr title="Request for Comments">RFC</abbr> 3229 «Delta encoding in 
+                	<abbr title="HyperText Transfer Protocol">HTTP</abbr>
+                </strong> и 
+                <strong>
+                	«Google <abbr title="Secure Digital High Capacity">SDHC</abbr>»
+            	</strong>, — но по разным причинам они
                 не получили должного распространения в браузерах и на серверах.
             </p>
             <p>
-                Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
-                начали искать реализации diff на JS. На популярных хостингах кода нашли
+                Мы же решили сделать свой аналог на <abbr title="Java Script">JS</abbr>. Чтобы реализовать этот метод обновления,
+                начали искать реализации diff на <abbr title="Java Script">JS</abbr>. На популярных хостингах кода нашли
                 библиотеки:
                 <ul>
-                    <li>VCDiff
-                    <li>googlgle-diff-patch-match
+                    <li>VCDiff</li>
+                    <li>googlgle-diff-patch-match</li>
                 </ul>
             </p>
-            <div class='margin_left'>
+            <div class="margin_left">
                 Для окончательного выбора<br> библиотеки нам нужно сравнить:
                 <table cellpadding="10px" border='1px'>
                     <thead>
                         <tr>
-                            <td><strong>Библиотека</strong></td>
-                            <td><i>IE 9</i></td>
+                            <th>Библиотека</th>
+                            <td><i><abbr title="Internet Explorer">IE</abbr> 9</i></td>
                             <td><i>Opera 12</i></td>
                         </tr>
-                    <thead>
+                    </thead>
                     <tbody>
                         <tr>
                             <td>vcdiff</td>
@@ -306,7 +340,7 @@
             </p>
             <p>
                 Формат файла с патчами для проекта выглядит так:
-                <pre class='my_pre'>
+                <pre class="my_pre">
                     [
                         {
                             "k": "jane.css",
@@ -336,12 +370,16 @@
                     Чексумма вычисляется по <strong>алгоритму Флетчера.</strong>
                     <br>
                     <br>
-                    Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)
-                    — итерационный метод численной оптимизации, предназначенный для
-                    нахождения локального максимума/минимума нелинейного функционала
-                    без ограничений.
+                    <dl>
+	                    <dt>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</dt> 
+	                    <dd>
+		                    итерационный метод численной оптимизации, предназначенный для
+		                    нахождения локального максимума/минимума нелинейного функционала
+		                    без ограничений.
+	                    </dd>
+	                </dl>
                 </p>
-                <div class='margin_left'>
+                <div class="margin_left">
                     дано <var>&epsilon;</var>, <var>x<sub>0</sub></var>
                     <br>
                     инициализировать <var>H<sub>0</sub></var>
@@ -350,7 +388,7 @@
                     <br>
                     <strong>while</strong> || <var>&nabla;</var> <em>f <sub>k</sub></em> || > <var>&epsilon;</var>
                     <br>
-                    <div class='margin_left inline_block'>
+                    <div class="margin_left inline_block">
                         найти направление <var>p<sub>k</sub></var> = <var>-C<sub>k</sub></var>&nabla;<var>f<sub>k</sub></var>
                         <br>
                         вычислить <var>x <sub>k+1</sub></var> = <var>x <sub>k</sub></var> + &alpha;<sub>k</sub><var>p <sub>k</sub></var>, &alpha; <var><sub>k</sub></var> удовлетворяет условиям Вольфе
@@ -378,12 +416,12 @@
                         их подлинности.
                     </li>
                 </ul>
-                Потому что он <stroing>быстрый</strong>, <strong>компактный</strong> и <strong>легок в реализации</strong>.
+                Потому что он <strong>быстрый</strong>, <strong>компактный</strong> и <strong>легок в реализации</strong>.
             </p>
             <h3>Итог</h3>
-            <div class='margin_left'>
+            <div class="margin_left">
                 Фактически мы экономим 80-90% трафика.<br> Размер загружаемой статитки в байтах:
-                <table cellpadding="10px" border="1px ">
+                <table class="my_table">
                     <thead>
                         <tr>
                             <td>Релиз</td>
@@ -410,12 +448,12 @@
                     </tbody>
                 </table>
             </div>
-            <div class='about'>
+            <div class="about">
                 <pre>
                     Автор: @doochik
                     С++ разработик
                     E-mail: doochik@yandex-team.ru
-                    Компания: <span class='first_letter'>Я</span>ндекс
+                    Компания: <span class="first_letter">Я</span>ндекс
                 </pre>
             </div>
             <br>
@@ -466,7 +504,7 @@
                   </div>
                 </div>
             </div>
-        </div>
+        </article>
+    	<footer>© <span class="first_letter">Я</span>ндекс, help@yandex.ru, Хохрякова, 10</footer>
     </body>
-    <div class='footer'>© <span class='first_letter'>Я</span>ндекс, help@yandex.ru, Хохрякова, 10</div>
 </html>
