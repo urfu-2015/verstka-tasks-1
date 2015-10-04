@@ -26,7 +26,7 @@
         {
             background-color: red;
             text-align: center;
-            border-radius: 5px;
+           border-radius: 5px;
             padding: 30px;
 
         }
@@ -50,7 +50,7 @@
             padding: 10px;
             margin: 10px;
         } 
-        #comments > article > div
+        #comments > article > p
         {
             background-color: white;
             border:1px solid black;
@@ -181,8 +181,8 @@ this.timings['look-ma-finish'] = Date.now();</code></pre>
 
             <h3>Как мы ускоряем</h3>
 
-            <p>Чтобы снизить время загрузки почты при выходе новых версий,
-            мы уже делаем следующее:</p>
+            Чтобы снизить время загрузки почты при выходе новых версий,
+            мы уже делаем следующее:<br>
             <ul>
                 <li>включаем gzip;</li>
                 <li>выставляем заголовки кэширования;</li>
@@ -201,9 +201,9 @@ this.timings['look-ma-finish'] = Date.now();</code></pre>
             <abbr title="Secure Digital High Capacity">SDHC</abbr>», — но по разным причинам они
             не получили должного распространения в браузерах и на серверах.</p>
 
-            <p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
+            Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
             начали искать реализации diff на JS. На популярных хостингах кода нашли
-            библиотеки:</p>
+            библиотеки:<br>
             <ul>
                 <li>VCDiff</li>
                 <li>google-diff-patch-match</li>
@@ -488,37 +488,29 @@ this.timings['look-ma-finish'] = Date.now();</code></pre>
             <article>
                 <h6>Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
                 <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></h6>
-                <div>
                     <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
-                </div>
             </article>
             <article>
                 <h6>JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 
                 <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></h6>
-                <div>
                     <p>Спасибо за статью, познавательно. 
                     Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.
                     </p>
-                </div>
             </article>
             <article>
                 <h6>Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
                 <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></h6>
-                <div>
                     <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
                     Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-                    хорошо или плохо работает почта.</p>
-
-                    <p>наверное все-таки от 0.5 до 1</p>
-                </div>
+                    хорошо или плохо работает почта.<br>
+                    <br>
+                    наверное все-таки от 0.5 до 1</p>
             </article>
             <article>
                 <h6>alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
                 <time datetime="2014-11-22T17:35">22 ноября 2014 в 17:35</time></h6>
-                <div>
                     <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
                     <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
-                </div>
             </article>
         </section>
         <footer>
