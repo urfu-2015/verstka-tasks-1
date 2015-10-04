@@ -28,13 +28,15 @@
                 font-style: italic;
                 font-weight: bold;
             }
+
             .without-marker
             {
                 list-style-type: none;
             }
+
             .bold-font
             {
-                font-weight:bold;
+                font-weight: bold;
             }
         </style>
     </head>
@@ -172,8 +174,8 @@
                     начали искать реализации diff на JS. На популярных хостингах кода нашли
                     библиотеки:
                     <ul>
-                        <li class="without-marker">&ndash; VCDiff</li>
-                        <li class="without-marker">&ndash; google&ndash;diff&ndash;patch&ndash;match</li>
+                        <li class="without-marker">- VCDiff</li>
+                        <li class="without-marker">- google-diff-patch-match</li>
                     </ul>
                 </p>
                 <p>
@@ -251,27 +253,27 @@
                             <span>
                                 найти направление </span>
                                 <span class="formula">p<sub>k</sub> = 
-                                &minus;C<sub>k</sub> &nabla;&#402;<sub>k</sub>
+                                -C<sub>k</sub> &nabla;&#402;<sub>k</sub>
                             </span><br>
                             <span>
                                 вычислить </span>
-                                <span class="formula">x<sub>k&plus;1</sub> = x<sub>k</sub> 
-                                &plus; &alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub></span> 
+                                <span class="formula">x<sub>k+1</sub> = x<sub>k</sub> 
+                                + &alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub></span> 
                                 <span>удовлетворяет условиям Вольфе</span>
                             </span><br>
                             <span>
                                 обозначить </span>
-                                <span class="formula">s<sub>k</sub> = x<sub>k&plus;1</sub> 
-                                &minus; x<sub>k</sub>
-                                и y<sub>k</sub> = &nabla;&#402;<sub>k&plus;1</sub>
-                                &minus;&nabla;&#402;<sub>k</sub>
+                                <span class="formula">s<sub>k</sub> = x<sub>k+1</sub> 
+                                - x<sub>k</sub>
+                                и y<sub>k</sub> = &nabla;&#402;<sub>k+1</sub>
+                                -&nabla;&#402;<sub>k</sub>
                             </span><br>
                             <span>
                                 вычислить </span>
-                                <span class="formula">C<sub>k&plus;1</sub>
+                                <span class="formula">C<sub>k+1</sub>
                             </span><br>
                             <span class="formula">
-                                k = k&plus;1
+                                k = k+1
                             </span><br>
                         </div>
                         <span class="bold-font">
@@ -290,7 +292,7 @@
                         <dt>md5</dt> &ndash; 
                         <dd>
                             128-битный алгоритм хеширования. Предназначен для создания 
-                            &laquo;отпечатков&raquo;
+                            "отпечатков"
                             или дайджестов сообщения произвольной длины и последующей проверки
                             их подлинности.
                         </dd>
@@ -300,7 +302,7 @@
 
                 <h2>Итог</h2>
                 <p>
-					Фактически мы экономим 80&ndash;90% трафика. Размер загружаемой статитки в байтах:
+                    Фактически мы экономим 80&ndash;90% трафика. Размер загружаемой статитки в байтах:
                     <table>
                         <thead>
                             <tr>
@@ -328,20 +330,24 @@
                         </tbody>
                     </table>
                 </p>
-            </article>
-            <address>
-                Автор: <a href="https://twitter.com/doochik">@doochik</a><br>
-                С++ разработик<br>
-                Электронная почта: 
-                <a href="mailto:doochik@yandex-team.ru">(doochik@yandex&ndash;team.ru)</a><br>
-                Компания: <a href="https://ya.ru"> Яндекс</a>
-            </address>        
+                <address>
+                    Автор: 
+                    <a href="https://twitter.com/doochik">@doochik</a><br>
+                    С++ разработик<br>
+                    Электронная почта: 
+                    <a href="mailto:doochik@yandex-team.ru">(doochik@yandex&ndash;team.ru)</a><br>
+                    Компания: 
+                    <a href="https://ya.ru"> Яндекс</a>
+                </address>
+            </article>        
 			<section>
 				<h2>Комментарии (3):</h2>
 				<article>
 					<p>
-						&mdash; Mogaika <a href="mailto:mogaika@yandex-team.ru">
-						(mogaika@yandex&ndash;team.ru)</a>
+						&mdash; Mogaika 
+                        <a href="mailto:mogaika@yandex-team.ru">
+						  (mogaika@yandex&ndash;team.ru)
+                        </a>
 						<time>30 ноября 2014 в 17:05</time>
 					</p>
 					<div>
@@ -350,7 +356,10 @@
 				</article>
 				<article>
 					<p>
-						&mdash; JIguse <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a> 
+						&mdash; JIguse 
+                        <a href="mailto:mrawesome@yandex.ru">
+                            (mrawesome@yandex.ru)
+                        </a> 
 						<time>29 ноября 2014 в 21:30</time>
 					</p>
 					<div>
@@ -390,19 +399,29 @@
 				<article>
 					<p>
 						&mdash; alexeimois 
-						<a href="mailto:test@yandex.ru">(test@yandex.ru)</a>
+						<a href="mailto:test@yandex.ru">
+                            (test@yandex.ru)
+                        </a>
 						<time>22 ноября 2014 в 17:35</time>
 					</p>
 					<div>
 						Мы измеряем скорость загрузки с помощью 
-						<a href="https://old.metrika.yandex.ru/list/">Яндекс.Метрики</a>
+						<a href="https://old.metrika.yandex.ru/list/">
+                            Яндекс.Метрики
+                        </a>
 					</div>
 				</article>
 			</section>
 		</main>
 		<hr>
 		<footer>
-			<address>© Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</address>
+			<address>
+                © Яндекс, 
+                <a href="mailto:help@yandex.ru">
+                    help@yandex.ru
+                </a>
+                , Хохрякова, 10
+            </address>
 		</footer>
     </body>
 </html>
