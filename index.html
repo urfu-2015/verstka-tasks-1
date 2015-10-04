@@ -54,7 +54,7 @@
 			{
 				width: 500px;
 				height: 250px;
-				background-color: #ebebeb;
+				background: #ebebeb;
 				padding-left: 20px;
 				padding-top: 10px;
 			}
@@ -79,7 +79,7 @@
 				list-style-type: square;
 			}
 			
-			.otstup
+			.indent
 			{
 				margin-left: 70px;
 				margin-top: 40px;
@@ -145,7 +145,7 @@
 				показана за это время, то пользователь в целом удовлетворен скоростью работы,
 				но уже не настолько счастлив. И применяем формулу:
 			</p>
-			<p class="otstup">(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).</p>
+			<p class="indent">(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).</p>
 			<br>
 			<p>Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
 			хорошо или плохо работает почта.</p>
@@ -155,9 +155,11 @@
 				причину замедления: медленнее стал отвечать сервер либо слишком долго
 				выполняется JavaScript. Выглядит это примерно так:
 			</p>
-			<code class="code">this.timings['look-ma-im-start'] = Date.now();</code>
-			<br>
-			<code class="code">this.timings['look-ma-finish'] = Date.now();</code>
+			<code class="code">
+				this.timings['look-ma-im-start'] = Date.now();
+				<br>
+				this.timings['look-ma-finish'] = Date.now();
+			</code>
 			<br>	
 			<p>
 				C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при
@@ -200,7 +202,7 @@
 				<li>google-diff-patch-match</li>
 			</ul>
 			<p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
-			<table cellpadding="10px" cellspacing="0" summary="Сравниваем диффы" width="400">
+			<table cellpadding="10" cellspacing="0" summary="Сравниваем диффы" width="400">
 				<tr>
 					<th>Библиотека</th>      
 					<th>IE 9</th>          
@@ -250,7 +252,7 @@
 			    <br>
 			    <em>k</em> = 0
 			    <br>
-				<strong>while</strong> || &nabla; <em>f<sub><small>k</small></sub> || &gt &epsilon; </em>
+				<strong>while</strong><em> ||</em> &nabla; <em>f<sub><small>k</small></sub> || &gt &epsilon; </em>
 				<br>
 				&emsp;&emsp;найти направление <em>p<sub><small>k</small></sub></em> = -
 				<em>C<sub><small>k</small></sub></em>&nabla;<em>f<sub><small>k</small></sub></em>
@@ -288,7 +290,7 @@
 			<p>Потому что он быстрый, компактный и легок в реализации.</p>
 			<h3>Итог</h3>
 			<p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
-			<table cellpadding="10px" cellspacing="0" summary="Сравниваем диффы" width="400">
+			<table cellpadding="10" cellspacing="0" summary="Сравниваем диффы" width="400">
 				<tr>
 					<td>Релиз</td>
 					<td>7.7.20</td>
