@@ -2,10 +2,10 @@
 <html>
     <!-- Ваш замечательный код -->
 <head>
-	     <base target="_blank" />
-        <meta charset="utf-8">
-        <title>Яндекс.Блог</title>
-    </head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <title>Яндекс.Блог</title>
+</head>
 
 <body>
 
@@ -31,16 +31,16 @@
 <h3>Этапы отрисовки любой страницы:</h3>
 	   
 <ul>
-	<li>подготовка к запросу на сервер;</li>
-	<li>запрос данных с сервера;</li>
-	<li>шаблонизация;</li>
-	<li>обновление <abbr title="Document Object Model">DOM</abbr>.</li>
+    <li>подготовка к запросу на сервер;</li>
+    <li>запрос данных с сервера;</li>
+    <li>шаблонизация;</li>
+    <li>обновление <abbr title="Document Object Model">DOM</abbr>.</li>
 </ul>
 	   
-<p> — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<p>
-<p> — <q>Что же дальше?</q> - вопрошаете вы</p>
-<p> — <q>А давай построим график!</q> - отвечаем мы</p>
-<p> — <q>А что будем считать?</q> - уточняете вы</p>
+<p> — Ок, теперь у нас есть метрики, мы можем отправить их на сервер - говорим мы<p>
+<p> — Что же дальше? - вопрошаете вы</p>
+<p> — А давай построим график! - отвечаем мы</p>
+<p> — А что будем считать? - уточняете вы</p>
 	   
 <p>Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
 Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
@@ -67,9 +67,8 @@
 причину замедления: медленнее стал отвечать сервер либо слишком долго
 выполняется <cite>JavaScript</cite>. Выглядит это примерно так:</p>
 
-<code>this.timings['look-ma-im-start'] = Date.now();</code>
-<p></p>
-<code>this.timings['look-ma-finish'] = Date.now();</code>
+<pre><code>this.timings['look-ma-im-start'] = Date.now();
+this.timings['look-ma-finish'] = Date.now();</code></pre>
        
 <p>C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
 отправке рассчитываются. На этапах разница между <q>end</q> и <q>start</q> не считается,
@@ -85,11 +84,11 @@
 <p>Чтобы снизить время загрузки почты при выходе новых версий,
 мы уже делаем следующее:</p>
         
-<ul>
-	<li>включаем gzip;</li>
+<ul> 
+    <li>включаем gzip;</li>
     <li>выставляем заголовки кэширования;</li>
     <li>фризим <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;</li>
-	<li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
+    <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
 </ul>
 		
 <p>Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
@@ -113,26 +112,26 @@ RFC 3229 <q>Delta encoding in <abbr title="HyperText Transfer Protocol">HTTP</ab
 		
 <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
 
-<table border=1 cellpadding=3>
+<table border="1" cellpadding="3">
    <thead>
     <tr>
-	 <th>Библиотека</th>
-	 <th>IE 9</th>
-	 <th>Opera 12</th>
+     <th>Библиотека</th>
+     <th>IE 9</th>
+     <th>Opera 12</th>
     </tr>
    </thead>
  
    <tbody>
     <tr>
-	 <td>vcdiff</td>
-	 <td>8</td>
-	 <td>5</td>
+     <td>vcdiff</td>
+     <td>8</td>
+     <td>5</td>
     </tr>
 			   
     <tr>
-	 <td>google diff</td>
-	 <td>1363</td>
-	 <td>76</td>
+     <td>google diff</td>
+     <td>1363</td>
+     <td>76</td>
     </tr>
    </tbody>
 </table>			
@@ -169,6 +168,7 @@ RFC 3229 <q>Delta encoding in <abbr title="HyperText Transfer Protocol">HTTP</ab
 — итерационный метод численной оптимизации, предназначенный для
 нахождения локального максимума/минимума нелинейного функционала
 без ограничений.</p>
+<math mode="display" xmlns="http://www.w3.org/1998/Math/MathML">
 <p>дано &epsiv;, x<sub>0</sub></p> 
 <p>инициализировать H<sub>0</sub></p>
 <p>k <mo>=</mo> 0</p>
@@ -187,6 +187,7 @@ RFC 3229 <q>Delta encoding in <abbr title="HyperText Transfer Protocol">HTTP</ab
    <p>вычислить <var>C</var><sub><var>k</var><mo>+</mo>1</sub></p>
    <p><var>k</var> <mo>=</mo> <var>k</var> <mo>+<mo>1 </p>
 <p><strong>end</strong></p>
+</math>
   
 <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
 <p><dfn>CRC16/32</dfn> - алгоритм нахождения контрольной суммы, предназначенный для проверки
@@ -199,7 +200,7 @@ RFC 3229 <q>Delta encoding in <abbr title="HyperText Transfer Protocol">HTTP</ab
 <h2>Итог</h2>
 <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
 		   
-<table border=1 cellpadding=3>
+<table border="1" cellpadding="3">
    <thead>
     <tr>
      <th>Релиз</th>
@@ -239,37 +240,37 @@ RFC 3229 <q>Delta encoding in <abbr title="HyperText Transfer Protocol">HTTP</ab
 </address>
 			
 <section>
-
-   <h1>Комментарии (3):</h1>
+    <h1>Комментарии (3):</h1>
 		
-<article> 
-   <address>- Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
-   <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></address>
-   <p> А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
-</article>
+<ul>
+   <li><address>Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
+   <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></address></li>
+   <li>А можете привести сравнение, на сколько быстрее грузится lite версия?</li>
+</ul>
 		
-<article> 
-   <address>- JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
-   <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></address>
-   <p>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
-  подробностями о внутренней работе сервисов.</p>
-</article>
+<ul>
+   <li><address>JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
+   <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></address></li>
+   <li>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+  подробностями о внутренней работе сервисов.</li>
+</ul>
 		
-<article> 
-   <address>- Brister (<a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru</a>)
-   <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address>
-   <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+<ul> 
+   <li><address>Brister (<a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru</a>)
+   <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address></li>
+   <li>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-хорошо или плохо работает почта.</p>
-<p>наверное все-таки от 0.5 до 1</p>
-</article>
+хорошо или плохо работает почта.</li>
+   <li>наверное все-таки от 0.5 до 1</li>
+</ul>
 		
-<article> 
-   <address>- alexeimois (<a href="mailto:test@yandex.ru">(test@yandex.ru)</a>)
-   <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address>
-   <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:</p>
-   <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
-</article>
+<ul>
+   <li><address>alexeimois (<a href="mailto:test@yandex.ru">(test@yandex.ru)</a>)
+   <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></address></li>
+   <li>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+   <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">
+   help.yandex.ru/metrika/reports/monitoring_timing.xml</a></li>
+</ul>
 </section>
 		 
 <p>&copy;Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</p>
