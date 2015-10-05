@@ -1,21 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd"> 
 <html>   
-    <head>     
-	    <title>Yandex text</title> 
-		<meta charset="utf-8">  
-		<link rel="stylesheet" type="text/css" href="1.css"> 
-		<meta name="keywords" content="APDEX, ЯНДЕКС ПОЧТА, скорость загрузки почты, как 
-			улучшается скорость загрузки почты,
-			Этапы отрисовки любой страницы, Этапы первой загрузки, 
-			Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно">
-		<meta name="description" content="
-			Как Яндекс измеряет скорость загрузки и улучшает ее.
-			Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
-			какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-			тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
-			иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
-			и новая логика. Всё это напрямую влияет на скорость работы интерфейса.">
+  <head>     
+		<title>Yandex text</title> 
+			<meta charset="utf-8">  
+			<link rel="stylesheet" type="text/css" href="1.css"> 
+			<meta name="keywords" content="APDEX, ЯНДЕКС ПОЧТА, скорость загрузки почты, как 
+				улучшается скорость загрузки почты,
+				Этапы отрисовки любой страницы, Этапы первой загрузки, 
+				Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно">
+			<meta name="description" content="
+				Как Яндекс измеряет скорость загрузки и улучшает ее.
+				Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
+				какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
+				тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
+				иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
+				и новая логика. Всё это напрямую влияет на скорость работы интерфейса.">
 	</head>   
 	<body>
 		<h1>Блог компании Яндекс.</h1>
@@ -60,7 +60,7 @@
 		</p>
 		<p>
 			<a name = APDEX></a>
-			<span class="bold">APDEX</span> – <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%
+			<strong>APDEX</strong> – <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%
 			D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0
 			%BD%D1%81%D1%82%D0%B2%D0%BE">метрика</a>
 			работает очень просто. Мы выбираем временной интервал <wbr>[0; t], такой, что если
@@ -68,8 +68,8 @@
 			интервал,<br> (t; 4t] (в четыре раза больше первого), и считаем, что если страница
 			показана за это время, то пользователь в целом удовлетворен скоростью работы,
 			но уже не настолько счастлив. И применяем формулу:<wbr>
-			(<span class="blue bold">кол-во счастливых пользователей</span> + <span class="red bold">кол-во 
-			удовлетворенных</span> / 2) / (<span class="green bold">кол-во всех</span>).<wbr>
+			(<strong class="blue">кол-во счастливых пользователей</strong> + <strong class="red">кол-во 
+			удовлетворенных</strong> / 2) / (<strong class="green">кол-во всех</strong>).<wbr>
 			Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
 			хорошо или плохо работает почта.
 		</p>
@@ -89,8 +89,8 @@
 		</p>
 		<p>
 			C помощью <samp>Date.now()</samp> мы получаем текущее время. Все тайминги собираются и при
-			отправке рассчитываются. На этапах разница между <span class="bold">“end”</span> 
-			и <span class="bold">“start”</span> не считается, а все вычисления производятся в конце:<br>
+			отправке рассчитываются. На этапах разница между <strong>“end”</strong> 
+			и <strong>“start”</strong> не считается, а все вычисления производятся в конце:<br>
 			<samp>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</samp>
 			<br>
 			И на сервер прилетают подобные записи:<br>
@@ -105,19 +105,19 @@
 			<li>используем CDN;
 		</ul>
 		<p>
-			Мы подумали: <span class="italic">«А что если хранить где-то старую версию файлов, 
+			Мы подумали: <em>«А что если хранить где-то старую версию файлов, 
 			а при выходе новой передавать только diff между ней и той, которая сохранена у 
-			пользователя?»</span> В браузере же останется просто наложить патч на клиенте.
+			пользователя?»</em> В браузере же останется просто наложить патч на клиенте.
 		</p>
 		<p>
-			На самое деле эта идея не нова. Уже существуют стандарты для <span class="bold">HTTP</span>
-			— например, <span class="italic">RFC 3229 «Delta encoding in HTTP» и «Google SDHC»</span>,
+			На самое деле эта идея не нова. Уже существуют стандарты для <strong>HTTP</strong>
+			— например, <em>RFC 3229 «Delta encoding in HTTP» и «Google SDHC»</em>,
 			— но по разным причинам они не получили должного распространения в браузерах и на серверах.
 		</p>
 		<p>
-			Мы же решили сделать свой аналог на <span class="bold">JS</span>. 
+			Мы же решили сделать свой аналог на <strong>JS</strong>. 
 			Чтобы реализовать этот метод обновления, начали искать реализации 
-			diff на <span class="bold">JS</span>. На популярных хостингах кода нашли
+			diff на <strong>JS</strong>. На популярных хостингах кода нашли
 			библиотеки:
 		<ul>
 			<li><a href="https://tools.ietf.org/html/rfc3284">VCDiff</a>
@@ -165,23 +165,23 @@
 		</pre>
 		<p>
 			То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
-			каждого объекта есть три свойства. <span class="bold">k</span> — названия ключа в 
+			каждого объекта есть три свойства. <strong>k</strong> — названия ключа в 
 			<a href="https://ru.wikipedia.org/wiki/Web_Storage">localStorage</a> для этого ресурса.
-			<span class="bold">p</span> — патч для ресурса, который сгенерировал 
-			<a href="https://tools.ietf.org/html/rfc3284">VCDiff</a>. <span class="bold">s</span> — чексумма для
+			<strong>p</strong> — патч для ресурса, который сгенерировал 
+			<a href="https://tools.ietf.org/html/rfc3284">VCDiff</a>. <strong>s</strong> — чексумма для
 			ресурса актуальной версии, чтобы потом можно было проверить правильность
 		   наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
 		</p>
 		<p>
-			<span class="bold">Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно</span> (BFGS)
+			<strong>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно</strong> (BFGS)
 			— итерационный метод численной оптимизации, предназначенный для
 			нахождения локального максимума/минимума нелинейного функционала
 			без ограничений.<br>
-			Дано:<span class="italic">&epsilon;</span>, x<sub>0</sub><br>
-			Инициализировать <span class="bold">H<sub>0</sub></span><br>
+			Дано:<em>&epsilon;</em>, x<sub>0</sub><br>
+			Инициализировать <strong>H<sub>0</sub></strong><br>
 			k=0<br>
-			<span class="bold">while</span>||&nabla;f<sub>k</sub>&gt;&epsilon;||<br>
-			<div class="Math">
+			<strong>while</strong>||&nabla;f<sub>k</sub>&gt;&epsilon;||<br>
+			<p class="Math">
 				найти направление p<sub>k</sub> = -C<sub>k</sub>&nabla;f<sub>k</sub><br>
 				вычислить x<sub>k+1</sub> = x<sub>k</sub> + &alpha;<sub>k</sub>p<sub>k</sub>, 
 				&alpha;<sub>k</sub> удоволетворяет условиям <a href="https://ru.wikipedia.org/
@@ -191,8 +191,8 @@
 				f<sub>k+1</sub>- &nabla;f<sub>k</sub><br>
 				вычислить C<sub>k+1</sub><br>
 				k=k+1<br>
-			</div>
-			<span class="bold">end</span>		
+			</p>
+			<strong>end</strong>		
 		</p>
 		<p>
 			Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
@@ -232,31 +232,31 @@
 		</table>
 		<p>
 			Автор: @doochik<br>
-			С++ разработик<br>
-			Электронная почта: (<address>doochik@yandex-team.ru</address>)
+			С++ разработик
+			<address>Электронная почта: (doochik@yandex-team.ru)</address>
 			Компания: Яндекс
 		</p>
 		<p>
-			 <h3>Комментарии (3):</h3>
-			 <address><span class="bold">- Mogaika (mogaika@yandex-team.ru) 30 ноября 2014
-			 в 17:05</span></address>
+		     <h3>Комментарии (3):</h3>
+			 <address><strong>- Mogaika (mogaika@yandex-team.ru) 30 ноября 2014
+			 в 17:05</strong></address>
 			 А можете привести сравнение, на сколько быстрее грузится lite версия?
 			 <br><br>
-			 <address><span class="bold">- JIguse (mrawesome@yandex.ru) 29 ноября 2014
-			 в 21:30</span></address>Спасибо за статью, познавательно. Здорово, что Яндекс делится 
+			 <address><strong>- JIguse (mrawesome@yandex.ru) 29 ноября 2014
+			 в 21:30</strong></address>Спасибо за статью, познавательно. Здорово, что Яндекс делится 
 			 некоторыми подробностями о внутренней работе сервисов.
 			 <br><br>
-			 <address><span class="bold"><-></-> Brister (brist89@yandex-team.ru) 24 ноября
-			  2014 в 13:13</span></address>
+			 <address><strong><-></-> Brister (brist89@yandex-team.ru) 24 ноября
+			  2014 в 13:13</strong></address>
 			 <a href = #APDEX> (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / 
 			 (кол-во всех).</a> Получается значение от нуля до единицы, которое, видимо, лучше всего 
 			 показывает хорошо или плохо работает почта. Наверное все-таки от 0.5 до 1
 			 <br><br>
-			 <address><span class="bold">- alexeimois (test@yandex.ru) 22 ноября 2014 
-			 в 17:35</span></address> Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+			 <address><strong>- alexeimois (test@yandex.ru) 22 ноября 2014 
+			 в 17:35</strong></address> Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
 			 <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">
 			 help.yandex.ru/metrika/reports/monitoring_timing.xml</a><br><br>
 		</p>
-		<span class="italic">&copy; Яндекс, help@yandex.ru, Хохрякова, 10</span>		    
+		<em>&copy; Яндекс, help@yandex.ru, Хохрякова, 10</em>		    
 	</body> 
 </html>
