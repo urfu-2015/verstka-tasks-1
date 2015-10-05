@@ -41,16 +41,16 @@
             </li>
         </ul>
     </p>
-        <quotation>
+        <blockquote>
         — «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы<br>
-        </quotation>
-        <quotation>
+        </blockquote>
+        <blockquote>
         — «Что же дальше?» - вопрошаете вы<br>
-        </quotation>
+        </blockquote>
         — «А давай построим график!» - отвечаем мы<br>
-        <quotation>
+        <blockquote>
         — «А что будем считать?» - уточняете вы<br>
-        </quotation>
+        </blockquote>
     <p>
         Как вы знаете, <dfn>медиана</dfn> – это серединное, а не среднее значение в выборке. Если у нас 
         имеются 
@@ -121,8 +121,8 @@
         </ul>
     </p>
     <p>
-        Мы подумали: <quotation>«А что если хранить где-то старую версию файлов, а при выходе новой 
-        передавать только >diff между ней и той, которая сохранена у пользователя?»</quotation> В браузере же
+        Мы подумали: <blockquote>«А что если хранить где-то старую версию файлов, а при выходе новой 
+        передавать только >diff между ней и той, которая сохранена у пользователя?»</blockquote> В браузере же
         останется просто наложить патч на клиенте.
     </p>
     <p>
@@ -141,7 +141,7 @@
     </ul>
     </p>
     <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
-    <table border="1px solid black">
+    <table border="1">
         <thead>
             <tr>
                 <th>Библиотека </th>
@@ -212,7 +212,7 @@
     <p>Потому что он быстрый, компактный и легок в реализации.</p>
     <h2>Итог</h2>
     <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
-    <table border="1px solid black">
+    <table border="1">
         <thead>
             <tr>
                 <th>Релиз </th>
@@ -245,22 +245,22 @@
         <var>K</var> <span style="font-weight: 800">= 0</span> <br>
         <code>while</code> ||<var>&nabla;</var> <var>f</var> <sub>k</sub>|| <var>></var> <var>&epsilon;</var>
         <br>
-        <p style="margin-left: 15px">
-            найти направление <var>p</var> <sub>k</sub> = <var>-C</var><sub>k</sub><var>&nabla;</var>
-            <var>f</var><sub>k</sub><br>
-            вычислить <var>x</var><sub>k+1</sub>=<var>x</var><sub>k</sub> + <var>&alpha;</var><sub>k</sub>
-            <var>p</var><sub>k</sub>,<var>&alpha;</var><sub>k</sub> удовлетворяет условиям Вольф<br>
-            обозначить <var>s</var><sub>k</sub>= <var>x</var><sub>k+1</sub>- <var>x</var><sub>k</sub> и 
-            <var>y</var><sub>k</sub> = <var>&nabla;</var> <var>f</var> <sub>k+1</sub> - <var>&nabla;</var> 
-            <var>f</var> <sub>k</sub><br>
-            вычислить <var>C</var><sub>k+1</sub><br>
-            <var>k</var> = <var>k</var> + 1
-        </p>
-    <code>end</code>
     </p> 
+    <p style="margin-left: 15px">
+        найти направление <var>p</var> <sub>k</sub> = <var>-C</var><sub>k</sub><var>&nabla;</var>
+        <var>f</var><sub>k</sub><br>
+        вычислить <var>x</var><sub>k+1</sub>=<var>x</var><sub>k</sub> + <var>&alpha;</var><sub>k</sub>
+        <var>p</var><sub>k</sub>,<var>&alpha;</var><sub>k</sub> удовлетворяет условиям Вольф<br>
+        обозначить <var>s</var><sub>k</sub>= <var>x</var><sub>k+1</sub>- <var>x</var><sub>k</sub> и 
+        <var>y</var><sub>k</sub> = <var>&nabla;</var> <var>f</var> <sub>k+1</sub> - <var>&nabla;</var> 
+        <var>f</var> <sub>k</sub><br>
+        вычислить <var>C</var><sub>k+1</sub><br>
+        <var>k</var> = <var>k</var> + 1
+    </p>
+    <code>end</code>
     <p><hr></p>
     <address style="text-align:right">
-        Автор: <a>@doochik</a><br>
+        Автор: <a href="@doochik">@doochik</a><br>
         С++ разработчик<br>
         Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
         Компания: <span style="color: red">Я</span>ндекс
@@ -269,16 +269,16 @@
     <section>
         <h3>Комментарии(3):</h3>
         <ul>
-        <article>
-            <li>
+        <li>
+            <article>
                 <span style="font-weight: 800">Mogaika</span> 
                 (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
                 <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time> <br>
                 <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
-            </li>
-        </article>
-        <article>
-            <li>
+            </article>
+        </li>
+        <li>
+            <article>
                 <address>
                     <span style="font-weight: 800">JIguse</span> 
                     (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 
@@ -286,25 +286,25 @@
                 </address>
                 Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми подробностями о 
                 внутренней работе сервисов.<br>
-            </li>
-        </article>
-        <article>
-            <li>
+            </article>
+        </li>
+        <li>
+            <article>
                 <address>
                     <span style="font-weight: 800">Brister</span> 
                     (<a href="brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
                     <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time><br>
                 </address>
-                <quotation>
+                <blockquote>
                     (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех). Получается 
                     значение от нуля до единицы, которое, видимо, лучше всего показывает, хорошо или плохо работает 
                     почта.
-                </quotation>
+                </blockquote>
                 <p>наверное все-таки от 0.5 до 1</p>
-            </li>
-        </article>
-        <article>
-            <li>
+            </article>
+        </li>
+        <li>
+            <article>
                 <address>
                     <span style="font-weight: 800">alexeimois</span> 
                     (<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
@@ -315,8 +315,8 @@
                     <a href="https://help.yandex.ru/metrika/reports/monitoring_timing.xml">
                     help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
                 </p>
-            </li>
-        </article>
+            </article>
+        </li>
         </ul>
     </section>
     </main>
@@ -324,5 +324,5 @@
         <p>&#169; <span style="color: red">Я</span>ндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, 
         Хохрякова, 10</p>
     </footer>
-    </body>
+</body>
 </html>
