@@ -4,10 +4,10 @@
 
 require('should');
 
-var tags = require('./getDifferentTags');
+var tags = require('./getUniqTags');
 
 describe('Кол-во тегов.', function(){
-    it('Должно быть не менее уникальных 25 тегов', function () {
+    it('Должно быть не менее уникальных 25 тегов.', function () {
 
         console.log('Кол-во уникальных тегов: ' + tags.length);
 

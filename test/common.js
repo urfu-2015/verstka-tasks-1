@@ -4,7 +4,8 @@
 
 require('should');
 
-var tags = require('./getDifferentTags');
+var html = require('./getHtml');
+var tags = require('./getUniqTags');
 
 describe('Запрещенные теги.', function(){
     it('Не должно быть тега <i>', function () {
@@ -33,5 +34,17 @@ describe('Запрещенные теги.', function(){
 
     it('Не должно быть тега <s>', function () {
         (tags.indexOf('s') === -1).should.be.eql(true);
+    });
+});
+
+describe('Сodestyle.', function(){
+    it('Не должно быть табуляций.', function () {
+        var hasTabs = /\t/.test(html);
+
+        if (hasTabs) {
+            console.warn('Вместо табуляций следует использовать 4 пробела на 1 уровень вложенности.')
+        }
+
+        hasTabs.should.be.eql(false);
     });
 });
