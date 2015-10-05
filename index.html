@@ -12,7 +12,7 @@
                 background-color: #ECEBEC;
             }
 
-            .header
+            header
             {
                 width: 100%;
                 background-color: #B1E9F2;
@@ -58,7 +58,6 @@
                 margin-left: 40px;
             }
 
-            .quotes_block 
             q
             {
                 font-style: oblique;
@@ -87,7 +86,7 @@
             }
 
             .my_table
-           	td
+           	td, th
            	{
            		padding: 10px;
            		border: 1px groove;
@@ -160,10 +159,10 @@
         <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
     </head>
     <body>
-        <div class="header">
+        <header>
             <h1>Блог компании <span class="first_letter">Я</span>ндекс.</h1>
             <h2><span class="first_letter">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
-        </div>
+        </header>
         <article>
             <p>
                 Если ваш сайт <strong>медленно</strong> грузится, вы рискуете тем, что люди не оценят ни то,
@@ -312,7 +311,7 @@
             </p>
             <div class="margin_left">
                 Для окончательного выбора<br> библиотеки нам нужно сравнить:
-                <table cellpadding="10px" border='1px'>
+                <table class="my_table">
                     <thead>
                         <tr>
                             <th>Библиотека</th>
@@ -430,7 +429,7 @@
                             <td>С патчем</td>
                             <td>Без патча</td>
                         </tr>
-                    <thead>
+                    </thead>
                     <tbody>
                         <tr>
                             <td>7.7.20</td>
@@ -466,7 +465,7 @@
             <div class="dialogbox">
                 <div class="body">
                   <span class="tip tip-left"></span>
-                  <h4>Mogaika (mogaika@yandex-team.ru) <i>30 ноября 2014 в 17:05</i></h4>
+                  <h4>Mogaika (mogaika@yandex-team.ru) <time datetime="2014-11-30 17:05:00">30 ноября 2014 в 17:05</time></h4>
                   <div class="message">
                     <span>
                         А можете привести сравнение, на сколько быстрее грузится lite версия?
@@ -477,7 +476,7 @@
             <div class="dialogbox">
                 <div class="body">
                   <span class="tip tip-left"></span>
-                  <h4>Brister (brist89@yandex-team.ru) <i>24 ноября 2014 в 13:13</i></h4>
+                  <h4>Brister (brist89@yandex-team.ru) <time datetime="2014-11-24 13:13:00">24 ноября 2014 в 13:13</time></h4>
                   <div class="message">
                     <span>
                         Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
@@ -495,7 +494,7 @@
             <div class="dialogbox">
                 <div class="body">
                   <span class="tip tip-left"></span>
-                  <h4>alexeimois (test@yandex.ru) <i>22 ноября 2014 в 17:35</i></h4>
+                  <h4>alexeimois (test@yandex.ru) <time datetime="2014-11-22 17:35">22 ноября 2014 в 17:35</time></h4>
                   <div class="message">
                     <span>
                         Мы измеряем скорость загрузки с помощью Яндекс.Метрики:<br>
