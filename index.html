@@ -32,11 +32,12 @@
         		margin-right: 25%;
         		margin-left: 25%;
         		border-collapse: collapse;
+        		text-align: center;
         	}
         	thead {
         		background-color: #e3e0de;
         	}
-        	tr, th {
+        	tr, th, td {
         		border: 3px solid black;
         	}
         </style>
@@ -49,28 +50,40 @@
 			<header>
 				<h2> ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ </h2>
 			</header>
-			<article>				
-				<p> 
-					Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
-					какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-					тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
-					иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
-					и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
+			<article>	
+				<header>
+					<p> 
+						Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
+						какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
+						тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
+						иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
+						и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
+					</p>
+					<h3>Что мы измеряем</h3>
+				</header>				
+				<p>
+					<strong> Этапы первой загрузки: </strong>
+					<ul> 
+						<li> подготовка; </li>
+						<li> 
+							загрузка статики 
+							(<abbr title="Hyper Text Transfer Protocol"> HTTP</abbr>-запрос 
+							и парсинг); 
+						</li>
+						<li> исполнение модулей; </li>
+						<li> инициализация базовых объектов; </li>
+						<li> отрисовка. </li>
+					</ul>
 				</p>
-				<h3>Что мы измеряем</h3>
-				<ul> <strong> Этапы первой загрузки: </strong>
-					<li> подготовка; </li>
-					<li> загрузка статики (HTTP-запрос и парсинг); </li>
-					<li> исполнение модулей; </li>
-					<li> инициализация базовых объектов; </li>
-					<li> отрисовка. </li>
-				</ul>
-				<ul> <strong> Этапы отрисовки любой страницы: </strong>
-					<li> подготовка к запросу на сервер; </li>
-					<li> запрос данных с сервера; </li>
-					<li> шаблонизация; </li>
-					<li> обновление DOM. </li>
-				</ul>
+				<p>
+					<strong> Этапы отрисовки любой страницы: </strong>
+					<ul> 
+						<li> подготовка к запросу на сервер; </li>
+						<li> запрос данных с сервера; </li>
+						<li> шаблонизация; </li>
+						<li> обновление <abbr title="Document Object Model"> DOM </abbr>. </li>
+					</ul>
+				</p>
 				<blockquote>
 					<p> 
 						&ndash; <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> 
@@ -132,7 +145,9 @@
 				</p>
 			</article>
 			<article>
-				<h3> Как мы измеряем </h3>	
+				<header>
+					<h3> Как мы измеряем </h3>	
+				</header>
 				<p> 
 					Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
 					причину замедления: медленнее стал отвечать сервер либо слишком долго
@@ -160,11 +175,13 @@
 				<p> <var> serverResponse </var> = 50&&amp; <var> domUpdate </var>=60 </p>
 			</article>
 			<article>
-				<h3> Как мы ускоряем </h3>				
+				<header>
+					<h3> Как мы ускоряем </h3>	
+				</header>							
 				<ul> 
-					<string> 
+					<strong> 
 						Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:
-					</string>
+					</strong>
 					<li> включаем <abbr title="GNU Zip"> gzip </abbr>; </li>
 					<li> выставляем заголовки кэширования; </li>
 					<li> фризим 
@@ -219,14 +236,14 @@
 					</thead>
 					<tbody>
 						<tr>
-							<th> vcdiff </th>
-							<th> 8 </th>
-							<th> 5 </th>
+							<td> vcdiff </td>
+							<td> 8 </td>
+							<td> 5 </td>
 						</tr>
 						<tr>
-							<th> google diff </th>
-							<th> 1363 </th>
-							<th> 76 </th>
+							<td> google diff </td>
+							<td> 1363 </td>
+							<td> 76 </td>
 						</tr>
 					</tbody>
 				</table>
@@ -270,10 +287,10 @@
 				<p>
 					<strong> Алгоритм: </strong> <br>
 					<p class="algorithm">
-					дано <strong> <em> &#x03B5; x<sub>0</sub> </strong> </em> <br>
-					инициализировать <strong> <em> &Eta;<sub>0</sub></strong> </em> <br>
-					<strong> <em> k = 0 </strong> </em> <br>
-					<strong> while </strong> ||<strong> <em> &nabla; &fnof;<sub>0</sub></strong> </em>|| 
+					дано <strong> <em> &#x03B5; x<sub>0</sub> </em> </strong> <br>
+					инициализировать <strong> <em> &Eta;<sub>0</sub> </em> </strong> <br>
+					<strong> <em> k = 0 </em> </strong> <br>
+					<strong> while </strong> ||<strong> <em> &nabla; &fnof;<sub>0</sub> </em> </strong>|| 
 					<br>
 					&#9; найти направление 
 						<strong>
@@ -325,7 +342,9 @@
 				<p> Потому что он быстрый, компактный и легок в реализации. </p>	
 			</article>
 			<article> 
-				<h3> Итог </h3>
+				<header>
+					<h3> Итог </h3>
+				</header>				
 				<p> Фактически мы экономим 80-90% трафика.  </p>
 				<table>
 					<caption> Размер загружаемой статитки в байтах: </caption>
@@ -338,19 +357,19 @@
 					</thead>
 					<tbody>
 						<tr>
-							<th> 7.7.20 </th>
-							<th> 393 </th>
-							<th> 174 549 </th>
+							<td> 7.7.20 </td>
+							<td> 393 </td>
+							<td> 174 549 </td>
 						</tr>
 						<tr>
-							<th> 7.7.21 </th>
-							<th> 383 </th>
-							<th> 53 995 </th>
+							<td> 7.7.21 </td>
+							<td> 383 </td>
+							<td> 53 995 </td>
 						</tr>
 						<tr>
-							<th> 7.7.22 </th>
-							<th> 483 </th>
-							<th> 3 995 </th>
+							<td> 7.7.22 </td>
+							<td> 483 </td>
+							<td> 3 995 </td>
 						</tr>
 					</tbody>
 				</table>
@@ -370,14 +389,18 @@
 			</header>
 			<article>				
 				<article class="comment">
-					<address> Mogaika (mogaika@yandex-team.ru) </address>
+					<header>
+						<address> Mogaika (mogaika@yandex-team.ru) </address>
+					</header>
 					<time datetime=2014-11-30T17:05> 30 ноября 2014 в 17:05 </time>
 					<blockquote> 
 						А можете привести сравнение, на сколько быстрее грузится lite версия? 
 					</blockquote> 
 				</article>
 				<article class="comment">
-					<address> JIguse (mrawesome@yandex.ru) </address> 
+					<header>
+						<address> JIguse (mrawesome@yandex.ru) </address> 
+					</header>					
 					<time datetime=2014-11-29T21:30> 29 ноября 2014 в 21:30 </time>
 					<blockquote>
 						Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
@@ -385,7 +408,9 @@
 					</blockquote> 
 				</article>
 				<article class="comment">
-					<address> Brister (brist89@yandex-team.ru) </address> 
+					<header>
+						<address> Brister (brist89@yandex-team.ru) </address> 
+					</header>					
 					<time datetime=2014-11-24T13:13> 24 ноября 2014 в 13:13 </time>
 					<blockquote>
 						<q> 
@@ -398,7 +423,9 @@
 					<blockquote> наверное все-таки от 0.5 до 1 </blockquote>
 				</article>
 				<article class="comment">
-					<address> alexeimois (test@yandex.ru) </address> 
+					<header>
+						<address> alexeimois (test@yandex.ru) </address> 
+					</header>					
 					<time datetime=2014-11-22T17:35> 22 ноября 2014 в 17:35 </time>
 					<blockquote>
 						Мы измеряем скорость загрузки с помощью 
