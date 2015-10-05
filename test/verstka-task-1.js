@@ -2,22 +2,15 @@
 
 'use strict';
 
-var fs = require('fs');
-var html = fs.readFileSync('index.html', 'utf-8');
 require('should');
 
-var tags = [];
+var tags = require('./getDifferentTags');
 
-html.match(/\<\s*[a-z]+/ig).forEach(function(tag){
-    tag = tag.replace('<', '');
+describe('Кол-во тегов.', function(){
+    it('Должно быть не менее уникальных 25 тегов', function () {
 
-    if (tags.indexOf(tag) === -1) {
-        tags.push(tag);
-    }
-});
+        console.log('Кол-во уникальных тегов: ' + tags.length);
 
-describe('Кол-во тегов', function(){
-    it('Должно быть не менее 25 тегов', function () {
         (tags.length >= 25).should.be.eql(true);
     });
 });
