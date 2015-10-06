@@ -33,17 +33,17 @@
                 text-indent: 25px;
             }
 
-            .date 
-            {
-                font-size: 12px;
-                margin: 0 auto 5px;
-                text-indent: 10px;
-            }
-
             .comment 
             {
                 font-size: 17px;
                 padding-left: 30px;
+            }
+
+            .date
+            {
+                font-size: 12px;
+                margin: 0 auto 5px;
+                text-indent: 10px;
             }
 
             table 
@@ -64,14 +64,14 @@
     </head>
     <body>
         <header>
-            <h1 class="heading">Блог компании Яндекс.</h1>
+            <h2 class="heading">Блог компании Яндекс.</h2>
         </header>
         <hr>
         <main>
             <article>
                 <section>
                     <article>
-                        <h3 class="heading">ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h3>
+                        <h1 class="heading">ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1>
                         <p class="new_paragraph">
                             Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
                             какой он красивый, ни то, какой он удобный. Никому не  понравится, когда все
@@ -103,7 +103,7 @@
                             &ndash; <q>А что будем считать?</q> - уточняете вы<br>
                         </p>
                         <p class="new_paragraph">
-                            Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
+                            Как вы знаете, <dfn>медиана</dfn> – это серединное, а не среднее значение в выборке.
                             Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
                             В общем случае медиана отлично показывает, сколько грузится средний пользователь.
                             В случае ускорения или замедления медиана, конечно, изменится.<br>
@@ -175,7 +175,7 @@
                         </p>
                         <p>
                             Мы же решили сделать свой аналог на <em>JS</em>. Чтобы реализовать этот метод
-                            обновления, начали искать реализации diff на <em>JS</em>. На популярных хостингах
+                            обновления, начали искать реализации <em>diff</em> на <em>JS</em>. На популярных хостингах
                             кода нашли библиотеки:
                         </p>
                         <ul>
@@ -377,26 +377,32 @@
                         <h3>Комментарии (3):</h3>
                     </header>
                     <article>
-                        &ndash; Mogaika 
-                        <em>(<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)</em>
-                        <p class="date"><time>30-11-2014 17:05</time></p>
+                        <footer>
+                            &ndash; Mogaika 
+                            <em>(<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)</em>
+                            <p class="date"><time>30-11-2014 17:05</time></p>
+                        </footer>
                         <p class="comment">
                             А можете привести сравнение, на сколько быстрее грузится <em>lite</em> версия?
                         </p>
                     </article>
                     <article>
-                        &ndash; JIguse
-                        <em>(<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)</em>
-                        <p class="date"><time>29-11-2014 21:30</time></p>
+                        <footer>
+                            &ndash; JIguse
+                            <em>(<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)</em>
+                            <p class="date"><time>29-11-2014 21:30</time></p>
+                        </footer>
                         <p class="comment">
                             Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
                             подробностями о внутренней работе сервисов.
                         </p>
                     </article>
                     <article>
-                        &ndash; Brister
-                        <em>(<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>)</em> 
-                        <p class="date"><time>24-11-2014 13:13</time></p>
+                        <footer>
+                            &ndash; Brister
+                            <em>(<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>)</em> 
+                            <p class="date"><time>24-11-2014 13:13</time></p>
+                        </footer>
                         <p class="comment">
                             <em>
                                 (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
@@ -407,9 +413,11 @@
                         <p class="comment">наверное все-таки от 0.5 до 1</p>
                     </article>          
                     <article>
-                        &ndash; alexeimois
-                        <em>(<a href="mailto:test@yandex.ru">test@yandex.ru</a>)</em>
-                        <p class="date"><time>22-11-2014 17:35</time></p>
+                        <footer>
+                            &ndash; alexeimois
+                            <em>(<a href="mailto:test@yandex.ru">test@yandex.ru</a>)</em>
+                            <p class="date"><time>22-11-2014 17:35</time></p>
+                        </footer>
                         <p class="comment">
                             Мы измеряем скорость загрузки с помощью Яндекс.Метрики: 
                             <em>
