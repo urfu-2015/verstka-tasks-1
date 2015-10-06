@@ -43,7 +43,7 @@
                     — <q>А давай построим график!</q> - отвечаем мы<br>
                     — <q>А что будем считать?</q> - уточняете вы<br>
                 <p>
-                    Как вы знаете, <strong>медиана</strong> – это <em>серединное</em>, а не среднее значение в выборке.
+                    Как вы знаете, <dfn>медиана</dfn> – это <em>серединное</em>, а не среднее значение в выборке.
                     Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
                     В общем случае медиана отлично показывает, сколько грузится средний пользователь.
                 </p>
@@ -54,9 +54,9 @@
                 <p>
                     <em><abbr title="Application Performance Index">APDEX</abbr></em> – 
                     метрика, которая сразу говорит: хорошо или плохо. Метрика
-                    работает очень просто. Мы выбираем временной интервал <big>&#91;0; t&#93;</big>, такой, что если
+                    работает очень просто. Мы выбираем временной интервал <mark>&#91;0; t&#93;</mark>, такой, что если
                     время показа страницы попало в него, то пользователь счастлив. Берем еще один
-                    интервал, <big>&lpar;t; 4t&#93;</big> (в четыре раза больше первого), и считаем, что если страница
+                    интервал, <mark>&lpar;t; 4t&#93;</mark> (в четыре раза больше первого), и считаем, что если страница
                     показана за это время, то пользователь в целом удовлетворен скоростью работы,
                     но уже не настолько счастлив. И применяем формулу:
                 </p>
@@ -130,8 +130,8 @@ this.timings['look-ma-finish'] = Date.now();
                 </p>
                 <p>
                     На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-                    <a href="http://tools.ietf.org/html/rfc3229">RFC 3229 «Delta encoding in HTTP»</a>
-                    и «Google SDHC», — но по разным причинам они
+                    <a href="http://tools.ietf.org/html/rfc3229">«RFC 3229 «Delta encoding in HTTP»</a>
+                    и <cite>«Google SDHC»</cite>, — но по разным причинам они
                     не получили должного распространения в браузерах и на серверах.
                 </p>
                 <p>
@@ -214,7 +214,7 @@ this.timings['look-ma-finish'] = Date.now();
                     &nabla;&fnof;<sub>k+1</sub> - &nabla;&fnof;<sub>k</sub><br>
                         вычислить C<sub>k+1</sub><br>
                         k = k + 1<br>
-                    <strong>end</strong>
+                    end
                 </p>
 
                 <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
@@ -275,46 +275,47 @@ this.timings['look-ma-finish'] = Date.now();
                 <hr>
                 <section>
                     <h4>Комментарии (4):</h4>
-                    <p>
-                        &minus; Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
-                        <time>30 ноября 2014 в 17:05</time>
-                    </p>
+                    <article>
+                        <p>
+                            &minus; Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
+                            <time>30 ноября 2014 в 17:05</time>
+                        </p>
+                        <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
+                    </article>
+                    <article>
+                        <p>
+                            &minus; JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 
+                            <time>29 ноября 2014 в 21:30</time>
+                        </p>
+                        <p>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+                        подробностями о внутренней работе сервисов.</p>
+                    </article>
+                    <article>
+                        <p>
+                            &minus; Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
+                            <time>24 ноября 2014 в 13:13</time>
+                        </p>
+                        <p>
+                            <blockquote>
+                                (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
+                                Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+                                хорошо или плохо работает почта.
+                            </blockquote>
 
-                    <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
-
-                    <p>
-                        &minus; JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 
-                        <time>29 ноября 2014 в 21:30</time>
-                    </p>
-
-                    <p>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
-                    подробностями о внутренней работе сервисов.</p>
-
-                    <p>
-                        &minus; Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
-                        <time>24 ноября 2014 в 13:13</time>
-                    </p>
-
-                    <p>
-                        <blockquote>
-                            (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
-                            Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-                            хорошо или плохо работает почта.
-                        </blockquote>
-
-                        наверное все-таки от 0.5 до 1
-                    </p>
-
-                    <p>
-                        &minus; alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
-                        <time>22 ноября 2014 в 17:35</time>
-                    </p>
-
-                    <p>
-                        Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-                        <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">
-                        help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
-                    </p>
+                            наверное все-таки от 0.5 до 1
+                        </p>
+                    </article>
+                    <article>
+                        <p>
+                            &minus; alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
+                            <time>22 ноября 2014 в 17:35</time>
+                        </p>
+                        <p>
+                            Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                            <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">
+                            help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
+                        </p>
+                    </article>
                 </section>
             </article>
         </main>
