@@ -1,66 +1,80 @@
-html {
-  margin: 0px;
+html
+{
+    margin: 0;
 }
 
-body {
-  margin: 0px;
-  background-color: #6699CC;
+body
+{
+    margin: 0;
+    background-color: #69c;
 }
 
-.content {
-  margin: 0 auto;
-  padding: 10px 25px;
-
-  width: 950px;
-  background-color: #F0F8FF;
-
+.content
+{
+    margin: 0 auto;
+    padding: 10px 25px;
+    width: 950px;
+    background-color: #f0f8ff;
 }
 
-.center {
-  text-align: center;
+.center
+{
+    text-align: center;
 }
 
-.noMarkList {
-  list-style-type: none;
+.noMarkList
+{
+    list-style-type: none;
 }
 
-table, tr, td, th {
-  padding: 5px;
-  border: 1px solid black;
-  border-collapse: collapse;
+table,
+tr,
+td,
+th
+{
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
-.codeContent {
-  background-color: #D3D3D3;
-  padding: 0px 10px;
-  margin-right: 100px;
+.codeContent
+{
+    background-color: #d3d3d3;
+    padding: 0 10px;
+    margin-right: 100px;
 }
 
-address {
-  margin-left: 500px;
+address
+{
+    margin-left: 500px;
 }
 
-article.comment {
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 10px;
-  margin: 10px;
+article.comment
+{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
 }
 
-article.comment:nth-child(2n) {
-  background-color: #B0C4DE;
+article.comment:nth-child(2n)
+{
+    background-color: #b0c4dE;
 }
 
-article.comment:nth-child(2n+1) {
-  background-color: #87CEEB;
+article.comment:nth-child(2n+1)
+{
+    background-color: #87ceeb;
 }
 
-.commenter {
-  text-align: right;
-  font-style: italic;
+.commenter
+{
+    text-align: right;
+    font-style: italic;
 }
 
-footer {
-  text-align: right;
-  margin-top: 60px;
+footer
+{
+    text-align: right;
+    margin-top: 60px;
 }
