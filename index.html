@@ -1,125 +1,161 @@
+<!DOCTYPE html>
 <html lang="ru"> 
-
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Яндекс.Блог</title>
  <style>
- body {
-  background: url(http://img0.liveinternet.ru/images/attach/c/3/77/1/77001046_large_fon_dlya_teksta_krem_letopis.jpg);
-  text-align:left; 
-  width:1000px; 
-  height:auto; 
-  padding-left:20px; 
-  padding-right:20px; 
-  max-width:1000px; 
-  
- }
- .ramka1 {
-  font-size: 15px;
-  border-style: inset ;
-  border-top: 10px solid red;
-  border-right: 10px solid black;
-  border-bottom: 10px solid black;
-  border-left: 10px solid red;
-  width: 730px;
- }
 
- .quote{
-  font-style: italic;
-  font-size: 20px;
- }
- .ramka2 {
-  border-style: double ;
-  border: solid black solid blue;
-  width: 470px;
- }
-
- .ramka3 {
-  background: #C0C0C0;
-  font-size: 15px;
-  border-style: inset ;
-  border-top: 4px solid red;
-  border-right: 4px solid black;
-  border-bottom: 4px solid black;
-  border-left: 4px solid red;
-  width: 550px;
- }
- code {
-  font-size: 20px;
- }
-
-sub {
-  font-size: 14px;
+ body
+{
+    background: url(http://img0.liveinternet.ru/images/attach/c/3/77/1/77001046_large_fon_dlya_teksta_krem_letopis.jpg);
+    text-align:left; 
+    width:1000px; 
+    height:auto; 
+    padding-left:20px; 
+    padding-right:20px; 
+    max-width:1000px;
 }
 
-  p {font-family: 'Times New Roman', Times, serif; 
-    font-size: 20px;} 
-  pre{font-style: oblique;} 
-  ul {font-family: 'Times New Roman', Times, serif;
-      font-size: 19px} 
-  table {
+ .frameOne
+{
+    font-size: 15px;
+    border-style: inset ;
+    border-top: 10px solid red;
+    border-right: 10px solid black;
+    border-bottom: 10px solid black;
+    border-left: 10px solid red;
+    width: 730px;
+}
+
+  .quote
+{
+    font-style: italic;
+    font-size: 20px;
+}
+
+  .frameTwo
+{
+    border-style: double ;
+    border: solid black solid blue;
+    width: 470px;
+}
+
+ .frameThree
+{
+    background: #C0C0C0;
+    font-size: 15px;
+    border-style: inset ;
+    border-top: 4px solid red;
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid red;
+    width: 550px;
+}
+
+  code
+{
+    font-size: 20px;
+}
+
+  sub
+{
+    font-size: 14px;
+}
+
+  p
+{
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 20px;
+} 
+
+  pre
+{
+    font-style: oblique;
+}
+
+  ul
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px
+} 
+
+  table, td, th
+{
     font-size: 19px;
-  }
-  th {
+    border: 3px solid black;
+}
+
+  th 
+{
     background: silver;
     color: black;
-  }    
-  ol {
+} 
+
+  ol 
+{
     font-family: 'Times New Roman', Times, serif;
-      font-size: 19px}
+    font-size: 19px
+}
+
   </style>
+    </head>
 
-
-<h1>Блог компании <font color="red">Я</font><font color="black">ндекс.</font></h1>
-</head>
 <body>
+  <h1>Блог компании <font color="red">Я</font><font color="black">ндекс.</font></h1>
+  <h2><font color="red">Я</font><font color="black">НДЕКС.ПОЧТА</font>: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
 
-<h2><font color="red">Я</font><font color="black">НДЕКС.ПОЧТА</font>: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
-
-<p>Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
-какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
-иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
-и новая логика. Всё это напрямую влияет на скорость работы интерфейса.</p>
+ <p>
+    Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
+    какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
+    тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
+    иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
+    и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
+</p>
 
 <h3>Что мы измеряем</h3>
 
-<p><i>Этапы первой загрузки:</i></p>
+<p>Этапы первой загрузки:</p>
 <ul>
-<li>подготовка;</li>
-<li>загрузка статики (HTTP-запрос и парсинг);</li>
-<li>исполнение модулей;</li>
-<li>инициализация базовых объектов;</li>
-<li>отрисовка.</li>
+<li>подготовка;
+<li>загрузка статики (HTTP-запрос и парсинг);
+<li>исполнение модулей;
+<li>инициализация базовых объектов;
+<li>отрисовка.
 </ul>
 
-<p><i>Этапы отрисовки любой страницы:</i></p>
+<p>Этапы отрисовки любой страницы:</p>
 <ul>
-<li >подготовка к запросу на сервер;</li>
-<li>запрос данных с сервера;</li>
-<li>шаблонизация;</li>
-<li>обновление DOM.</li>
+<li >подготовка к запросу на сервер;
+<li>запрос данных с сервера;
+<li>шаблонизация;
+<li>обновление DOM.
 </ul>
-<div class = "ramka1">
+<div class = "frameOne">
 <pre>— «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы</pre>
 <pre>— «Что же дальше?» - вопрошаете вы</pre>
 <pre>— «А давай построим график!» - отвечаем мы</pre>
 <pre>— «А что будем считать?» - уточняете вы</pre>
 </div>
 
-<p>Как вы знаете, медиана – это серединное, а не <strike>среднее значение в выборке</strike>.
-Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
-В общем случае медиана отлично показывает, сколько грузится средний пользователь.</p>
+<p>
+    Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
+    Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
+    В общем случае медиана отлично показывает, сколько грузится средний пользователь.
+</p>
+<p>
+    В случае ускорения или замедления медиана, конечно, изменится. Но она не может
+    рассказать, сколько пользователей ускорилось, а сколько замедлилось.
+</p>
 
-<p>В случае ускорения или замедления медиана, конечно, изменится. Но она не может
-рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
-
-<p><dfn>APDEX</dfn> – метрика, которая сразу говорит: хорошо или плохо. Метрика
-работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
-время показа страницы попало в него, то пользователь счастлив. Берем еще один
-интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
-показана за это время, то пользователь в целом удовлетворен скоростью работы,
-но уже не настолько счастлив. И применяем формулу:</p>
-<div class = "ramka2"  id="formula">
+<p>
+    <dfn>APDEX</dfn> – метрика, которая сразу говорит: хорошо или плохо. Метрика
+    работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
+    время показа страницы попало в него, то пользователь счастлив. Берем еще один
+    интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
+    показана за это время, то пользователь в целом удовлетворен скоростью работы,
+    но уже не настолько счастлив. И применяем формулу:
+</p>
+<div class = "frameTwo"  id="formula">
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mi>X</mi> <mo >=</mo>
     <mfrac>
@@ -137,17 +173,18 @@ sub {
 </math>
 </div>
 
-
-
-
-<p>Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-хорошо или плохо работает почта.</p>
+<p>
+    Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+хорошо или плохо работает почта.
+</p>
 
 <h3>Как мы измеряем</h3>
 
-<p>Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
-причину замедления: медленнее стал отвечать сервер либо слишком долго
-выполняется <i>JavaScript</i>. Выглядит это примерно так:</p>
+<p>
+    Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
+    причину замедления: медленнее стал отвечать сервер либо слишком долго
+    выполняется JavaScript. Выглядит это примерно так:
+</p>
 <pre>
     <code>
 this.timings['look-ma-im-start'] = Date.now();
@@ -155,9 +192,11 @@ this.timings['look-ma-finish'] = Date.now();
 </code>
     </pre>
 
-<p>C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
-отправке рассчитываются. На этапах разница между “end” и “start” не считается,
-а все вычисления производятся в конце:</p>
+<p>
+    C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
+    отправке рассчитываются. На этапах разница между “end” и “start” не считается,
+    а все вычисления производятся в конце:
+</p>
 
 <p><code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code></p>
 
@@ -167,34 +206,37 @@ this.timings['look-ma-finish'] = Date.now();
 
 <h3>Как мы ускоряем</h3>
 
-<p>Чтобы снизить время загрузки почты при выходе новых версий,
-мы уже делаем следующее:</p>
+<p>Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:</p>
 <ul>
-<li type="square">включаем gzip;</li>
-<li type="square">выставляем заголовки кэширования;</li>
-<li type="square">фризим CSS, JS, шаблоны и картинки;</li>
-<li type="square">используем CDN;</li>
+<li>включаем gzip;
+<li>выставляем заголовки кэширования;
+<li>фризим CSS, JS, шаблоны и картинки;
+<li>используем CDN;
 </ul>
 
 <p>Мы подумали: <blockquote class = "quote">А что если хранить где-то старую версию файлов, а при выходе новой
-передавать только <b>diff</b> между ней и той, которая сохранена у пользователя?</blockquote></p>
+передавать только diff между ней и той, которая сохранена у пользователя?</blockquote></p>
 <p>В браузере же останется просто наложить патч на клиенте.</p>
 
-<p>На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-<dfn>RFC 3229 «Delta encoding in HTTP»</dfn> и <dfn>«Google SDHC»</dfn>, — но по разным причинам они
-не получили должного распространения в браузерах и на серверах.</p>
+<p>
+    На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
+    <dfn>RFC 3229 «Delta encoding in HTTP»</dfn> и <dfn>«Google SDHC»</dfn>, — но по разным причинам они
+    не получили должного распространения в браузерах и на серверах.
+</p>
 
-<p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
-начали искать реализации diff на JS. На популярных хостингах кода нашли
-библиотеки:</p>
+<p>
+    Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
+    начали искать реализации diff на JS. На популярных хостингах кода нашли
+    библиотеки:
+</p>
 <ul>
- <li>VCDiff</li>
- <li>google-diff-patch-match</li>
+ <li>VCDiff
+ <li>google-diff-patch-match
  </ul>
 
 <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
 
-<table border="1"><tr>
+<table><tr>
   <th>Библиотека</th> 
   <th>IE 9</th>
   <th>Opera 12</th></tr>
@@ -209,8 +251,10 @@ this.timings['look-ma-finish'] = Date.now();
 <td>76</td>
 </table>
 
-<p>После того как мы определились с библиотекой для диффа, нужно определиться с тем,
-где и как хранить статику на клиенте.</p>
+<p>
+    После того как мы определились с библиотекой для диффа, нужно определиться с тем,
+    где и как хранить статику на клиенте.
+</p>
 
 <p>Формат файла с патчами для проекта выглядит так:<p>
 <pre>
@@ -233,72 +277,77 @@ this.timings['look-ma-finish'] = Date.now();
 каждого объекта есть три свойства: 
 <ol>
 <li>k — названия ключа в localStorage для этого
-ресурса.</li>
-<li>p — патч для ресурса, который сгенерировал vcdiff.</li> 
-<li>s — чексумма для ресурса актуальной версии, чтобы потом можно было проверить правильность
-наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.</li> </ol><p>
+ресурса.
+<li>p — патч для ресурса, который сгенерировал vcdiff. 
+<li>
+    s — чексумма для ресурса актуальной версии, чтобы потом можно было проверить правильность
+    наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
+ </ol><p>
 
+<p>
+    <dfn>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</dfn>
+    — итерационный метод численной оптимизации, предназначенный для
+    нахождения локального максимума/минимума нелинейного функционала
+    без ограничений.
+</p>
 
-<p><dfn>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</dfn>
-— итерационный метод численной оптимизации, предназначенный для
-нахождения локального максимума/минимума нелинейного функционала
-без ограничений.</p>
-
-<div class = "ramka3">
-<p>Дано &epsilon;, <i>x</i><sub>0</sub> 
-<br> инициализировать H<sub>0</sub>
+<div class = "frameThree">
+<p>Дано &epsilon;, x<sub>0</sub> 
+<br>инициализировать H<sub>0</sub>
 <br><math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi><i>k</i></mi> <mo >=</mo><mn>0</mn>
+    <mi>k</mi> <mo >=</mo><mn>0</mn>
 </math>
 </br> 
-<dl><b>while</b> 
+<dl>while 
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>||&nabla;F<sub>k</sub>||>&epsilon;</mo> 
 </math>
 
 <dd> найти направление 
   <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi><i>p<sub>k</sub></i></mi> <mo >=</mo><mo>-C<sub>k</sub>&nabla;F<sub>k</sub></mo>
+    <mi>p<sub>k</sub></mi><mo>=</mo><mo>-C<sub>k</sub>&nabla;F<sub>k</sub></mo>
 </math>
 <dd>вычислить 
   <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi><i>x</i><sub>k+1</sub></mi> <mo >=</mo> <mi><i>x</i><sub>k</sub></mi> <mo>+</mo><mi><i>a</i><sub>k</sub><i>p</i><sub>k</sub></mi><mo>,</mo><mi><i>a</i><sub>k</sub>
+    <mi>x<sub>k+1</sub></mi><mo>=</mo><mi>x<sub>k</sub></mi><mo>+</mo><mi>a<sub>k</sub>p<sub>k</sub></mi><mo>,</mo><mi>a<sub>k</sub>
 </math>
 удовлетворяет условиям Вольфе
 <dd> обозначить
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi><i>s</i><sub>k</sub></mi> <mo >=</mo> <mi><i>x</i><sub>k+1</sub></mi> <mo>-</mo> <mi><i>x</i><sub>k</sub></mi> 
+    <mi>s<sub>k</sub></mi><mo>=</mo><mi>x<sub>k+1</sub></mi><mo>-</mo> <mi>x<sub>k</sub></mi> 
 </math> 
 и
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi><i>y</i><sub>k</sub></mi> <mo >=</mo> <mo>&nabla;</mo><mi>F<sub>k+1</sub></mi> <mo>-</mo> <mi>&nabla;F<sub>k</sub></mi> 
+    <mi>y<sub>k</sub></mi><mo>=</mo><mo>&nabla;</mo><mi>F<sub>k+1</sub></mi><mo>-</mo><mi>&nabla;F<sub>k</sub></mi> 
 </math> 
-<dd> вычислить <i>C</i><sub>k+1</sub>
+<dd>вычислитьC<sub>k+1</sub>
 <dd> 
   <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mi><i>k</i></mi> <mo >=</mo>  <mi><i>k</i></mi> <mo>+</mo><mi>1</mi>
+    <mi>k</mi><mo>=</mo><mi>k</mi><mo>+</mo><mi>1</mi>
 </math>
-<dt> <b>end</b>
+<dt>end
 </dl>
 </p>
 </div>
 
+<p>
+    Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
+      <ul>
+      <li><dfn>CRC16/32</dfn> - алгоритм нахождения контрольной суммы, предназначенный для проверки
+    целостности данных
+      <li><dfn>md5</dfn> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+    или дайджестов сообщения произвольной длины и последующей проверки
+    их подлинности.
+      
+</p>
 
-<p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
-<ul>
-  <li><dfn>CRC16/32</dfn> - алгоритм нахождения контрольной суммы, предназначенный для проверки
-целостности данных</li>
-  <li><dfn>md5</dfn> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
-или дайджестов сообщения произвольной длины и последующей проверки
-их подлинности.</li></p>
-
-<p><em><b>Потому что он быстрый, компактный и легок в реализации.</b></em></p>
+<p><em>Потому что он быстрый, компактный и легок в реализации.</em></p>
 
 <h3>Итог</h3>
 
 <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
 
-<p><table border="1" ><tr>
+<p><table><tr>
 <th>Релиз</th>
 <th>С патчем</th>
 <th>Без патча</th>
@@ -322,31 +371,27 @@ this.timings['look-ma-finish'] = Date.now();
 <br>Компания: Яндекс</p>
 <hr>
 <footer>
-<article> 
- 
+  <article> 
     <section>
         <h1>Комментарии(3)</h1>
         <article> 
-            <p>- <b>Mogaika</b> <a href="mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a> <time datatime="2014-11-30T17:05:00">30 ноября 2014 в 17:05</time>
+            <p>- Mogaika <a href="mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a> <time datatime="2014-11-30T17:05:00">30 ноября 2014 в 17:05</time>
 
   <br>А можете привести сравнение, на сколько быстрее грузится lite версия?</br></p>
         </article>
-         <article> 
-            <p>- <b>JIguse</b> <a href="mrawesome@yandex.ru">(mrawesome@yandex.ru)</a> <time datatime="2014-11-29T21:30:00">29 ноября 2014 в 21:30</time>
-
+            <article> 
+              <p>- JIguse <a href="mrawesome@yandex.ru">(mrawesome@yandex.ru)</a> <time datatime="2014-11-29T21:30:00">29 ноября 2014 в 21:30</time>
   <br>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
   подробностями о внутренней работе сервисов.</br></p>
         </article>
-         <article> 
-            <p>- <b>Brister</b><a href="brist89@yandex-team.ru">(brist89@yandex-team.ru)</a> <time datatime="2014-11-24T13:13:00">24 ноября 2014 в 13:13</time>
+          <article> 
+            <p>- Brister<a href="brist89@yandex-team.ru">(brist89@yandex-team.ru)</a> <time datatime="2014-11-24T13:13:00">24 ноября 2014 в 13:13</time>
 
   <br><a href="#formula">Формула.</a>
  наверное все-таки от 0.5 до 1</br></p>
         </article>
          <article> 
-            <p>- <b>alexeimois</b><a href="test@yandex.ru">(test@yandex.ru)</a> <time datatime="2014-11-22T17:35:00">22 ноября 2014 в 17:35</time>
-          
-
+            <p>- alexeimois<a href="test@yandex.ru">(test@yandex.ru)</a><time datatime="2014-11-22T17:35:00">22 ноября 2014 в 17:35</time>        
   <br>  Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
   <address><a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></address></br></p>
         </article>
