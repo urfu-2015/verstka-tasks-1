@@ -26,6 +26,13 @@
         {
             list-style: none;
         }
+        
+        .comment-info
+        {
+            background: #e2ecf6;
+            padding: 10px;
+            margin: 5px;
+        }
     </style>
 </head>
 
@@ -84,8 +91,8 @@
                 хорошо или плохо. Метрика работает очень просто. Мы выбираем временной интервал [0; t],
                 такой, что если время показа страницы попало в него, то пользователь счастлив. 
                 Берем еще один интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
-                 показана за это время, то пользователь в целом удовлетворен скоростью работы, 
-                 но уже не настолько счастлив. И применяем формулу:</p>
+                показана за это время, то пользователь в целом удовлетворен скоростью работы, 
+                но уже не настолько счастлив. И применяем формулу:</p>
 
             <blockquote>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).</blockquote>
             <p>Получается значение от нуля до единицы, которое, видимо, лучше всего показывает, хорошо или 
@@ -105,9 +112,7 @@
             <code>
                var <var>totalTime</var>= this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
             </code>
-            <br>
-            <br>И на сервер прилетают подобные записи:
-            <br>
+            <br><p>И на сервер прилетают подобные записи:</p>
             <samp>serverResponse=50&amp;domUpdate=60</samp>
 
             <h5>Как мы ускоряем</h5>
@@ -133,7 +138,7 @@
             <p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления, начали искать 
             реализации diff на JS. На популярных хостингах кода нашли библиотеки:
             </p>
-            <ul class = "untagged-list">
+            <ul class="untagged-list">
                 <li>- VCDiff</li>
                 <li>- google-diff-patch-match</li>
             </ul>
@@ -250,7 +255,7 @@ end         </pre>
 
             <div class="author-info">
                     Автор: <a href="http://habrahabr.ru/users/doochik/">@doochik</a>
-                   <br>С++ разработчик
+                    <br>С++ разработчик
                     <br>Электронная почта:
                     <a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>
                     <br>Компания: Яндекс
@@ -262,47 +267,58 @@ end         </pre>
         <section>
             <h4>Комментарии (3):</h4>
 
-            <dl>
+            <ul class="untagged-list">
                 <article>
-                    <dt>- Mogaika
-                        <a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>
-                        <time>30 ноября 2014 в 17:05</time>
-                    </dt>
-                    <dd>А можете привести сравнение, на сколько быстрее грузится lite версия?</dd>
+                    <li>
+                        <div class="comment-info">- Mogaika
+                            <a href="mailto:mogaika@yandex-team.ru">
+                                mogaika@yandex-team.ru</a>
+                            <time>30 ноября 2014 в 17:05</time>
+                        </div>
+                        А можете привести сравнение, на сколько быстрее грузится lite версия?
+                    </li>
                 </article>
 
                 <article>
-                    <dt>- JIguse
-                        <a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>
-                        <time>29 ноября 2014 в 21:30</time></dt><dd>Спасибо за статью, познавательно.
-                    Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.</dd>
+                    <li>
+                        <div class="comment-info">- JIguse
+                            <a href="mailto:mrawesome@yandex.ru">
+                                mrawesome@yandex.ru</a>
+                            <time>29 ноября 2014 в 21:30</time>
+                        </div>Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми 
+                        подробностями о внутренней работе сервисов.
+                    </li>
                 </article>
 
                 <article>
-                    <dt>- Brister
-                        <a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>
-                        <time>24 ноября 2014 в 13:13</time>
-                    </dt>
-                    <dd>
+                    <li>
+                        <div class="comment-info">
+                            - Brister
+                            <a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>
+                            <time>24 ноября 2014 в 13:13</time>
+                        </div>
                         <blockquote>
                             (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
                         </blockquote>
-                       Получается значение от нуля до единицы, которое, видимо, 
-                       лучше всего показывает, хорошо или плохо работает почта. <br>
-                       <br>наверное все-таки от 0.5 до 1</dd>
+                        Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+                        хорошо или плохо работает почта.
+                        <br>
+                        <br>наверное все-таки от 0.5 до 1</li>
                 </article>
 
                 <article>
-                    <dt>- alexeimois
-                        <a href="mailto:test@yandex.ru">test@yandex.ru</a>
-                        <time>22 ноября 2014 в 17:35</time>
-                    </dt>
-                    <dd>Мы измеряем скорость загрузки с помощью Яндекс.Метрики: 
-                    <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">
-                    help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
-                    </dd>
+                    <li>
+                        <div class="comment-info">
+                            - alexeimois
+                            <a href="mailto:test@yandex.ru">test@yandex.ru</a>
+                            <time>22 ноября 2014 в 17:35</time>
+                        </div>
+                        Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                        <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">
+                            help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
+                    </li>
                 </article>
-            </dl>
+            </ul>
         </section>
     </article>
 
