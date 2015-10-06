@@ -47,4 +47,14 @@ describe('Сodestyle.', function(){
 
         hasTabs.should.be.eql(false);
     });
+
+    describe('Запрещенные атрибуты элементов.', function(){
+        it('Не должно быть атрибута style.', function () {
+            /\<[-\w\'\"\=\s]+style\s*=[-\w\'\"\=\s]*\>/.test(html).should.be.eql(false);
+        });
+
+        it('Не должно быть атрибута border у <table> и <td>.', function () {
+            /\<\s*(table|td)[-\w\'\"\=\s]+border\s*=(\'|\"|\d)+[-\w\'\"\=\s]*\>/.test(html).should.be.eql(false);
+        });
+    });
 });
