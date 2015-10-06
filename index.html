@@ -177,11 +177,11 @@
 			<article>
 				<header>
 					<h3> Как мы ускоряем </h3>	
-				</header>							
+				</header>
+				<strong> 
+					Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:
+				</strong>
 				<ul> 
-					<strong> 
-						Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:
-					</strong>
 					<li> включаем <abbr title="GNU Zip"> gzip </abbr>; </li>
 					<li> выставляем заголовки кэширования; </li>
 					<li> фризим 
@@ -202,10 +202,8 @@
 					</cite> 
 					и 
 					<cite>
-						<a href="http://lists.w3.org/Archives/Public/ietf-http-wg/2008JulSep/att-0441/
-						Shared_Dictionary_Compression_over_HTTP.pdf"> 
-							Google SDHC
-						</a>
+						<a href="http://lists.w3.org/Archives/Public/ietf-http-wg/2008JulSep/att-0441/Shared_Dictionary_Compression_over_HTTP.pdf"> 
+						Google SDHC </a>
 					</cite>, — но по разным причинам они
 					не получили должного распространения в браузерах и на серверах.
 				</p>	
@@ -284,44 +282,42 @@
 					нахождения локального максимума/минимума нелинейного функционала
 					без ограничений.
 				</p>	
-				<p>
-					<strong> Алгоритм: </strong> <br>
-					<p class="algorithm">
+				<strong> Алгоритм: </strong> <br>
+				<p class="algorithm">
 					дано <strong> <em> &#x03B5; x<sub>0</sub> </em> </strong> <br>
 					инициализировать <strong> <em> &Eta;<sub>0</sub> </em> </strong> <br>
 					<strong> <em> k = 0 </em> </strong> <br>
 					<strong> while </strong> ||<strong> <em> &nabla; &fnof;<sub>0</sub> </em> </strong>|| 
 					<br>
 					&#9; найти направление 
-						<strong>
-							<em>p<sub>k</sub> = &ndash; C<sub>k</sub>&nabla;&fnof;<sub>k</sub></em>
-						</strong>
+					<strong>
+						<em>p<sub>k</sub> = &ndash; C<sub>k</sub>&nabla;&fnof;<sub>k</sub></em>
+					</strong>
 					<br>
 					&#9; вычислить 
-						<strong><em>
-							x<sub>k+1</sub> = x<sub>k</sub> + &#x03B1;<sub>k</sub>p<sub>k</sub>
-						</em></strong>
-						, 
-						<strong>
-							<em> &#x03B1;<sub>k</sub> </em>
-						</strong> удовлетворяет условиям Вольфе
+					<strong><em>
+						x<sub>k+1</sub> = x<sub>k</sub> + &#x03B1;<sub>k</sub>p<sub>k</sub>
+					</em></strong>
+					, 
+					<strong>
+						<em> &#x03B1;<sub>k</sub> </em>
+					</strong> удовлетворяет условиям Вольфе
 					<br>
 					&#9; обозначить
-						<strong><em> 
-							s<sub>k</sub> = x<sub>k+1</sub> &ndash; x<sub>k</sub> 
-						</em></strong>
-						и 
-						<strong><em> 
-							y<sub>k</sub> = &nabla; &fnof;<sub>k+1</sub> &ndash; &nabla; &fnof;<sub>k</sub>
-						</em></strong>
+					<strong><em> 
+					s<sub>k</sub> = x<sub>k+1</sub> &ndash; x<sub>k</sub> 
+					</em></strong>
+					и 
+					<strong><em> 
+						y<sub>k</sub> = &nabla; &fnof;<sub>k+1</sub> &ndash; &nabla; &fnof;<sub>k</sub>
+					</em></strong>
 					<br>
 					&#9; вычислить 
-						<strong> <em> C<sub>k+1</sub> </em> </strong>
+					<strong> <em> C<sub>k+1</sub> </em> </strong>
 					<br>
 					&#9; <strong> <em> k = k + 1 </em> </strong>
 					<br>
 					<strong> end </strong>
-					</p>
 				</p>
 				<p>
 					Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
