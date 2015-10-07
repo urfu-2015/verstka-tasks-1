@@ -128,18 +128,34 @@
 					 - google-diff-patch-match
 				</p>
 				Для окончательного выбора библиотеки нам нужно сравнить:
-<pre>
-	Библиотека      | IE 9          | Opera 12
-	----------      | ----          | --------
-	vcdiff          | 8             | 5
-	google diff     | 1363          | 76
-</pre>
+	<table style = "border: dotted 1px;">
+		<thead>
+			<tr>
+				<th style = "border: dotted 1px;"> Библiотека </th>
+				<th style = "border: dotted 1px;"> IE 9 </th>
+				<th style = "border: dotted 1px;"> Opera 12 </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr> 
+				<td style = "border: dotted 1px;"> vcdiff </td>
+				<td style = "border: dotted 1px;"> 8 </td>
+				<th style = "border: dotted 1px;"> 5 </th>
+			</tr>
+			<tr> 
+				<td style = "border: dotted 1px;"> google diff </td>
+				<td style = "border: dotted 1px;"> 1363 </td>
+				<td style = "border: dotted 1px;"> 76 </td>
+			</tr>
+		</tbody>
+	</table>
 				После того как мы определились с библиотекой для диффа, нужно определиться с тем,
 				где и как хранить статику на клиенте.
 	
 				Формат файла с патчами для проекта выглядит так:
-<pre>
+
 <code>
+<pre>
 [
 	{
     	"k": "jane.css",
@@ -152,8 +168,9 @@
  	    "s": 4554
     }
 ]
-</code>
 </pre>
+</code>
+
 				<p>
 					То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
 					каждого объекта есть три свойства. k — названия ключа в localStorage для этого
@@ -182,10 +199,32 @@
 <pre>
 Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:
 
-Релиз  | С патчем     | Без патча
-7.7.20  | 397          | 174 549
-7.7.21  | 383          | 53 995
-7.7.22  | 483          | 3 995
+<table style = "border: dotted 1px;">
+		<thead>
+			<tr>
+				<th style = "border: dotted 1px;"> Релиз </th>
+				<th style = "border: dotted 1px;"> С патчем </th>
+				<th style = "border: dotted 1px;"> Без патча </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr> 
+				<td style = "border: dotted 1px;"> 7.7.20 </td>
+				<td style = "border: dotted 1px;"> 397 </td>
+				<th style = "border: dotted 1px;"> 174 549 </th>
+			</tr>
+			<tr> 
+				<td style = "border: dotted 1px;"> 7.7.21 </td>
+				<td style = "border: dotted 1px;"> 383 </td>
+				<td style = "border: dotted 1px;"> 53 995 </td>
+			</tr>
+			<tr> 
+				<td style = "border: dotted 1px;"> 7.7.22 </td>
+				<td style = "border: dotted 1px;"> 483 </td>
+				<td style = "border: dotted 1px;"> 3 995 </td>
+			</tr>
+		</tbody>
+	</table>
 </pre>
 				Aвтор: <cite>@doochik</cite>
 				С++ разработик
