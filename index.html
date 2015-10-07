@@ -1,13 +1,13 @@
-<html>
-    <!-- Ваш замечательный код -->
-    <!DOCTYPE html>
 <html lang="ru">
     <head>
         <meta charset="utf-8">
         <title>Яндекс.Блог</title>
     </head>
-<body>
+    <body>
+    <header></header>
     <h1>Блог компании Яндекс.</h1>
+    </header>
+    <main>
     <h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
     <p>
        Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
@@ -18,20 +18,20 @@
     </p>
     <h3>Что мы измеряем</h3>
     <h4>Этапы первой загрузки:</h4>
-        <ul>
+        <ol>
             <li>подготовка;</li>
             <li>загрузка статики (<abbr title="HyperText Transfer Protocol ">HTTP<abbr>-запрос и парсинг);</li>
             <li>исполнение модулей;</li>
             <li>инициализация базовых объектов;</li>
             <li>отрисовка.</li>
-        </ul>
+        </ol>
     <h4>Этапы отрисовки любой страницы:</h4>
-        <ul>
+        <ol>
             <li>подготовка к запросу на сервер;</li>
             <li>запрос данных с сервера;</li>
             <li>шаблонизация;</li>
             <li>обновление DOM.</li>
-        </ul>
+        </ol>
     <p>
         — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы</br>
         — <q>Что же дальше?</q> - вопрошаете вы</br>
@@ -67,10 +67,8 @@
         причину замедления: медленнее стал отвечать сервер либо слишком долго
         выполняется JavaScript. Выглядит это примерно так:
     </p>
-    <pre>
         <code>this.timings['look-ma-im-start'] = Date.now();
         this.timings['look-ma-finish'] = Date.now();</code>
-    </pre>
     <p>
         C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
         отправке рассчитываются. На этапах разница между “end” и “start” не считается,
@@ -83,7 +81,7 @@
         И на сервер прилетают подобные записи:
     </p>
     <pre>        
-        <code>serverResponse=50&domUpdate=60</code>
+        <samp>serverResponse=50&domUpdate=60</samp>
     </pre>
     <h3>Что мы измеряем</h3>
     <p>
@@ -170,18 +168,14 @@
         правильность наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера</li>
     </ul>
     </p>
-    <p>
-        <dl> 
-            <dt>
-                Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно <abbr title="Broyden — Fletcher — Goldfarb — Shanno">(BFGS)</abbr>
-            </dt>
+    <dl> 
+        <dt>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно <abbr title="Broyden — Fletcher — Goldfarb — Shanno">(BFGS)</abbr></dt>
             <dd>
                 — итерационный метод численной оптимизации, предназначенный для
                 нахождения локального максимума/минимума нелинейного функционала
                 без ограничений.       
             </dd>
         </dl>
-    </p>
     <pre>
     дано &epsilon;, <var>x</var><sub>0</sub>
     Инициализировать <var>H</var><sub>0</sub>
@@ -267,9 +261,9 @@
     </p>
     </article>
     <article>
-        <address>
+    <address>
             JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) <time pubdate datetime="2015-11-29T21:30">29 ноября 2014 в 21:30</time>
-        </address>
+    </address>
     <p>
         Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
         подробностями о внутренней работе сервисов.
@@ -300,7 +294,7 @@
         <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a>
     </p>
     </article>
-    </section>           
+    </main>
     <footer>
         <address>
             &copy; Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10
@@ -308,4 +302,4 @@
     </footer>
     </body>
 </html>
-</html>
+
