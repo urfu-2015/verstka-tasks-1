@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="keyword" content="Yandex, Яндекс">
-		<meta name="copyright" content="Яндекс">
+        <meta name="copyright" content="Яндекс">
         <title>Блог компании Яндекс</title>
         <link href="style.css" rel="stylesheet">
-	</head>
+    </head>
     <body>
         <div class="content">
             <header>
@@ -61,10 +61,10 @@
                         <p>
                             – метрика, которая сразу говорит: хорошо или плохо. Метрика
                             работает очень просто. Мы выбираем временной интервал <var>[0;t]</var>,
-							такой, что если время показа страницы попало в него, то пользователь счастлив.
-							Берем еще один интервал, <var>(t;4t]</var> (в четыре раза больше первого),
-							и считаем, что если страница показана за это время, то пользователь в целом
-							удовлетворен скоростью работы, но уже не настолько счастлив. И применяем формулу:
+                            такой, что если время показа страницы попало в него, то пользователь счастлив.
+                            Берем еще один интервал, <var>(t;4t]</var> (в четыре раза больше первого),
+                            и считаем, что если страница показана за это время, то пользователь в целом
+                            удовлетворен скоростью работы, но уже не настолько счастлив. И применяем формулу:
                         </p>
                         <p>
                             <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -100,20 +100,20 @@
                     Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
                     причину замедления: медленнее стал отвечать сервер либо слишком долго
                     выполняется JavaScript. Выглядит это примерно так:
-				</p>
+                </p>
                 <pre class="codeContent"><code>this.timings['look-ma-im-start'] = Date.now();
 this.timings['look-ma-finish'] = Date.now();
-				</code></pre>
+                </code></pre>
                 <p>
-					C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
+                    C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
                     отправке рассчитываются. На этапах разница между “end” и “start” не считается,
                     а все вычисления производятся в конце:
-				</p>
+                </p>
                 <pre class="codeContent"><code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
-				</code></pre>
-				<p>И на сервер прилетают подобные записи:</p>
+                </code></pre>
+                <p>И на сервер прилетают подобные записи:</p>
                 <pre class="codeContent"><code>serverResponse=50&domUpdate=60
-				</code></pre>
+                </code></pre>
 
                 <h3>Как мы ускоряем</h3>
                 <p>
@@ -124,9 +124,9 @@ this.timings['look-ma-finish'] = Date.now();
                     <li>включаем <abbr title="GNU Zip">gzip</abbr>;</li>
                     <li>выставляем заголовки кэширования;</li>
                     <li>
-						фризим <abbr title="Cascading Style Sheets">CSS</abbr>,
-						<abbr title="JavaScript">JS</abbr>, шаблоны и картинки;
-					</li>
+                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>,
+                        <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;
+                    </li>
                     <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
                 </ul>
                 <p>
@@ -185,21 +185,21 @@ this.timings['look-ma-finish'] = Date.now();
         "s": 4554
     }
 ]
-				</code></pre>
+                </code></pre>
                 <p>
                     То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
                     каждого объекта есть три свойства. <code>k</code> — названия ключа в
-					<code>localStorage</code> для этого ресурса. <code>p</code> — патч для ресурса,
-					который сгенерировал vcdiff. <code>s</code> — чексумма для
+                    <code>localStorage</code> для этого ресурса. <code>p</code> — патч для ресурса,
+                    который сгенерировал vcdiff. <code>s</code> — чексумма для
                     ресурса актуальной версии, чтобы потом можно было проверить правильность
                     наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
                 </p>
 
                 <dl>
                     <dt>
-						Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно
-						(<abbr title="Broyden — Fletcher — Goldfarb — Shanno algorithm">BFGS<abbr>)
-					</dt>
+                        Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно
+                        (<abbr title="Broyden — Fletcher — Goldfarb — Shanno algorithm">BFGS<abbr>)
+                    </dt>
                     <dd>
                         <p>
                             — итерационный метод численной оптимизации, предназначенный для
@@ -338,35 +338,25 @@ this.timings['look-ma-finish'] = Date.now();
                             </math><br>
                             end
                         </p>
-					</dd>
+                    </dd>
                 </dl>
-                <p>
-                    Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
-                </p>
-                <ul class="noMarkList">
-                    <li>
-						<dl>
-							<dt>CRC16/32</dt>
-							<dd>
-								- алгоритм нахождения контрольной суммы, предназначенный для проверки
-                               целостности данных
-							</dd>
-						</dl>
-                    </li>
-                    <li>
-						<dl>
-							<dt>md5</dt>
-							<dd>
-								- 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
-								или дайджестов сообщения произвольной длины и последующей проверки
-								их подлинности.
-							</dd>
-						</dl>
-                    </li>
-                </ul>
-                <p>
-                    Потому что он быстрый, компактный и легок в реализации.
-                </p>
+                <p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p>
+                <dl>
+                    <dt>CRC16/32</dt>
+                    <dd>
+                        - алгоритм нахождения контрольной суммы, предназначенный для проверки
+                       целостности данных
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>md5</dt>
+                    <dd>
+                        - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+                        или дайджестов сообщения произвольной длины и последующей проверки
+                        их подлинности.
+                    </dd>
+                </dl>
+                <p>Потому что он быстрый, компактный и легок в реализации.</p>
 
                 <h3>Итог</h3>
                 <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:<p>
@@ -408,7 +398,7 @@ this.timings['look-ma-finish'] = Date.now();
                     <article class="comment">
                         <div class="commenter">
                             <address>Mogaika (mogaika@yandex-team.ru)</address>
-							<time>30 ноября 2014 в 17:05</time>
+                            <time>30 ноября 2014 в 17:05</time>
                         </div>
                         <p>
                             А можете привести сравнение, на сколько быстрее грузится lite версия?
@@ -417,7 +407,7 @@ this.timings['look-ma-finish'] = Date.now();
                     <article class="comment">
                         <div class="commenter">
                             <address>JIguse (mrawesome@yandex.ru)</address>
-							<time>29 ноября 2014 в 21:30</time>
+                            <time>29 ноября 2014 в 21:30</time>
                         </div>
                         <p>
                             Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
@@ -427,7 +417,7 @@ this.timings['look-ma-finish'] = Date.now();
                     <article class="comment">
                         <div class="commenter">
                             <address>Brister (brist89@yandex-team.ru)</address>
-							<time>24 ноября 2014 в 13:13</time>
+                            <time>24 ноября 2014 в 13:13</time>
                         </div>
                         <p>
                             (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
@@ -440,7 +430,7 @@ this.timings['look-ma-finish'] = Date.now();
                     <article class="comment">
                         <div class="commenter">
                             <address>alexeimois (test@yandex.ru)</address>
-							<time>22 ноября 2014 в 17:35</time>
+                            <time>22 ноября 2014 в 17:35</time>
                         </div>
                         <p>
                             Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
