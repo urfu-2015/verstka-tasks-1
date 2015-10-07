@@ -1,18 +1,30 @@
+<!DOCTYPE html>
 <html lang="ru">
-	<!DOCTYPE html>
 	<head>
 		<meta charset="utf-8">
 		<title>Блог компании Яндекс.</title>
 	</head>
 	<body>
 		<header>
-			<h1 style="text-align: center; color:Red">Блог компании Яндекс.</h1>
+			 <style type="text/css">
+			 h1{
+			     text-align: center;
+				 color:Red;
+			 }
+			 section{
+			     text-align: center; 
+			 }
+			 article{
+			     text-align: justify; 
+			 }
+			 </style>
+			<h1>Блог компании Яндекс.</h1>
 		</header>
-		<section style="text-align: center">
+		<section>
 			<header>
 				<h3>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h3>
 			</header>
-			<article style="text-align: justify">
+			<article>
 				<p>
 					Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то, какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
 					тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность, иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
@@ -194,13 +206,18 @@ serverResponse=50&domUpdate=60
 дано <var>&epsilon;</var>, <var>x<sub>0</sub></var>
 инициализировать <var>H<sub>0</sub></var>
 <var>k</var> = 0
-<span style="font-weight:bold">while</span>&#8214;&Del;&#402;<sub>k</sub>&#8214;&#62;<var>&epsilon;</var>
+				<style type="text/css">
+				 span{
+					font-weight:bold;
+				 }
+				</style>
+<span>while</span>&#8214;&Del;&#402;<sub>k</sub>&#8214;&#62;<var>&epsilon;</var>
   найти направление <var>p<sub>k</sub></var> = -<var>C<sub>k</sub></var>&Del;&#402;<sub>k</sub>
   вычислить <var>x<sub>k+1</sub></var> = <var>x<sub>k</sub></var>+<var>&alpha;<sub>k</sub>p<sub>k</sub></var>, <var>&alpha;<sub>k</sub></var> удовлетворяет условиям Вольфе
   обозначить <var>s<sub>k</sub></var> = <var>x<sub>k+1</sub></var>-<var>x<sub>k</sub></var> и <var>y<sub>k</sub></var> = &Del;&#402;<sub>k+1</sub>-&Del;&#402;<sub>k</sub>
   вычислить <var>C<sub>k+1</sub></var>
   <var>k</var> = <var>k</var>+1
-<span style="font-weight:bold">end</span>
+<span>end</span>
 				</pre>
 				<p>
 					Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
@@ -211,7 +228,7 @@ serverResponse=50&domUpdate=60
 						<dd>128-битный алгоритм хеширования. Предназначен для создания «отпечатков» или дайджестов
 						сообщения произвольной длины и последующей проверки их подлинности.</dd>
 					</dl>
-				Потому что он быстрый, компактный и легок в реализации.
+					Потому что он быстрый, компактный и легок в реализации.
 				</p>
 				<h3>Итог</h3>
 				<p>
