@@ -1,0 +1,229 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="andrej.veshinin" content="Domashka1">
+		<title>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</title>
+		<base target="_self"/>
+		
+		<style>
+			body {
+				background: url("Ресурсы/background.jpg");
+			}
+			figure{
+				background:#F0F0F0;
+				padding:10px;
+				border:4px solid blue;
+				width:950px;
+			}
+		</style>
+	</head>
+<body>
+<main>
+<header>
+<nav>		 
+<a href="file:///C:/Users/andre/Desktop/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B01/Page1.html">Что мы измеряем</a>
+<a href="#2">Как мы измеряем</a>
+<a href="#3">Как мы ускоряем</a>
+<a href="#4">Алгоритм Бройдена Флетчера(BFGS)</a>
+<a href="#5">Коментарии</a>
+
+</nav>
+<a name="2"></a>		
+<hgroup>
+<font face="arial"><h1 align="center">Как мы измеряем</h1>
+<h2>Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
+причину замедления: медленнее стал отвечать сервер либо слишком долго
+выполняется JavaScript.</h2></hgroup></font>
+</header>
+<figure>
+<figcaption><font size="5">Выглядит это примерно так:</figcaption>
+<pre>
+     <code>this.timings['look-ma-im-start'] = Date.now();
+     this.timings['look-ma-finish'] = Date.now();</code>
+</pre>		   
+</figure>
+<p></p>
+<p>C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
+отправке рассчитываются. </p>
+<figure>
+<figcaption>На этапах разница между “end” и “start” не считается,
+а все вычисления производятся в конце:</figcaption>
+<pre>
+    <code>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</code>
+</pre>
+<p></p>
+	<figcaption>И на сервер прилетают подобные записи:</figcaption>
+<pre>
+	 <code>serverResponse=50&domUpdate=60</code>
+</pre>
+</figure>
+<hr>
+<a name="3"></a>
+<hgroup>
+<font face="arial"><h2 align="center">Как мы ускоряем</h2>
+<h3>Чтобы снизить время загрузки почты при выходе новых версий,
+мы уже делаем следующее:</h3></font>
+<b><ul>
+    <li>включаем gzip;</li>
+	<li>выставляем заголовки кэширования;</li>
+	<li>фризим CSS, JS, шаблоны и картинки;</li>
+	<li>используем CDN;</li>
+</ul></b>
+</hgroup>
+<p>Мы подумали: <blockquote>«А что если хранить где-то старую версию файлов, а при выходе новой
+передавать только <mark>diff</mark> между ней и той, которая сохранена у пользователя?»</blockquote>
+В браузере же останется просто наложить патч на клиенте.
+
+На самое деле эта идея не новая.<br> Уже существуют стандарты для HTTP — например,
+RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разным причинам они
+не получили должного распространения в браузерах и на серверах.
+
+Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
+начали искать реализации diff на JS. На популярных хостингах кода нашли
+библиотеки:</p>
+<b><ul>
+    <li>VCDiff;</li>
+	<li>google-diff-patch-match.</li>	
+</ul></b>
+<font face="arial"><h4>Для окончательного выбора библиотеки нам нужно сравнить:</h4></font>
+<table border="1" bgcolor="white" align="center" height="100" width="250">
+<thead>
+    <tr>
+	  <th>Библиотека</th>
+	  <th>IE 9 </th>
+	  <th>Opera 12</th>
+	</tr>
+</thead>
+<tbody>
+    <tr>
+	   <td>vcdiff</td>
+	   <td>8</td>
+	   <td>5</td>
+	</tr>   
+	<tr>
+        <td>google diff</td>
+        <td>1363</td>
+        <td>76</td>		
+    </tr>
+	</tbody>
+</table></span>
+<font face="arial"><h5>После того как мы определились с библиотекой для диффа, нужно определиться с тем,
+где и как хранить статику на клиенте.</h5></font>
+<figure>
+<figcaption>Формат файла с патчами для проекта выглядит так:</figcaption>
+   <pre>
+      <code>[
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    },
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    }
+]</code>
+   </pre>
+</figure>
+<p>То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
+каждого объекта есть три свойства: <blockquote>k — названия ключа в <code>localStorage</code> для этого
+ресурса.</blockquote> <blockquote>p — патч для ресурса, который сгенерировал vcdiff.</blockquote> <blockquote>s — чексумма для
+ресурса актуальной версии, чтобы потом можно было проверить правильность
+наложения патча на клиенте.</blockquote></p>
+<font face="arial"><h5 align="center"><u>Чексумма</u> вычисляется по алгоритму Флетчера.</h5></font>
+<a name="4"></a>
+<dl>
+    <b><dt alt="vrvrv">Алгоритм Бройдена Флетчера(BFGS)</dt></b>
+	<i><dd>итерационный метод численной оптимизации, предназначенный для
+нахождения локального максимума/минимума нелинейного функционала
+без ограничений.</dd></i>
+</dl>
+<u><p>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</p></u>
+<dl>
+    <strong><dt>CRC16/32 -</dt></strong>
+	    <i><dd>алгоритм нахождения контрольной суммы, предназначенный для проверки
+целостности данных.</dd></i>
+    <strong><dt>md5 -</dt></strong>
+        <i><dd>128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+или дайджестов сообщения произвольной длины и последующей проверки
+их подлинности.</dd></i>
+</dl>  
+<font face="arial"><h5 align="center">Потому что он <font size="5" face="Courier New">быстрый, компактный и легок</font> в реализации!!!</h5></font>
+	<hr>
+	<hgroup>
+	<font face="arial"><h5>Итог.</h5></font>
+	<font face="arial"><h6>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</h6></font>
+	</hgroup>
+	<table align="center" border="1" bgcolor="white" height="100" width="250" >
+	   <thead>
+	      <tr>
+		     <th>Релиз</th>
+			 <th>С патчем</th>
+			 <th>Без патча</th>
+		  </tr>
+	   </thead>
+	      <tr>
+	         <td>7.7.20</td>
+			 <td>397</td>
+			 <td>174 549</td>
+		  </tr>
+		  <tr>
+		     <td>7.7.21</td>
+			 <td>383</td>
+			 <td>53 995</td>
+		  </tr>
+		  <tr>
+		      <td>7.7.22</td>
+			  <td>483</td>
+			  <td>3 995</td>
+		  </tr>
+	</table>
+	</main>
+	<hr>
+	<footer>
+	<p align="right">Автор: <strong>@doochik</strong>
+С++ разработчик
+<address align="right">Электронная почта:<a href="mailto:doochik@yandex-team.ru"> (doochik@yandex-team.ru)</a></address>
+</p>
+<p align="right">Компания: <font color="red">Я</font>ндекс</p>
+</footer>
+<a name="5"></a>
+<p>Коментарии(3):</p>
+<section>
+<article>
+- Mogaika <a href="mailto:mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a> <time datetime=>30 ноября 2014 в 17:05</time>
+
+  А можете привести сравнение, на сколько быстрее грузится lite версия?
+</article>
+<article>
+- JIguse <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a> 29 ноября 2014 в 21:30
+
+  Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+  подробностями о внутренней работе сервисов.
+</article>
+<article>
+- Brister <a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru)</a> 24 ноября 2014 в 13:13
+
+  (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+  Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+  хорошо или плохо работает почта.
+
+  наверное все-таки от 0.5 до 1
+</article>
+<article>
+- alexeimois <a href="mailto:test@yandex.ru">(test@yandex.ru)</a> 22 ноября 2014 в 17:35
+
+  Мы измеряем скорость загрузки с помощью <font color="red">Я</font>ндекс.Метрики:
+  help.yandex.ru/metrika/reports/monitoring_timing.xml
+</article>
+</section>
+<p></p>
+<hr>
+<footer>
+<p align="right">© <font color="red">Я</font>ндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</p>
+<a href="file:///C:/Users/andre/Desktop/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B01/Page1.html">Назад</a>
+</footer>
+	
+</body>
+</HTML>
