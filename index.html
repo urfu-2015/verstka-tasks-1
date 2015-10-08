@@ -91,9 +91,9 @@
                 <p>
                     И на сервер прилетают подобные записи:
                 </p>
-                <code>
+                <samp>
                     serverResponse=50&#38;domUpdate=60
-                </code>
+                </samp>
                 <h3>Как мы ускоряем</h3>
                 <p>
                     Чтобы снизить время загрузки почты при выходе новых версий,
@@ -103,7 +103,8 @@
                     <li>включаем gzip</li>
                     <li>выставляем заголовки кэширования;</li>
                     <li>
-                        фризим CSS, <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;
+                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>abbr>,
+                        <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;
                     </li>
                     <li>
                         используем <abbr title="Content Delivery Network">CDN</abbr>;
@@ -121,17 +122,13 @@
                     браузерах и на серверах.
                 </p>
                 <p>
-                    Мы же решили сделать свой аналог на
-                    <abbr title="JavaScript">JS</abbr>.
+                    Мы же решили сделать свой аналог на JS.
                     Чтобы реализовать этот метод обновления,
-                    начали искать реализации diff на
-                    <abbr title="JavaScript">
-                        JS</abbr>. На популярных хостингах кода нашли библиотеки:
+                    начали искать реализации diff на JS. На популярных хостингах кода нашли библиотеки:
                 </p>
                 <ol>
                     <li>
-                        <abbr title="format and an algorithm for delta encoding, described in RFC 3284">
-                            VCDiff</abbr>
+                        VCDiff
                     </li>
                     <li>google-diff-patch-match</li>
                 </ol>
@@ -166,20 +163,20 @@
                 <p>
                     Формат файла с патчами для проекта выглядит так:
                 </p>
-                    <pre><code>
-                        [
-                            {
-                                "k": "jane.css",
-                                "p": [patch],
-                                "s": 4554
-                            },
-                            {
-                                "k": "jane.css",
-                                "p": [patch],
-                                "s": 4554
-                            }
-                        ]
-                    </code></pre>
+                <pre><code>
+                    [
+                        {
+                            "k": "jane.css",
+                            "p": [patch],
+                            "s": 4554
+                        },
+                        {
+                            "k": "jane.css",
+                            "p": [patch],
+                            "s": 4554
+                        }
+                    ]
+                </code></pre>
                 <p>
                     То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
                     каждого объекта есть три свойства. <var>k</var> — названия ключа в localStorage для этого
