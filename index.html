@@ -36,7 +36,7 @@
                 </ol>
                 <p>Этапы отрисовки любой страницы:</p>
                 <ol>
-                   <li>подготовка к запросу на сервер;</li>
+                    <li>подготовка к запросу на сервер;</li>
                     <li>запрос данных с сервера; </li>
                     <li>шаблонизация;</li>
                     <li>обновление <abbr title="Document Object Model">DOM.</abbr></li>
@@ -67,9 +67,11 @@
                 </p>
                 <pre>
                     (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+                </pre>
+                <p>
                     Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                     хорошо или плохо работает почта.
-                </pre>
+                </p>
                 <h3>Как мы измеряем</h3>
                 <p>
                     Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
@@ -103,12 +105,10 @@
                     <li>включаем gzip</li>
                     <li>выставляем заголовки кэширования;</li>
                     <li>
-                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>abbr>,
+                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>,
                         <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;
                     </li>
-                    <li>
-                        используем <abbr title="Content Delivery Network">CDN</abbr>;
-                    </li>
+                    <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
                 </ol>
                 <p>
                     Мы подумали: <q>А что если хранить где-то старую версию файлов, а при выходе новой
@@ -127,9 +127,7 @@
                     начали искать реализации diff на JS. На популярных хостингах кода нашли библиотеки:
                 </p>
                 <ol>
-                    <li>
-                        VCDiff
-                    </li>
+                    <li>VCDiff</li>
                     <li>google-diff-patch-match</li>
                 </ol>
                 <p>
@@ -307,7 +305,9 @@
                     <p>
                         Мы измеряем скорость загрузки с помощью
                         <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml" target="_blank">
-                            Яндекс.Метрики</a>:<br>
+                            Яндекс.Метрики
+                        </a>
+                        :<br>
                         help.yandex.ru/metrika/reports/monitoring_timing.xml
                     </p>
                 </article>
