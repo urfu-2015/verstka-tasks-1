@@ -1,0 +1,16 @@
+body{
+    width: 960px;
+}
+
+th,
+td,
+table
+{
+    border: 1px solid #000;
+    border-collapse: collapse; 
+}
+
+footer
+{
+    text-align: center;
+}
