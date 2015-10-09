@@ -8,6 +8,11 @@ h3
     margin-bottom: 15px;
 }
 
+ol
+{
+    margin-top: 5px;
+}
+
 table
 {
     border-collapse: collapse;
@@ -16,9 +21,4 @@ table
 th, td
 {
     border: 1px solid black;
-}
-
-ol
-{
-    margin-top: 5px;
 }
