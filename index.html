@@ -174,6 +174,18 @@
                 нахождения локального максимума/минимума нелинейного функционала
                 без ограничений.
             </p>
+            <pre class="big">
+                Дано &epsilon;, x<sub>0</sub>
+                Инициальзировать H<sub>0</sub>
+                k = 0
+                <span class="bold">while</span> &Vert; &Del;&fnof;<sub>k</sub> &Vert; > &epsilon;
+                найти направление p<sub>k</sub> = –C<sub>k</sub>&Del;&fnof;<sub>k</sub>
+                вычислить x<sub>k+1</sub> = x<sub>k</sub> + &alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub> удовлетворяет условиям Вольфе
+                обозначить s<sub>k</sub> = x<sub>k+1</sub> – x<sub>k</sub> и y<sub>k</sub> = &Del;&fnof;<sub>k+1</sub> – &Del;&fnof;<sub>k</sub>
+                вычислить C<sub>k+1</sub>
+                k = k + 1
+                <span class="bold">end</span></big>
+            </pre>
             <p>
                 Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
                 CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
