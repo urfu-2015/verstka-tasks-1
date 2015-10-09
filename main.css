@@ -1,0 +1,47 @@
+.abbr
+{
+    border-bottom: 1px dashed blue;
+    color: #000080;
+}
+
+.p10px
+{
+    margin-left: 10px;
+}
+
+.p20px
+{
+    margin-left: 20px;
+}
+
+.p40px
+{
+    margin-left: 40px;
+}
+
+
+.table 
+{
+    margin-top: 20px;
+    border: 1px solid #000;
+}
+
+.th
+{
+    text-align: left; 
+    background: #add0f7; 
+    padding: 5px; 
+    border: 1px solid black; 
+}
+
+.td
+{ 
+    padding: 5px; 
+    border: 1px solid black; 
+}
+
+.q
+{
+    margin-left: 5px;
+}
+
