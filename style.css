@@ -15,3 +15,14 @@ footer
 {
     text-align: center;
 }
+
+span.bold
+{
+    font-weight: bold;
+}
+
+.big
+{
+    font-family: "Times New Roman", Arial;
+    font: 14px;
+}
