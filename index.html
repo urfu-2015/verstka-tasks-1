@@ -11,7 +11,7 @@
                 border: 1px solid black;
             }
 
-            td, 
+            td,
             th
             {
                 border: 1px solid black;
@@ -45,14 +45,14 @@
             <h1>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1>
         </header>
         <main>
-            <article>        
+            <article>
                 <p>
                     Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
                     какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
                     тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
                     иногда &mdash; исправляем ошибки, а это значит, у нас постоянно появляются новый код
                     и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
-                </p>            
+                </p>
                 <h2>Что мы измеряем</h2>
                 <p>Этапы первой загрузки:</p>
                 <ul>
@@ -73,16 +73,16 @@
                     <li>обновление <abbr title="Document Object Model">DOM</abbr>.</li>
                 </ul>
                 <p>
-                    &ndash; <q>Ок, теперь у нас есть метрики, 
+                    &ndash; <q>Ок, теперь у нас есть метрики,
                     мы можем отправить их на сервер</q> &ndash; говорим мы<br>
                     &ndash; <q>Что же дальше?</q> &ndash; вопрошаете вы<br>
                     &ndash; <q>А давай построим график!</q> &ndash; отвечаем мы<br>
                     &ndash; <q>А что будем считать?</q> &ndash; уточняете вы<br>
                 </p>
                 <p>
-                    Как вы знаете, <dfn>медиана</dfn> &ndash; это серединное, 
+                    Как вы знаете, <dfn>медиана</dfn> &ndash; это серединное,
                     а не среднее значение в выборке.<br>
-                    Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана &ndash; 3, 
+                    Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана &ndash; 3,
                     а среднее &ndash; 6,5.<br>
                     В общем случае медиана отлично показывает, сколько грузится средний пользователь.
                 </p>
@@ -91,7 +91,7 @@
                     рассказать, сколько пользователей ускорилось, а сколько замедлилось.
                 </p>
                 <p>
-                    <abbr title="Application Performance Index">APDEX</abbr> &ndash; метрика, которая сразу говорит: хорошо или плохо. 
+                    <abbr title="Application Performance Index">APDEX</abbr> &ndash; метрика, которая сразу говорит: хорошо или плохо.
                     Метрика работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
                     время показа страницы попало в него, то пользователь счастлив. Берем еще один
                     интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
@@ -103,7 +103,7 @@
                         <mfrac>
                             <mrow>
                                 <mi>кол-во счастливых пользователей</mi>
-                                <mo>&plus;</mo>
+                                <mo>+</mo>
                                 <mfrac>
                                     <mi>кол-во удовлетворенных</mi>
                                     <mi>2</mi>
@@ -132,7 +132,7 @@
                 </p>
                 <p>
                     C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
-                    отправке рассчитываются. 
+                    отправке рассчитываются.
                     На этапах разница между "end" и "start"
                     не считается, а все вычисления производятся в конце:
                     <pre><code>
@@ -151,22 +151,22 @@
                     <li>включаем gzip;</li>
                     <li>выставляем заголовки кэширования;</li>
                     <li>
-                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>, 
+                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>,
                         <abbr title="JavaScript">JS</abbr>, шаблоны и картинки;
                     </li>
                     <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
                 </ul>
                 <p>
-                    Мы подумали: <q>А что если хранить где-то старую версию файлов, 
-                    а при выходе новой передавать только diff между ней и той, 
+                    Мы подумали: <q>А что если хранить где-то старую версию файлов,
+                    а при выходе новой передавать только diff между ней и той,
                     которая сохранена у пользователя?</q>
                     В браузере же останется просто наложить патч на клиенте.
                 </p>
                 <p>
-                    На самое деле эта идея не нова. 
-                    Уже существуют стандарты для <abbr title="Hypertext Transfer Protocol">HTTP</abbr> &mdash; например,
-                    RFC 3229 &laquo;Delta encoding in HTTP&raquo; и &laquo;Google SDHC&raquo;,
-                    &mdash; но по разным причинам они не получили должного 
+                    На самое деле эта идея не нова.
+                    Уже существуют стандарты для HTTP &mdash; например,
+                    <abbr title=" Request for Comments">RFC</abbr> 3229 "Delta encoding in HTTP" и "Google SDHC",
+                    &mdash; но по разным причинам они не получили должного
                     распространения в браузерах и на серверах.
                 </p>
                 <p>
@@ -183,7 +183,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Библиотека</th> 
+                                <th>Библиотека</th>
                                 <th>IE 9</th>
                                 <th>Opera 12</th>
                             </tr>
@@ -224,12 +224,12 @@
                     </code></pre>
                 </p>
                 <p>
-                    То есть это обычный массив из объектов. Каждый объект &mdash; отдельный ресурс. 
-                    У каждого объекта есть три свойства. 
-                    <var>k</var> &mdash; названия ключа в localStorage для этого ресурса. 
+                    То есть это обычный массив из объектов. Каждый объект &mdash; отдельный ресурс.
+                    У каждого объекта есть три свойства.
+                    <var>k</var> &mdash; названия ключа в localStorage для этого ресурса.
                     <var>p</var> &mdash; патч для ресурса, который сгенерировал vcdiff.
-                    <var>s</var> &mdash; чексумма для ресурса актуальной версии, 
-                    чтобы потом можно было проверить правильность наложения патча на клиенте. 
+                    <var>s</var> &mdash; чексумма для ресурса актуальной версии,
+                    чтобы потом можно было проверить правильность наложения патча на клиенте.
                     Чексумма вычисляется по алгоритму Флетчера.
                 </p>
                 <p>
@@ -242,11 +242,11 @@
                     Алгоритм Флетчера
                     <div>
                         <div>
-                            Дано: 
+                            Дано:
                             <span class="formula">&epsilon;, x<sub>0</sub></span>
                         </div>
                         <div>
-                            Инициализировать: 
+                            Инициализировать:
                             <span class="formula">H<sub>0</sub></span>
                         </div>
                         <div>
@@ -254,36 +254,36 @@
                         </div>
                         <div>
                             <span class="bold-font">while</span>
-                             &#8214;&nabla;&#402;<sub>k</sub>&#8214; &#62; 
+                             &#8214;&nabla;&#402;<sub>k</sub>&#8214; &#62;
                             <span class="formula">&epsilon;</span>
                         </div>
                         <div style="padding-left:30px;">
                             <div>
-                                найти направление 
+                                найти направление
                                 <span class="formula">
-                                    p<sub>k</sub> = 
+                                    p<sub>k</sub> =
                                     -C<sub>k</sub> &nabla;&#402;<sub>k</sub>
                                 </span>
                             </div>
                             <div>
-                                вычислить 
+                                вычислить
                                 <span class="formula">
-                                    x<sub>k+1</sub> = x<sub>k</sub> 
+                                    x<sub>k+1</sub> = x<sub>k</sub>
                                     + &alpha;<sub>k</sub>p<sub>k</sub>, &alpha;<sub>k</sub>
-                                </span> 
+                                </span>
                                 удовлетворяет условиям Вольфе
                             </div>
                             <div>
-                                обозначить 
+                                обозначить
                                 <span class="formula">
-                                    s<sub>k</sub> = x<sub>k+1</sub> 
+                                    s<sub>k</sub> = x<sub>k+1</sub>
                                     - x<sub>k</sub>
                                     и y<sub>k</sub> = &nabla;&#402;<sub>k+1</sub>
                                     -&nabla;&#402;<sub>k</sub>
                                 </span>
                             </div>
                             <div>
-                                вычислить 
+                                вычислить
                                 <span class="formula">C<sub>k+1</sub></span>
                             </div>
                             <div>
@@ -302,14 +302,14 @@
                 <p>
                     Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
                     <dl>
-                        <dt><abbr title="Cyclic redundancy check">CRC16/32</abbr></dt> - 
+                        <dt><abbr title="Cyclic redundancy check">CRC16/32</abbr></dt> -
                         <dd>
-                            алгоритм нахождения контрольной суммы, 
+                            алгоритм нахождения контрольной суммы,
                             предназначенный для проверкицелостности данных
                         </dd>
-                        <dt>md5</dt> - 
+                        <dt>md5</dt> -
                         <dd>
-                            128-битный алгоритм хеширования. Предназначен для создания 
+                            128-битный алгоритм хеширования. Предназначен для создания
                             "отпечатков"
                             или дайджестов сообщения произвольной длины и последующей проверки
                             их подлинности.
@@ -349,20 +349,20 @@
                     </table>
                 </p>
                 <address>
-                    Автор: 
+                    Автор:
                     <a href="https://twitter.com/doochik">@doochik</a><br>
                     С++ разработик<br>
-                    Электронная почта: 
+                    Электронная почта:
                     <a href="mailto:doochik@yandex-team.ru">(doochik@yandex-team.ru)</a><br>
-                    Компания: 
+                    Компания:
                     <a href="https://ya.ru"> Яндекс</a>
                 </address>
-            </article>        
+            </article>
             <section>
                 <h2>Комментарии (3):</h2>
                 <article>
                     <header>
-                        &mdash; Mogaika 
+                        &mdash; Mogaika
                         <a href="mailto:mogaika@yandex-team.ru">
                           (mogaika@yandex-team.ru)
                         </a>
@@ -374,10 +374,10 @@
                 </article>
                 <article>
                     <header>
-                        &mdash; JIguse 
+                        &mdash; JIguse
                         <a href="mailto:mrawesome@yandex.ru">
                             (mrawesome@yandex.ru)
-                        </a> 
+                        </a>
                         <time>29 ноября 2014 в 21:30</time>
                     </header>
                     <div>
@@ -387,8 +387,8 @@
                 </article>
                 <article>
                     <header>
-                        &mdash; Brister 
-                        <a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru)</a> 
+                        &mdash; Brister
+                        <a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru)</a>
                         <time>24 ноября 2014 в 13:13</time>
                     </header>
                     <div>
@@ -416,14 +416,14 @@
                 </article>
                 <article>
                     <header>
-                        &mdash; alexeimois 
+                        &mdash; alexeimois
                         <a href="mailto:test@yandex.ru">
                             (test@yandex.ru)
                         </a>
                         <time>22 ноября 2014 в 17:35</time>
                     </header>
                     <div>
-                        Мы измеряем скорость загрузки с помощью 
+                        Мы измеряем скорость загрузки с помощью
                         <a href="https://old.metrika.yandex.ru/list/">
                             Яндекс.Метрики
                         </a>
@@ -434,7 +434,7 @@
         <hr>
         <footer>
             <address>
-                © Яндекс, 
+                © Яндекс,
                 <a href="mailto:help@yandex.ru">
                     help@yandex.ru
                 </a>
