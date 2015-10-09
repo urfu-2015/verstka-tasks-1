@@ -1,18 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Яндекс, Yandex, почта">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> 
-    </script>
-    <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
-            "HTML-CSS": {
-            linebreaks: { automatic: true, width: "container" }          
-                        }              
-        });
-</script>
     <style>
         body
         {
@@ -26,7 +16,7 @@
         {
             background-color: red;
             text-align: center;
-           border-radius: 5px;
+            border-radius: 5px;
             padding: 30px;
 
         }
@@ -77,87 +67,65 @@
             background-color: white;
             border-radius: 10px;
         }
-        div.one_indent
-        {
-            position: relative;
-            left: 40px;
-        }
-        div.algorithm
-        {
-            position: relative;
-            left: 100px;
-        }
     </style>
 
     <title>Первое задание</title>
 </head>
 <body>
-    <div class="wrapper">
+    <header>
+        <h1>Блог компании Яндекс.</h1>
+    </header>
+
+    <main>
         <header>
-            <h1>Блог компании Яндекс.</h1>
+            <h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
         </header>
 
-        <main>
-            <header>
-                <h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
-            </header>
+        <article>
+            <p>Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
+            какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
+            тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
+            иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
+            и новая логика. Всё это напрямую влияет на скорость работы интерфейса.</p>
 
-            <article>
-                <p>Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
-                какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-                тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
-                иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
-                и новая логика. Всё это напрямую влияет на скорость работы интерфейса.</p>
+            <h3>Что мы измеряем</h3>
 
-                <h3>Что мы измеряем</h3>
+            Этапы первой загрузки:<br>
+            <ul>
+                <li>подготовка;</li>
+                <li>загрузка статики (<abbr title="HyperText Transfer Protocol">HTTP</abbr>-запрос и парсинг);</li>
+                <li>исполнение модулей;</li>
+                <li>инициализация базовых объектов;</li>
+                <li>отрисовка.</li>
+            </ul>
 
-                Этапы первой загрузки:<br>
-                <ul>
-                    <li>подготовка;</li>
-                    <li>загрузка статики (HTTP-запрос и парсинг);</li>
-                    <li>исполнение модулей;</li>
-                    <li>инициализация базовых объектов;</li>
-                    <li>отрисовка.</li>
-                </ul>
+            Этапы отрисовки любой страницы:<br>
+            <ul>
+                <li>подготовка к запросу на сервер;</li>
+                <li>запрос данных с сервера;</li>
+                <li>шаблонизация;</li>
+                <li>обновление DOM.</li>
+            </ul>
+            — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
+            — <q>Что же дальше?</q> - вопрошаете вы<br>
+            — <q>А давай построим график!</q> - отвечаем мы<br>
+            — <q>А что будем считать?</q> - уточняете вы<br>
 
-                Этапы отрисовки любой страницы:<br>
-                <ul>
-                    <li>подготовка к запросу на сервер;</li>
-                    <li>запрос данных с сервера;</li>
-                    <li>шаблонизация;</li>
-                    <li>обновление DOM.</li>
-                </ul>
-                <p>— <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы</p>
-                <p>— <q>Что же дальше?</q> - вопрошаете вы</p>
-                <p>— <q>А давай построим график!</q> - отвечаем мы</p>
-                <p>— <q>А что будем считать?</q> - уточняете вы</p>
+            <p>Как вы знаете, <dfn>медиана</dfn> – это серединное, а не среднее значение в выборке.
+            Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
+            В общем случае медиана отлично показывает, сколько грузится средний пользователь.</p>
 
-                <p>Как вы знаете, 
-                <dfn>медиана</dfn>
-                 – это серединное, а не среднее значение в выборке.
-                Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
-                В общем случае медиана отлично показывает, сколько грузится средний пользователь.</p>
+            <p>В случае ускорения или замедления медиана, конечно, изменится. Но она не может
+            рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
 
-                <p>В случае ускорения или замедления медиана, конечно, изменится. Но она не может
-                рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
-
-                <p> 
-                    <dfn>
-                        <abbr title="Application Performance Index">APDEX</abbr>
-                    </dfn> 
+            <p><dfn><abbr title="Application Performance Index">APDEX</abbr></dfn> 
                 – метрика, которая сразу говорит: хорошо или плохо. Метрика
                 работает очень просто. Мы выбираем временной интервал [0; <var>t</var>], такой, что если
                 время показа страницы попало в него, то пользователь счастлив. Берем еще один
                 интервал, (<var>t</var>; 4<var>t</var>] (в четыре раза больше первого), и считаем, что если страница
                 показана за это время, то пользователь в целом удовлетворен скоростью работы,
-                но уже не настолько счастлив. И применяем формулу:
-
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mfrac>
-                        <mi>кол-во счастливых пользователей + кол-во удовлетворенных/2</mi>
-                        <mi>(кол-во всех)</mi>
-                    </mfrac>
-                </math>.
+                но уже не настолько счастлив. И применяем формулу:<br>
+                    (кол-во счастливых пользователей + кол-во удовлетворенных / 2)/(кол-во всех).<br>
                 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                 хорошо или плохо работает почта.</p>
 
@@ -196,9 +164,9 @@ this.timings['look-ma-finish'] = Date.now();</code></pre>
 
             <p>На самое деле эта идея не нова. Уже существуют стандарты для 
                 <abbr title="HyperText Transfer Protocol">HTTP</abbr> — например,
-            <abbr title="Request for Comments">RFC</abbr> 3229 «Delta encoding in 
-            <abbr title="HyperText Transfer Protocol">HTTP</abbr>» и «Google 
-            <abbr title="Secure Digital High Capacity">SDHC</abbr>», — но по разным причинам они
+                <abbr title="Request for Comments">RFC</abbr> 3229 «Delta encoding in 
+                <abbr title="HyperText Transfer Protocol">HTTP</abbr>» и «Google 
+                <abbr title="Secure Digital High Capacity">SDHC</abbr>», — но по разным причинам они
             не получили должного распространения в браузерах и на серверах.</p>
 
             Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
@@ -274,175 +242,17 @@ this.timings['look-ma-finish'] = Date.now();</code></pre>
 
             <p>Потому что он быстрый, компактный и легок в реализации.</p>
 
-            <div class="algorithm">
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mtext>дано &epsilon;, </mtext>
-                    <msub><mi>x</mi><mn>0</mn></msub>
-                </math>
-                <br> 
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mtext>инициализировать&nbsp;</mtext>
-                    <msub>
-                        <mi>H</mi>
-                        <mn>0</mn>
-                    </msub>
-                </math>
-                <br>
-
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mpadded><mi>k</mi><mo>=</mo><mn>0</mn></mpadded>
-                </math>
-                <br>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mtext>while&nbsp;</mtext>
-                    <mpadded>
-                        <mo minsize="1">|</mo>
-                        <mo minsize="1">|</mo>
-                        <mi>&nabla;</mi>
-                        <msub>
-                            <mi>f</mi>
-                            <mi>k</mi>
-                        </msub>
-                        <mo minsize="1">|</mo>
-                        <mo minsize="1">|</mo>
-                        <mo>&gt;</mo>
-                        <mi>&epsilon;</mi>
-                    </mpadded>
-                </math>
-                <br>
-                <div class="one_indent">
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mtext>найти направление&nbsp;</mtext>
-                        <mpadded>
-                            <msub>
-                                <mi>p</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mo>=</mo>
-                            <mo>-</mo>
-                            <msub>
-                                <mi>C</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mi>&nabla;</mi>
-                            <msub>
-                                <mi>f</mi>
-                                <mi>k</mi>
-                            </msub>
-                        </mpadded>
-                    </math>
-                    <br>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mpadded>
-                            <mtext>вычислить&nbsp;</mtext>
-                            <msub>
-                                <mi>x</mi>
-                                <mpadded>
-                                    <mi>k</mi>
-                                    <mo>+</mo>
-                                    <mn>1</mn>
-                                </mpadded>
-                            </msub>
-                                <mo>=</mo>
-                            <msub>
-                                <mi>x</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mo>+</mo>
-                            <msub>    
-                                <mi>&alpha;</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <msub>
-                                <mi>x</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mtext>,&nbsp;</mtext>
-                            <msub>    
-                                <mi>&alpha;</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mtext>&nbsp;удовлетворяет условиям Вольфе&nbsp;</mtext>
-                        </mpadded>
-                    </math>
-                    <br>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mtext>обозначить&nbsp;</mtext>
-                        <mpadded>
-                            <msub>
-                                <mi>s</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mo>=</mo>
-                            <msub>
-                                <mi>x</mi>
-                                <mpadded>
-                                    <mi>k</mi>
-                                    <mo>+</mo>
-                                    <mi>1</mi>
-                                </mpadded>
-                            </msub>
-                            <mo>-</mo>
-                            <msub>
-                                <mi>x</mi>
-                                <mi>k</mi>
-                            </msub>
-                        </mpadded>
-                        <mtext>и&nbsp;</mtext>
-                        <mpadded>
-                            <msub>
-                                <mi>y</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mo>=</mo>
-                            <mi>&nabla;</mi>
-                            <msub>
-                                <mi>f</mi>
-                                <mpadded>
-                                    <mi>k</mi>
-                                    <mo>+</mo>
-                                    <mn>1</mn>
-                                </mpadded>
-                            </msub>
-                            <mo>-</mo>
-                            <msub>
-                                <mi>f</mi>
-                                <mi>k</mi>
-                            </msub>
-                            <mo>-</mo>
-                            <msub>
-                                <mi>x</mi>
-                                <mi>k</mi>
-                            </msub>
-                        </mpadded>
-                    </math>
-                    <br>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mtext>вычислить&nbsp;</mtext>
-                        <msub>
-                            <mi>C</mi>
-                            <mpadded>
-                                <mi>k</mi>
-                                <mn>1</mn>
-                            </mpadded>
-                        </msub>
-                    </math>
-                    <br>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mpadded>
-                            <mi>k</mi>
-                            <mo>=</mo>
-                            <mi>k</mi>
-                            <mo>+</mo>
-                            <mn>1</mn>
-                        </mpadded>
-                    </math>
-                </div>
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mtext>end</mtext>
-                </math>
-            </div>
-
+            <pre><code>        дано <var>&epsilon;</var>, <var>x</var><sub>0</sub>
+        инициализировать <var>H</var><sub>0</sub>
+        <var>k</var> = 0
+        while ||<var>f</var><sub><var>k</var></sub>|| &gt; <var>&epsilon;</var>
+            <var>p</var><sub><var>k</var></sub> = - <var>C</var><sub>k</sub>&nabla; <var>f</var><sub><var>k</var></sub>
+            вычислить <var>x</var><sub><var>k</var> + 1</sub> = <var>x</var><sub>k</sub> + <var>&alpha;</var><sub><var>k</var></sub>, <var>&alpha;</var><sub><var>k</var></sub> удовлетворяет условиям Вольфе
+            обозначить <var>s</var><sub><var>k</var></sub> = <var>x</var><sub><var>k</var> + 1</sub> - <var>x</var><sub><var>k</var></sub> и <var>y</var><var><sub>k</sub></var> = &nabla;<var>f</var><sub><var>k</var> + 1</sub> - &nabla;<var>f</var><sub><var>k</var></sub>
+            вычислить <var>C</var><sub><var>k</var> + 1</sub>
+            <var>k</var> = <var>k</var> + 1
+        end</code></pre>
+            
             <h3>Итог</h3>
 
             <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
@@ -483,39 +293,38 @@ this.timings['look-ma-finish'] = Date.now();</code></pre>
                 Компания: Яндекс<br>
         </footer>
     </main>
-        <section id="comments">
-            <h2>Комментарии (3):</h2>
-            <article>
-                <h6>Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 
+    <section id="comments">
+        <h2>Комментарии (3):</h2>
+        <article>
+            <h6>Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
                 <time datetime="2014-11-30T17:05">30 ноября 2014 в 17:05</time></h6>
                     <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
-            </article>
-            <article>
-                <h6>JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 
+        </article>
+        <article>
+            <h6>JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
                 <time datetime="2014-11-29T21:30">29 ноября 2014 в 21:30</time></h6>
-                    <p>Спасибо за статью, познавательно. 
-                    Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.
-                    </p>
-            </article>
-            <article>
-                <h6>Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 
+            <p>Спасибо за статью, познавательно.
+                Здорово, что Яндекс делится некоторыми подробностями о внутренней работе сервисов.
+            </p>
+        </article>
+        <article>
+            <h6>Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>)
                 <time datetime="2014-11-24T13:13">24 ноября 2014 в 13:13</time></h6>
-                    <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-                    Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-                    хорошо или плохо работает почта.<br>
-                    <br>
-                    наверное все-таки от 0.5 до 1</p>
-            </article>
-            <article>
-                <h6>alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>) 
+            <p>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+                Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+                хорошо или плохо работает почта.<br>
+                <br>
+                наверное все-таки от 0.5 до 1</p>
+        </article>
+        <article>
+            <h6>alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
                 <time datetime="2014-11-22T17:35">22 ноября 2014 в 17:35</time></h6>
-                    <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-                    <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
-            </article>
-        </section>
-        <footer>
-            <address>© Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</address>
-        </footer>
-    </div>
+            <p>Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                <a href="http://help.yandex.ru/metrika/reports/monitoring_timing.xml">help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
+        </article>
+    </section>
+    <footer>
+        <address>© Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</address>
+    </footer>
 </body>
 </html>
