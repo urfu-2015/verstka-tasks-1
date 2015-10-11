@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
+        <!-- Кодировка документа -->
         <meta charset="utf-8">
+        <!-- Ключевые слова документа -->
         <meta name="keywords" content="Яндекс, Почта, Скорость загрузки, Алгоритм Флетчера">
+        <!-- Автор документа -->
+        <meta name="author" content="lenfly">
+        <!-- Подключение файла стилей -->
         <link rel="stylesheet" href="main.css">
+        <!-- Подключение MathJax -->
+        <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
         <!-- Заголовок документа -->
         <title>Яндекс.Блог</title>
     </head>
     <body>
         <article>
-            <header>
-                <h1>Блог компании Яндекс.</h1>
-                <h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2>
+            <header> <!-- "Шапка" сайта -->
+                    <h1>Блог компании Яндекс.</h1> <!-- Заголовок первого уровня -->
+                    <h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h2> <!-- Заголовок второго уровня -->
             </header>
             <p>
                 Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
@@ -20,7 +29,7 @@
                 иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
                 и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
             </p>
-            <p>Что мы измеряем</p>
+            <p><strong>Что мы измеряем</strong></p><!-- Параграф -->
             <p>Этапы первой загрузки:</p>
             <ul>
                 <li>подготовка;</li>
@@ -66,7 +75,8 @@
                 Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                 хорошо или плохо работает почта.
             </p>
-            <p>Как мы измеряем</p>
+            <hr> <!-- Следующая часть повествования -->
+            <p><strong>Как мы измеряем</strong></p>
             <p>
                 Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
                 причину замедления: медленнее стал отвечать сервер либо слишком долго
@@ -84,7 +94,8 @@
             <p>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</p>
             <p>И на сервер прилетают подобные записи:</p>
             <p>serverResponse=50&domUpdate=60</p>
-            <p>Как мы ускоряем</p>
+            <hr> <!-- Следующая часть повествования -->
+            <p><strong>Как мы ускоряем</strong></p>
             <p>
                 Чтобы снизить время загрузки почты при выходе новых версий,<br>
                 мы уже делаем следующее:
@@ -114,22 +125,26 @@
                 - google-diff-patch-match
             </p>
             <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
-                <table class="table"> 
-                    <tr>
-                        <th class="th">Библиотека</th>
-                        <th class="th">IE 9</th>
-                        <th class="th">Opera 12</th>
-                    </tr>
-                    <tr>
-                        <td class="td">vcdiff</td>
-                        <td class="td">8</td>
-                        <td class="td">5</td>
-                    </tr>
-                    <tr>
-                        <td class="td">google diff</td>
-                        <td class="td">1363</td>
-                        <td class="td">76</td>
-                    </tr>
+                <table class="table"> <!-- Табличка -->
+                    <thead>
+                        <tr>
+                            <th class="th">Библиотека</th>
+                            <th class="th">IE 9</th>
+                            <th class="th">Opera 12</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td">vcdiff</td>
+                            <td class="td">8</td>
+                            <td class="td">5</td>
+                        </tr>
+                        <tr>
+                            <td class="td">google diff</td>
+                            <td class="td">1363</td>
+                            <td class="td">76</td>
+                        </tr>
+                    </tbody>
                 </table>
             <p>
                 После того как мы определились с библиотекой для диффа, нужно определиться с тем,
@@ -151,6 +166,20 @@
             </p>
             <p class="p20px">}</p>
             <p>]</p>
+            <pre><!-- Вариант номер два -->
+[
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    },
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    }
+]
+            </pre>
             <p>
                 То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
                 каждого объекта есть три свойства. k — названия ключа в localStorage для этого
@@ -164,7 +193,21 @@
                 нахождения локального максимума/минимума нелинейного функционала
                 без ограничений.
             </p>
-            <p><img src="https://clck.ru/9b3Sn" width="529" height="237" alt="Очень симпатичный алгоритм"></p>
+            <p><!-- Симпатичная формула в MathJax -->
+                дано &epsilon;, \(x_0\)<br>
+                инициализировать \(H_0\)<br>
+                &kappa;=0<br>
+                <span class="bold">while</span>\(&verbar;&verbar;&nabla;&fnof;_&kappa;&verbar;&verbar;>&epsilon;\)<br>
+                <span class="p20px">найти направление \(&rho;_&kappa;=-C_&kappa;&nabla;&fnof;_&kappa;\)</span><br>
+                <span class="p20px">вычислить \(x_{&kappa;+1}=x_&kappa;+&alpha;_&kappa;&rho;_&kappa;,&alpha;_&kappa;\) 
+                удовлетворяет условиям Вольфе</span><br>
+                <span class="p20px">обозначить \(s_&kappa;=x_{&kappa;+1}-x_&kappa;\) и 
+                \(y_&kappa;=&nabla;&fnof;_{&kappa;+1}-&nabla;&fnof;_&kappa;\)</span><br>
+                <span class="p20px">вычислить \(С_{&kappa;+1}\)</span><br>
+                <span class="p20px">\(&kappa;=&kappa;+1\)</span><br>
+                <span class="bold">end</span>
+            </p>
+            <p><img src="https://clck.ru/9b3Sn" width="529" height="237" alt="Очень симпатичный алгоритм в картинках"></p>
             <p>
                 Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:<br>
                 CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
@@ -174,69 +217,77 @@
                 их подлинности.
             </p>
             <p>Потому что он быстрый, компактный и легок в реализации.</p>
-            <p>Итог</p>
+            <p><strong>Итог</strong></p>
             <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
                 <table class="table">
-                    <tr>
-                        <th class="th">Релиз</th>
-                        <th class="th">С патчем</th>
-                        <th class="th">Без патча</th>
-                    </tr>
-                    <tr>
-                        <td class="td">7.7.20</td>
-                        <td class="td">397</td>
-                        <td class="td">174 549</td>
-                    </tr>
-                    <tr>
-                        <td class="td">7.7.21</td>
-                        <td class="td">383</td> 
-                        <td class="td">53 995</td>
-                    </tr>
-                    <tr>
-                        <td class="td">7.7.22</td>
-                        <td class="td">483</td>
-                        <td class="td">3 995</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th class="th">Релиз</th>
+                            <th class="th">С патчем</th>
+                            <th class="th">Без патча</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td">7.7.20</td>
+                            <td class="td">397</td>
+                            <td class="td">174 549</td>
+                        </tr>
+                        <tr>
+                            <td class="td">7.7.21</td>
+                            <td class="td">383</td> 
+                            <td class="td">53 995</td>
+                        </tr>
+                        <tr>
+                            <td class="td">7.7.22</td>
+                            <td class="td">483</td>
+                            <td class="td">3 995</td>
+                        </tr>
+                    </tbody>
                 </table>
-            <footer>
-                <address>
-                    <p>
-                        Автор: @doochik<br>
-                        С++ разработик<br>
-                        Электронная почта: (doochik@yandex-team.ru)<br>
-                        Компания: Яндекс
-                    </p>
+            <footer> <!-- "Подвал" сайта -->
+                <address> <!-- Информация об авторе статьи -->
+                    Автор: @doochik<br>
+                    С++ разработик<br>
+                    Электронная почта: (doochik@yandex-team.ru)<br>
+                    Компания: Яндекс
                 </address>
-                <p>Комментарии (3):</p>
-                <address>
-                    <p>- Mogaika (mogaika@yandex-team.ru) 30 ноября 2014 в 17:05</p>
+                <p><strong>Комментарии (3):</strong></p>
+                <address> <!-- Контактная информация -->
+                    - Mogaika <a href="mailto:mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a>
+                    &nbsp;<time datetime="2014-11-30">30 ноября 2014 в 17:05</time>
                 </address>
                 <p class="p10px">А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
                 <address>
-                    <p>- JIguse (mrawesome@yandex.ru) 29 ноября 2014 в 21:30</p>
+                    - JIguse <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a>
+                    &nbsp;<time datetime="2014-11-29">29 ноября 2014 в 21:30</time>
                 </address>
                 <p class="p10px">
                     Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
                     подробностями о внутренней работе сервисов.
                 </p>
                 <address>
-                    <p>- Brister (brist89@yandex-team.ru) 24 ноября 2014 в 13:13</p>
+                    - Brister <a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru)</a>
+                    &nbsp;<time datetime="2014-11-24">24 ноября 2014 в 13:13</time>
                 </address>
-                <p class="p10px">
-                    (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
-                    Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-                    хорошо или плохо работает почта.
-                </p>
+                <aside>
+                    <p class="p10px">
+                        (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
+                        Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+                        хорошо или плохо работает почта.
+                    </p>
+                </aside>
                 <p class="p10px">наверное все-таки от 0.5 до 1</p>
                 <address>
-                    <p>- alexeimois (test@yandex.ru) 22 ноября 2014 в 17:35</p>
+                    - alexeimois <a href="mailto:test@yandex.ru">(test@yandex.ru)</a>
+                    &nbsp;<time datetime="2014-11-22">22 ноября 2014 в 17:35</time>
                 </address>
                 <p class="p10px">
                     Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
                     help.yandex.ru/metrika/reports/monitoring_timing.xml
                 </p>
                 <address>
-                    <p>© Яндекс, help@yandex.ru, Хохрякова, 10</p>
+                    © Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10
                 </address>
             </footer>
         </article>
