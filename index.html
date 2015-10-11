@@ -1,22 +1,18 @@
 <!DOCTYPE html>
  <!-- Мой замечательный код -->
 <html lang="en">
-	    <head>
+	<head>
 	    <meta charset="utf-8">
 	    <title>Блог компании Яндекс.</title>
         <meta name="keywords" content="Блог, Яндекс">
-        <meta name="author" content="@doochik">
     </head>
     <body>  
         <header>
-            <style type="text/css" media="screen">
-            g {color: red;}
-            </style> 
-            <h1 style="text-align: center"><b>Блог компании</b><g>Я</g><b>ндекс.</b></h1> 
+            <h1 style="text-align: center">Блог компании <span Style="color:red">Я</span>ндекс.</h1> 
 	    </header>
-<section>	
-    <article>
-        <h3 style="text-align: center"><g>Я</g><b>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</b></h3>
+<article>	
+    <section>
+        <h3 style="text-align: center"><span Style="color:red">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h3>
         <p>
             Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
             какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
@@ -24,29 +20,24 @@
             иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
             и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
        </p>
-    </article>
-    <article>
+    </section>
+    <section>
         <h3>Что мы измеряем</h3>
-        <p>
-		<b>Этапы первой загрузки:</b>
-        <i> 
-		<ul>
-            <li>подготовка;</li>
-            <li>загрузка статики (HTTP-запрос и парсинг);</li>
-            <li>исполнение модулей;</li>
-            <li>инициализация базовых объектов;</li>
-            <li>отрисовка.</li>
-        </ul> 
-		</i>
-        <b>Этапы отрисовки любой страницы:</b>
-        <i>
-		<ul> 
-            <li>подготовка к запросу на сервер;</li>
-            <li>запрос данных с сервера;</li>
-            <li>шаблонизация;</li>
-            <li>обновление DOM.</li>
-        </ul>
-		</i> 
+        <p>Этапы первой загрузки:
+            <ul>
+                <li>подготовка;</li>
+                <li>загрузка статики (HTTP-запрос и парсинг);</li>
+                <li>исполнение модулей;</li>
+                <li>инициализация базовых объектов;</li>
+                <li>отрисовка.</li>
+            </ul> 		    
+            Этапы отрисовки любой страницы:            
+		    <ul> 
+                <li>подготовка к запросу на сервер;</li>
+                <li>запрос данных с сервера;</li>
+                <li>шаблонизация;</li>
+                <li>обновление DOM.</li>
+            </ul>
 		</p>
         <p>
             — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы
@@ -64,7 +55,7 @@
             рассказать, сколько пользователей ускорилось, а сколько замедлилось. 
         </p>
         <p>
-            <dfn>APDEX</dfn>– метрика, которая сразу говорит: хорошо или плохо. Метрика
+           <abbr title="Application Performance Index">APDEX</abbr>– метрика, которая сразу говорит: хорошо или плохо. Метрика
             работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
             время показа страницы попало в него, то пользователь счастлив. Берем еще один
             интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
@@ -76,79 +67,89 @@
            Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
            хорошо или плохо работает почта.
         </p>
-    </article>
-    <article>
+    </section>
+    <section>
         <h3>Как мы измеряем</h3>
         <p>
             Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
             причину замедления: медленнее стал отвечать сервер либо слишком долго
             выполняется JavaScript. Выглядит это примерно так:
         </p>
-        <p style="text-align: center">this.timings['look-ma-im-start'] = Date.now();</p>
-        <p style="text-align: center">this.timings['look-ma-finish'] = Date.now();</p>
+		<pre>
+		    <code>
+                this.timings['look-ma-im-start'] = Date.now();
+                this.timings['look-ma-finish'] = Date.now();
+			</code>
+		</pre>
         <p>
             C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при
             отправке рассчитываются. На этапах разница между “end” и “start” не считается,
             а все вычисления производятся в конце:
+		<pre>
+		    <code>
+		    var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
+			</code>
+		</pre>
 		</p>
-        <p>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</p>
-        <p>И на сервер прилетают подобные записи:</p>
-        <p>serverResponse=50&amp; domUpdate=60</p>
-    </article>
-    <article>
+        <p>
+		    И на сервер прилетают подобные записи:
+            serverResponse=50&amp; domUpdate=60
+		</p>
+    </section>
+    <section>
         <h3>Как мы ускоряем</h3>
         <p>
             Чтобы снизить время загрузки почты при выходе новых версий,
             мы уже делаем следующее:
-        </p>
             <ul> 
                 <li>включаем gzip;</li>
                 <li>выставляем заголовки кэширования;</li>
                 <li>фризим CSS, JS, шаблоны и картинки;</li>
                 <li>используем CDN;</li> 
 			</ul>
-            <p>
-                Мы подумали:<q>А что если хранить где-то старую версию файлов, а при выходе новой
-                передавать только diff между ней и той, которая сохранена у пользователя?</q>
-                В браузере же останется просто наложить патч на клиенте.
-            </p>
-            <p>
-                На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-                RFC 3229 <cite>Delta encoding in HTTP</cite> и <cite>Google SDHC</cite>, — но по разным причинам они
-                не получили должного распространения в браузерах и на серверах.
-            </p>
-            <p>
-                Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
-                начали искать реализации diff на JS. На популярных хостингах кода нашли
-                библиотеки:
-            </p>
-            <p style="text-align: b">- VCDiff</p>
-            <p style="text-align: b">- google-diff-patch-match</p>
-            <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
-<pre>
-      <table>
-        <thead>
-           <tr>
-	           <th>Библиотека</th>
-	           <th>  IE 9</th>
-	           <th>  Opera 12</th>
-          </tr>
-       </thead>
-     <tbody>
-        <tr>
-          <td>vcdiff</td> 
-	      <td>  8</td>
-	      <td>     5</td>
-	   </tr>
-       <tr>
-          <td>google diff</td>
-          <td>1363</td>
-          <td>   76</td>
-       </tr>  
-    </tbody>
-    </table>
- </pre>
+		</p>
         <p>
+            Мы подумали:<q>А что если хранить где-то старую версию файлов, а при выходе новой
+            передавать только diff между ней и той, которая сохранена у пользователя?</q>
+            В браузере же останется просто наложить патч на клиенте.
+        </p>
+        <p>
+            На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
+            RFC 3229 <cite>Delta encoding in HTTP</cite> и <cite>Google SDHC</cite>, — но по разным причинам они
+            не получили должного распространения в браузерах и на серверах.
+        </p>
+        <p>
+            Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
+            начали искать реализации diff на JS. На популярных хостингах кода нашли
+            библиотеки:
+	        <ul>
+                <li>- VCDiff</li>
+                <li>- google-diff-patch-match</li>
+			</ul>
+         </p>   
+		 <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
+    <table>
+        <thead>
+            <tr>
+	            <th>Библиотека</th>
+	            <th>  IE 9</th>
+	            <th>  Opera 12</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>vcdiff</td> 
+	            <td>  8</td>
+	            <td>     5</td>
+	        </tr>
+            <tr>
+                <td>google diff</td>
+                <td>1363</td>
+                <td>   76</td>
+            </tr>  
+        </tbody>
+    </table>
+         <p>
             После того как мы определились с библиотекой для диффа, нужно определиться с тем,
             где и как хранить статику на клиенте.
         </p>
@@ -186,28 +187,27 @@
             целостности данных
         </p>
         <p>
-           <dfn>md5</dfn> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+           <abbr title="Message Digest 5">md5</abbr> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
            или дайджестов сообщения произвольной длины и последующей проверки
            их подлинности.
         </p>
         <p>Потому что он быстрый, компактный и легок в реализации.</p>
-<pre>
-    <b>дано &epsilon; ,х<sub>0</sub><br>
-    инициализировать H<sub>0</sub><br>
-    k=0<br>
-    while &boxV; &bigtriangledown;f<sub>k</sub> &boxV;> &epsilon;<br>
-    найти направление p<sub>k</sub>=&minus;C<sub>k</sub>&bigtriangledown; f<sub>k</sub><br>
-    вычислить   х<sub>k+1</sub>=x<sub>k</sub>+ &alpha;<sub>k</sub>p<sub>k</sub>,   &alpha;<sub>k</sub> удовлетворяет условиям Вольфе<br>
-    обозначить   s<sub>k</sub> = x<sub>k+1</sub>-x<sub>k</sub>   и   y<sub>k</sub> = &bigtriangledown;f<sub>k+1</sub> &minus;&bigtriangledown;f<sub>k</sub> <br>
-    вычислить   C<sub>k+1</sub><br>
-    k=k+1<br>
-    end</b>
-</pre>
-    </article>
-    <article>
+        <p>
+	        дано &epsilon; ,х<sub>0</sub><br>
+            инициализировать H<sub>0</sub><br>
+            k=0<br>
+            while &boxV; &bigtriangledown;f<sub>k</sub> &boxV;> &epsilon;<br>
+            найти направление p<sub>k</sub>=&minus;C<sub>k</sub>&bigtriangledown; f<sub>k</sub><br>
+            вычислить   х<sub>k+1</sub>=x<sub>k</sub>+ &alpha;<sub>k</sub>p<sub>k</sub>,   &alpha;<sub>k</sub> удовлетворяет условиям Вольфе<br>
+            обозначить   s<sub>k</sub> = x<sub>k+1</sub>-x<sub>k</sub>   и   y<sub>k</sub> = &bigtriangledown;f<sub>k+1</sub> &minus;&bigtriangledown;f<sub>k</sub> <br>
+            вычислить   C<sub>k+1</sub><br>
+            k=k+1<br>
+            end
+	    </p>
+    </section>
+    <section>
         <h2>Итог</h2>
         <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
-<pre>
     <table>
         <thead>
             <tr>
@@ -234,32 +234,30 @@
             </tr>
         </tbody>
     </table>
-</pre>
-    </article>
-</section>
+    </section>
+</article>
 <address>
-    <p style="text-align: i"> 
-        Автор: <u>@doochik</u><br>
-        С++ разработик<br>
-        Электронная почта: (<a href="doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
-        Компания: Яндекс
-    </p>
+     style="text-align: i"> 
+     Автор: @doochik<br>
+     С++ разработик<br>
+     Электронная почта: (<a href="doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
+     Компания: Яндекс
 </address>
 <section>
     <p>Комментарии (3):</p>
     <article>
-        <p><u>- Mogaika (<a href="mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 30 ноября 2014 в 17:05</u></p>
+        <p>- Mogaika (<a href="mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>) 30 ноября 2014 в 17:05</p>
         <p>А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
     </article>
     <article>
-        <p><u>- JIguse (<a href="mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 29 ноября 2014 в 21:30</u></p>
+        <p>- JIguse (<a href="mrawesome@yandex.ru">mrawesome@yandex.ru</a>) 29 ноября 2014 в 21:30</p>
         <p> 
 		    Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
             подробностями о внутренней работе сервисов.
 		</p>
     </article>
     <article>
-        <p><u>- Brister (<a href="brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 24 ноября 2014 в 13:13</u></p>
+        <p>- Brister (<a href="brist89@yandex-team.ru">brist89@yandex-team.ru</a>) 24 ноября 2014 в 13:13</p>
         <p>
 		    (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
             Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
@@ -268,7 +266,7 @@
         <p>наверное все-таки от 0.5 до 1</p>
     </article>
     <article>
-        <p><u>- alexeimois (<a href="test@yandex.ru">test@yandex.ru</a>) 22 ноября 2014 в 17:35</u></p>
+        <p>- alexeimois (<a href="test@yandex.ru">test@yandex.ru</a>) 22 ноября 2014 в 17:35</p>
         <p>
 		    Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
             help.yandex.ru/metrika/reports/monitoring_timing.xml
