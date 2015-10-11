@@ -38,12 +38,12 @@
                 <li>шаблонизация;</li>
                 <li>обновление <abbr title="Document Object Model">DOM</abbr>.</li>
             </ol>
-                <p>
-                    — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
-                    — <q>Что же дальше?</q> - вопрошаете вы<br>
-                    — <q>А давай построим график!</q> - отвечаем мы<br>
-                    — <q>А что будем считать?</q> - уточняете вы<br>
-                </p>
+            <p>
+                — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
+                — <q>Что же дальше?</q> - вопрошаете вы<br>
+                — <q>А давай построим график!</q> - отвечаем мы<br>
+                — <q>А что будем считать?</q> - уточняете вы<br>
+            </p>
             <p>
                 Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
                 Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
@@ -54,12 +54,9 @@
                 рассказать, сколько пользователей ускорилось, а сколько замедлилось.
             </p>
             <p>
-                <dl>
-                    <dt>APDEX</dt>
-                    <dd>метрика, которая сразу говорит: хорошо или плохо.</dd>
-                </dl>
-                Метрика работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
-                время показа страницы попало в него, то пользователь счастлив. Берем еще один
+                <abbr title="Application Performance Index">APDEX</abbr> - метрика, которая сразу говорит:
+                хорошо или плохо. Метрика работает очень просто. Мы выбираем временной интервал [0; t], такой,
+                что если время показа страницы попало в него, то пользователь счастлив. Берем еще один
                 интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
                 показана за это время, то пользователь в целом удовлетворен скоростью работы,
                 но уже не настолько счастлив. И применяем формулу:
@@ -153,18 +150,18 @@ this.timings['look-ma-finish'] = Date.now();
             <p>Формат файла с патчами для проекта выглядит так:</p>
             <pre>
                 <code>
-    [
-        {
-            "k": "jane.css",
-            "p": [patch],
-            "s": 4554
-        },
-        {
-            "k": "jane.css",
-            "p": [patch],
-            "s": 4554
-        }
-    ]
+[
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    },
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    }
+]
                 </code>
             </pre>
             <p>
@@ -198,7 +195,7 @@ this.timings['look-ma-finish'] = Date.now();
                     <var>k</var> &equals; <var>k</var> &plus; 1<br>
                 <strong>end</strong>
             </p>
-            <p>
+            <div>
                 Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
                 <dl>
                     <dt>CRC16/32</dt>
@@ -215,7 +212,7 @@ this.timings['look-ma-finish'] = Date.now();
                         их подлинности.
                     </dd>
                 </dl>
-            </p>
+            </div>
             <p>Потому что он быстрый, компактный и легок в реализации.</p>
 
             <h3>Итог</h3>
@@ -246,52 +243,54 @@ this.timings['look-ma-finish'] = Date.now();
                     </tr>
                 </tbody>
             </table>
-            <p>
-                <address>
-                    <strong>Автор: @doochik</strong><br>
-                    С++ разработчик<br>
-                    Электронная почта: (doochik@yandex-team.ru)<br>
-                    Компания: Яндекс<br>
-                </address>
-            </p>
-            <article class="comments">
-                <p>Комментарии (3):</p><hr>
-                <p>
-                    <span>
-                        - Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
-                        <time>30 ноября 2014 в 17:05</time>
-                    </span><br>
-                    А можете привести сравнение, на сколько быстрее грузится lite версия?
-                </p><hr>
-                <p>
-                    <span>
-                        - JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru)</a>
-                        <time>29 ноября 2014 в 21:30</time>
-                    </span><br>
-                    Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми подробностями о
-                    внутренней работе сервисов.
-                </p><hr>
-                <p>
-                    <span>
-                        - Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>)
-                        <time>24 ноября 2014 в 13:13</time>
-                    </span><br>
-                    <blockquote>
-                        (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-                        Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-                        хорошо или плохо работает почта.
-                    </blockquote><br>
-                    наверное все-таки от 0.5 до 1
-                </p><hr>
-                <p>
-                    <span>
-                        - alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
-                        <time>22 ноября 2014 в 17:35</time>
-                    </span><br>
-                    Мы измеряем скорость загрузки с помощью
-                    <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">Яндекс.Метрики</a>
-                </p><hr>
-            </article>
+            <address>
+                <strong>Автор: @doochik</strong><br>
+                С++ разработчик<br>
+                Электронная почта: (doochik@yandex-team.ru)<br>
+                Компания: Яндекс<br>
+            </address>
+            <section class="comments">
+                <p>Комментарии (3):</p>
+                <article>
+                        <header>
+                            - Mogaika (<a href="mailto:mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
+                            <time>30 ноября 2014 в 17:05</time>
+                        </header>
+                        <div>А можете привести сравнение, на сколько быстрее грузится lite версия?</div>
+                </article>
+                <article>
+                        <header>
+                            - JIguse (<a href="mailto:mrawesome@yandex.ru">mrawesome@yandex.ru)</a>
+                            <time>29 ноября 2014 в 21:30</time>
+                        </header>
+                        <div>
+                            Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+                            подробностями о внутренней работе сервисов.
+                        </div>
+                </article>
+                <article>
+                        <header>
+                            - Brister (<a href="mailto:brist89@yandex-team.ru">brist89@yandex-team.ru</a>)
+                            <time>24 ноября 2014 в 13:13</time>
+                        </header>
+                        <blockquote>
+                            (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
+                            Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+                            хорошо или плохо работает почта.
+                        </blockquote>
+                        <div>наверное все-таки от 0.5 до 1</div>
+                </article>
+                <article>
+                        <header>
+                            - alexeimois (<a href="mailto:test@yandex.ru">test@yandex.ru</a>)
+                            <time>22 ноября 2014 в 17:35</time>
+                        </header>
+                        <div>
+                            Мы измеряем скорость загрузки с помощью
+                            <a href="help.yandex.ru/metrika/reports/monitoring_timing.xml">Яндекс.Метрики</a>
+                        </div>
+                </article>
+            </section>
         </main>
         <footer>
             &copy; Яндекс,<address><a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10</address>
