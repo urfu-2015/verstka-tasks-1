@@ -5,7 +5,7 @@
         <meta name="keywords" content="Яндекс, Почта, Скорость загрузки, Алгоритм Флетчера">
         <meta name="author" content="@doochik">
         <link rel="stylesheet" href="main.css">
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></script>
         <title>Яндекс.Блог</title>
     </head>
     <body>
@@ -26,7 +26,7 @@
             <ul>
                 <li>подготовка;</li>
                 <li>
-                    загрузка статики (<abbr class="abbr" title="англ. HyperText Transfer Protocol — 
+                    загрузка статики (<abbr title="англ. HyperText Transfer Protocol — 
                     «протокол передачи гипертекста»">HTTP</abbr>- запрос и парсинг);
                 </li>
                 <li>исполнение модулей;</li>
@@ -39,15 +39,16 @@
                 <li>запрос данных с сервера;</li>
                 <li>шаблонизация;</li>
                 <li>
-                    обновление <abbr class="abbr" title="англ. Document Object Model — 
+                    обновление <abbr title="англ. Document Object Model — 
                     «объектная модель документа»">DOM</abbr>.
                 </li>
             </ul>
             <p>
-                —<q class="q">Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
-                —<q class="q">Что же дальше?</q> - вопрошаете вы<br>
-                —<q class="q">А давай построим график!</q> - отвечаем мы<br>
-                —<q class="q">А что будем считать?</q> - уточняете вы
+                —<q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q>
+                - говорим мы<br>
+                —<q>Что же дальше?</q> - вопрошаете вы<br>
+                —<q>А давай построим график!</q> - отвечаем мы<br>
+                —<q>А что будем считать?</q> - уточняете вы
             </p>
             <p>
                 <q>Как вы знаете, <dfn>медиана</dfn> – это серединное, а не среднее значение в выборке.
@@ -59,7 +60,7 @@
                 рассказать, сколько пользователей ускорилось, а сколько замедлилось.
             </p>
             <p>
-                <abbr class="abbr" title="Application Performance Index">APDEX</abbr> – 
+                <abbr title="Application Performance Index">APDEX</abbr> – 
                 метрика, которая сразу говорит: хорошо или плохо. Метрика
                 работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
                 время показа страницы попало в него, то пользователь счастлив. Берем еще один
@@ -110,12 +111,17 @@
             <ul>
                 <li>включаем gzip;</li>
                 <li>выставляем заголовки кэширования;</li>
-                <li>фризим <abbr class="abbr" title="англ. Cascading Style Sheets — каскадные таблицы стилей">CSS</abbr>, 
-                <abbr class="abbr" title="JavaScript">JS</abbr>,шаблоны и картинки;</li>
-                <li>используем <abbr class="abbr" title="Сontent Delivery Network — сеть доставки контента">CDN</abbr>;</li>
+                <li>
+                    фризим <abbr title="англ. Cascading Style Sheets — каскадные таблицы стилей">
+                    CSS</abbr>,<abbr title="JavaScript">JS</abbr>,шаблоны и картинки;
+                </li>
+                <li>
+                    используем <abbr title="Сontent Delivery Network — сеть доставки контента">
+                    CDN</abbr>;
+                </li>
             </ul>
             <p>
-                Мы подумали:<q class="q">А что если хранить где-то старую версию файлов, а при выходе новой
+                Мы подумали:<q>А что если хранить где-то старую версию файлов, а при выходе новой
                 передавать только diff между ней и той, которая сохранена у пользователя?</q>
                 В браузере же останется просто наложить патч на клиенте.
             </p>
@@ -132,24 +138,24 @@
                 - google-diff-patch-match
             </p>
             <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
-            <table class="table">
+            <table>
                 <thead>
                     <tr>
-                        <th class="th">Библиотека</th>
-                        <th class="th">IE 9</th>
-                        <th class="th">Opera 12</th>
+                        <th>Библиотека</th>
+                        <th>IE 9</th>
+                        <th>Opera 12</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="td">vcdiff</td>
-                        <td class="td">8</td>
-                        <td class="td">5</td>
+                        <td>vcdiff</td>
+                        <td>8</td>
+                        <td>5</td>
                     </tr>
                     <tr>
-                        <td class="td">google diff</td>
-                        <td class="td">1363</td>
-                        <td class="td">76</td>
+                        <td>google diff</td>
+                        <td>1363</td>
+                        <td>76</td>
                     </tr>
                 </tbody>
             </table>
@@ -214,7 +220,7 @@
                 <span class="p20px">\(&kappa;=&kappa;+1\)</span><br>
                 <span class="bold">end</span>
             </p>
-            <p><img src="https://clck.ru/9b3Sn" width="529" height="237" alt="Очень симпатичный алгоритм в картинках"></p>
+            <p><img src="https://clck.ru/9b3Sn" width="529" height="237" alt="Очень симпатичный алгоритм"></p>
             <p>
                 Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:<br>
                 CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
@@ -226,29 +232,29 @@
             <p>Потому что он быстрый, компактный и легок в реализации.</p>
             <p><strong>Итог</strong></p>
             <p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
-            <table class="table">
+            <table>
                 <thead>
                     <tr>
-                        <th class="th">Релиз</th>
-                        <th class="th">С патчем</th>
-                        <th class="th">Без патча</th>
+                        <th>Релиз</th>
+                        <th>С патчем</th>
+                        <th>Без патча</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="td">7.7.20</td>
-                        <td class="td">397</td>
-                        <td class="td">174 549</td>
+                        <td>7.7.20</td>
+                        <td>397</td>
+                        <td>174 549</td>
                     </tr>
                     <tr>
-                        <td class="td">7.7.21</td>
-                        <td class="td">383</td> 
-                        <td class="td">53 995</td>
+                        <td>7.7.21</td>
+                        <td>383</td> 
+                        <td>53 995</td>
                     </tr>
                     <tr>
-                        <td class="td">7.7.22</td>
-                        <td class="td">483</td>
-                        <td class="td">3 995</td>
+                        <td>7.7.22</td>
+                        <td>483</td>
+                        <td>3 995</td>
                     </tr>
                 </tbody>
             </table>
