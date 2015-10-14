@@ -5,12 +5,17 @@
         <meta name="keywords" content="Yandex, Optimization, Blog">
         <meta name="author" content="@doochik">
         <title>Блог компании Яндекс.</title>
+        <style>
+            span.red {
+                color: red;
+            }
+        </style>
     </head>
     <body>
         <article>
             <header>
                 <h1>
-                    <span style="color: red;">Я</span>НДЕКС.ПОЧТА:
+                    <span class="red">Я</span>НДЕКС.ПОЧТА:
                     КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ
                 </h1>
             </header>
@@ -28,24 +33,24 @@
                 <ul>
                     <li>подготовка;</li>
                     <li>загрузка статики
-                        (<abbr title="Hyper Text Transfer Protocol">HTTP</abbr>-запрос и парсинг);</li>
+                        (<abbr title="Hyper Text Transfer Protocol">HTTP</abbr>-запрос и парсинг);
+                    </li>
                     <li>исполнение модулей;</li>
                     <li>инициализация базовых объектов;</li>
-                 <li>отрисовка.</li>
+                    <li>отрисовка.</li>
                 </ul>
-               <li>Этапы отрисовки любой страницы:</li>
+                <li>Этапы отрисовки любой страницы:</li>
                 <ul>
                     <li>подготовка к запросу на сервер;</li>
                     <li>запрос данных с сервера;</li>
                     <li>шаблонизация;</li>
-                    <li>обновление <abbr title=" Document Object Model">DOM</abbr>.</li>
+                    <li>обновление <abbr title="Document Object Model">DOM</abbr>.</li>
                 </ul>
             </ul>
-            <p><q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы</p>
-            <p><q>Что же дальше?</q> - вопрошаете вы</p>
-            <p><q>А давай построим график!</q> - отвечаем мы</p>
-            <p><q>А что будем считать?</q> - уточняете вы</p>
-
+            <p>-<q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы</p>
+            <p>-<q>Что же дальше?</q> - вопрошаете вы</p>
+            <p>-<q>А давай построим график!</q> - отвечаем мы</p>
+            <p>-<q>А что будем считать?</q> - уточняете вы</p>
             <p>
                 Как вы знаете, <dfn>медиана</dfn> – это <em>серединное</em>, а не среднее значение в выборке.
                 Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
@@ -93,11 +98,7 @@
                 </code>
             </p>
             <p>И на сервер прилетают подобные записи:</p>
-            <p>
-                <samp>
-                    serverResponse=50&domUpdate=60
-                </samp>
-            </p>
+            <p><samp>serverResponse=50&domUpdate=60</samp></p>
             <hr>
             <h2>Как мы ускоряем</h2>
             <p>
@@ -107,8 +108,10 @@
             <ul>
                 <li>включаем gzip;</li>
                 <li>выставляем заголовки кэширования;</li>
-                <li>фризим <abbr title="Cascading Style Sheets">CSS</abbr>,
-                    <abbr title="Java Script">JS</abbr>, шаблоны и картинки;</li>
+                <li>
+                    фризим <abbr title="Cascading Style Sheets">CSS</abbr>,
+                    <abbr title="Java Script">JS</abbr>, шаблоны и картинки;
+                </li>
                 <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
             </ul>
             <p>
@@ -169,9 +172,9 @@
                             "s": 4554
                         },
                         {
-                        "k": "jane.css",
-                        "p": [patch],
-                        "s": 4554
+                            "k": "jane.css",
+                            "p": [patch],
+                            "s": 4554
                         }
                     ]
                 </code>
