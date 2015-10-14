@@ -1,4 +1,4 @@
-.abbr
+abbr
 {
     border-bottom: 1px dashed blue; /* Нижнее пунктирное подчеркивание синего цвета в 1px */
     color: #000080;
@@ -20,13 +20,13 @@
 }
 
 
-.table 
+table 
 {
     margin-top: 20px; /* Отступ сверху в 20px */
     border: 1px solid #000; /*  */
 }
 
-.th
+th
 {
     text-align: left; /* Выравнивание текста по левому краю */
     background: #add0f7; /* Цвет заднего фона */
@@ -34,13 +34,13 @@
     border: 1px solid #000; /* Параметры рамки вокруг таблицы */
 }
 
-.td
+td
 { 
     padding: 5px; /* Поля вокруг текста */
     border: 1px solid #000;  /* Параметры рамки вокруг таблицы */
 }
 
-.q
+q
 {
     margin-left: 5px; /* Отступ слева в 5px */
 }
