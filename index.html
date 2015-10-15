@@ -10,7 +10,9 @@
     </head>
 
     <body>
-        <header><h1>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1></header>
+        <header>
+            <h1>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</h1>
+        </header>
 
         <article>
             <p>
@@ -41,10 +43,10 @@
             </ul>
 
             <p>
-                — «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы<br>
-                — &laquo;Что же дальше?&raquo; - вопрошаете вы<br>
-                — &laquo;А давай построим график!&raquo; - отвечаем мы<br>
-                — &laquo;А что будем считать?&raquo; - уточняете вы
+                — <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
+                — <q>Что же дальше?</q> - вопрошаете вы<br>
+                — <q>А давай построим график!</q> - отвечаем мы<br>
+                — <q>А что будем считать?</q> - уточняете вы
             </p>
 
             <p>
@@ -81,7 +83,10 @@
                 медленнее стал отвечать сервер либо слишком долго выполняется JavaScript. Выглядит это примерно так:
             </p>
 
-            <p><code>this.timings['look-ma-im-start'] = Date.now();<br>this.timings['look-ma-finish'] = Date.now();</code></p>
+            <p>
+                <code>this.timings['look-ma-im-start'] = Date.now();<br>
+                this.timings['look-ma-finish'] = Date.now();</code>
+            </p>
 
             <p>
                 C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются
@@ -99,15 +104,15 @@
             <h3>Как мы ускоряем</h3>
 
             <h4>Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:</h4>
-                <ul>
-                    <li>включаем <abbr title="GNU Zip">gzip</abbr>;</li>
-                    <li>выставляем заголовки кэширования;</li>
-                    <li>
-                        фризим <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="Java Script">JS</abbr>,
-                        шаблоны и картинки;
-                    </li>
-                    <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
-                </ul>
+            <ul>
+                <li>включаем <abbr title="GNU Zip">gzip</abbr>;</li>
+                <li>выставляем заголовки кэширования;</li>
+                <li>
+                    фризим <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="Java Script">JS</abbr>,
+                    шаблоны и картинки;
+                </li>
+                <li>используем <abbr title="Content Delivery Network">CDN</abbr>;</li>
+            </ul>
 
             <p>
                 Мы подумали: &laquo;А что если хранить где-то старую версию файлов, а при выходе
@@ -129,9 +134,11 @@
                 Чтобы реализовать этот метод обновления,<br>
                 начали искать реализации <code>diff</code> на <abbr title="Java Script">JS</abbr>.
                 На популярных хостингах кода нашли библиотеки:
-                <ul><li>VCDiff</li>
-                    <li>google-diff-patch-match</li></ul>
             </p>
+            <ul>
+                <li>VCDiff</li>
+                <li>google-diff-patch-match</li>
+            </ul>
 
             <p>Для окончательного выбора библиотеки нам нужно сравнить:</p>
 
@@ -163,8 +170,7 @@
                 где и как хранить стcodeатику на клиенте.
             </p>
 
-            <p>
-                Формат файла с патчами для проекта выглядит так:
+            <p>Формат файла с патчами для проекта выглядит так:</p>
                 <pre><code>
                     [
                         {
@@ -178,7 +184,6 @@
                             "s": 4554
                         }
                     ]</code></pre>
-                </p>
 
             <p>
                 То есть это обычный массив из объектов. Каждый объект — отдельный ресурс.
@@ -198,24 +203,24 @@
                     предназначенный для нахождения локального максимума/минимума нелинейного функционала без ограничений.
             </p>
 
-                <h4>Алгоритм:</h4>
-                <p>
-                    Дано <var>&epsilon;</var>, <var>x</var><sub>0</sub><br>
-                    инициализировать <var>H</var><sub>0</sub><br>
-                    <var>k</var> = 0<br>
-                    while ||&nabla;<var>&fnof;</var><sub>k</sub>|| &gt; &epsilon;
-                    найти направление <var>p</var><sub>k</sub> =
-                    -<var>C</var><sub>k</sub>&nabla;<var>&fnof;</var><sub>k</sub><br>
-                    вычислить <var>x</var><sub>k+1</sub> = <var>x</var><sub>k</sub> +
-                    <var>&alpha;</var><sub>k</sub><var>p</var><sub>k</sub>,
-                    <var>&alpha;</var><sub>k</sub> удовлетворяет условиям Вольфе<br>
-                    обозначить <var>s</var><sub>k</sub> = <var>x</var><sub>k+1</sub> -
-                    <var>x</var><sub>k</sub> и <var>y</var><sub>k</sub> =
-                    &nabla;<var>&fnof;</var><sub>k+1</sub> - &nabla;<var>&fnof;</var><sub>k</sub><br>
-                    вычислить <var>C</var><sub>k+1</sub><br>
-                    <var>k</var> = <var>k</var> + 1<br>
-                    end
-                </p>
+            <h4>Алгоритм:</h4>
+            <p>
+                Дано <var>&epsilon;</var>, <var>x</var><sub>0</sub><br>
+                инициализировать <var>H</var><sub>0</sub><br>
+                <var>k</var> = 0<br>
+                while ||&nabla;<var>&fnof;</var><sub>k</sub>|| &gt; &epsilon;
+                найти направление <var>p</var><sub>k</sub> =
+                -<var>C</var><sub>k</sub>&nabla;<var>&fnof;</var><sub>k</sub><br>
+                вычислить <var>x</var><sub>k+1</sub> = <var>x</var><sub>k</sub> +
+                <var>&alpha;</var><sub>k</sub><var>p</var><sub>k</sub>,
+                <var>&alpha;</var><sub>k</sub> удовлетворяет условиям Вольфе<br>
+                обозначить <var>s</var><sub>k</sub> = <var>x</var><sub>k+1</sub> -
+                <var>x</var><sub>k</sub> и <var>y</var><sub>k</sub> =
+                &nabla;<var>&fnof;</var><sub>k+1</sub> - &nabla;<var>&fnof;</var><sub>k</sub><br>
+                вычислить <var>C</var><sub>k+1</sub><br>
+                <var>k</var> = <var>k</var> + 1<br>
+                end
+            </p>
 
             <p>
                 Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:<br>
