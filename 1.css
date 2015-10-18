@@ -1,44 +1,33 @@
-table
-{
-	border: 2px solid black;
-	border-collapse: collapse;
-	text-align: center;
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
 }
-td
-{
-	border-top: 2px solid black;
-	border-right: 2px solid black;
+td{
+    border-top: 2px solid black;
+    border-right: 2px solid black;
 }
-th
-{
-	border-right: 2px solid black;
+th{
+    border-right: 2px solid black;
 }
-a 
-{
+a{
     text-decoration: none; 
 } 
-.blue
-{
-	color: blue;
-	
+.blue{
+    color: blue;    
 }
-.red
-{
-	color: red
+.red{
+    color: red
 }
-.green
-{
-	color: green;
+.green{
+    color: green;
 }
-.Math
-{
-	padding-left: 100px;
+.Math{
+    padding-left: 100px;
 }
-.bold
-{
+.bold{
   font-weight: bold;
 }
-.italic
-{
-	font: italic;
+.italic{
+    font: italic;
 }
