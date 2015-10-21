@@ -4,21 +4,15 @@ abbr
     color: #000080;
 }
 
-.p10px
+.margin-left-ten
 {
     margin-left: 10px; /* Отступ слева в 10px */
 }
 
-.p20px
+.margin-left-twenty
 {
     margin-left: 20px; /* Отступ слева в 20px */
 }
-
-.p40px
-{
-    margin-left: 40px; /* Отступ слева в 40px */
-}
-
 
 table 
 {
@@ -45,7 +39,7 @@ q
     margin-left: 5px; /* Отступ слева в 5px */
 }
 
-.bold
+.bold-font
 {
     font-weight: bold; /* Жирный шрифт */
 }
