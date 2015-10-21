@@ -80,28 +80,22 @@
                 причину замедления: медленнее стал отвечать сервер либо слишком долго
                 выполняется JavaScript. Выглядит это примерно так:
             </p>
-            <pre>
-                <code>
+            <pre><code>
     this.timings['look-ma-im-start'] = Date.now();
     this.timings['look-ma-finish'] = Date.now();
-                </code>
-            </pre>
+            </code></pre>
             <p>
                 C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при
                 отправке рассчитываются. На этапах разница между “end” и “start” не считается,
                 а все вычисления производятся в конце:
             </p>
-            <pre>
-                <code>
+            <pre><code>
     var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
-                </code>
-            </pre>
+            </code></pre>
             <p>И на сервер прилетают подобные записи:</p>
-            <pre>
-                <code>
+            <pre><samp>
     serverResponse=50&domUpdate=60
-                </code>
-            </pre>
+            </samp></pre>
             <hr>
             <p><strong>Как мы ускоряем</strong></p>
             <p>
@@ -164,21 +158,6 @@
                 где и как хранить статику на клиенте.
             </p>
             <p>Формат файла с патчами для проекта выглядит так:</p>
-            <p>[</p>
-            <p class="p20px">{</p>
-            <p class="p40px">
-                "k": "jane.css",<br>
-                "p": [patch],<br>
-                "s": 4554
-            </p>
-            <p class="p20px">},<br>{</p>
-            <p class="p40px">
-                "k": "jane.css",<br>
-                "p": [patch],<br>
-                "s": 4554
-            </p>
-            <p class="p20px">}</p>
-            <p>]</p>
             <pre><code>
 [
     {
@@ -195,9 +174,9 @@
             </code></pre>
             <p>
                 То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
-                каждого объекта есть три свойства. k — названия ключа в localStorage для этого
-                ресурса. p — патч для ресурса, который сгенерировал vcdiff. s — чексумма для
-                ресурса актуальной версии, чтобы потом можно было проверить правильность
+                каждого объекта есть три свойства. <var>k</var> — названия ключа в <code>localStorage</code> для этого
+                ресурса. <var>p</var> — патч для ресурса, который сгенерировал <code>vcdiff</code>. <var>s</var> — чексумма
+                для ресурса актуальной версии, чтобы потом можно было проверить правильность
                 наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
             </p>
             <p>
@@ -210,24 +189,28 @@
                 дано &epsilon;, \(x_0\)<br>
                 инициализировать \(H_0\)<br>
                 &kappa;=0<br>
-                <span class="bold">while</span>\(&verbar;&verbar;&nabla;&fnof;_&kappa;&verbar;&verbar;>&epsilon;\)<br>
-                <span class="p20px">найти направление \(&rho;_&kappa;=-C_&kappa;&nabla;&fnof;_&kappa;\)</span><br>
-                <span class="p20px">вычислить \(x_{&kappa;+1}=x_&kappa;+&alpha;_&kappa;&rho;_&kappa;,&alpha;_&kappa;\) 
+                <span class="bold-font">while</span>\(&verbar;&verbar;&nabla;&fnof;_&kappa;&verbar;&verbar;>&epsilon;\)<br>
+                <span class="margin-left-twenty">найти направление \(&rho;_&kappa;=-C_&kappa;&nabla;&fnof;_&kappa;\)</span><br>
+                <span class="margin-left-twenty">вычислить \(x_{&kappa;+1}=x_&kappa;+&alpha;_&kappa;&rho;_&kappa;,&alpha;_&kappa;\) 
                 удовлетворяет условиям Вольфе</span><br>
-                <span class="p20px">обозначить \(s_&kappa;=x_{&kappa;+1}-x_&kappa;\) и 
+                <span class="margin-left-twenty">обозначить \(s_&kappa;=x_{&kappa;+1}-x_&kappa;\) и 
                 \(y_&kappa;=&nabla;&fnof;_{&kappa;+1}-&nabla;&fnof;_&kappa;\)</span><br>
-                <span class="p20px">вычислить \(С_{&kappa;+1}\)</span><br>
-                <span class="p20px">\(&kappa;=&kappa;+1\)</span><br>
-                <span class="bold">end</span>
+                <span class="margin-left-twenty">вычислить \(С_{&kappa;+1}\)</span><br>
+                <span class="margin-left-twenty">\(&kappa;=&kappa;+1\)</span><br>
+                <span class="bold-font">end</span>
             </p>
             <p><img src="https://clck.ru/9b3Sn" width="529" height="237" alt="Очень симпатичный алгоритм"></p>
             <p>
                 Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:<br>
-                CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
-                целостности данных<br>
-                md5 - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
-                или дайджестов сообщения произвольной длины и последующей проверки
-                их подлинности.
+                <dl>
+                    <dt><em>CRC16/32</em></dt>
+                    <dd> - алгоритм нахождения контрольной суммы, предназначенный для проверки
+                        целостности данных</dd>
+                    <dt><em>md5</em></dt>
+                    <dd> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+                        или дайджестов сообщения произвольной длины и последующей проверки
+                        их подлинности.</dd>
+                </dl>
             </p>
             <p>Потому что он быстрый, компактный и легок в реализации.</p>
             <p><strong>Итог</strong></p>
@@ -260,52 +243,52 @@
             </table>
             <address>
                 Автор: @doochik<br>
-                С++ разработик<br>
+                С++ разработчик<br>
                 Электронная почта: (doochik@yandex-team.ru)<br>
                 Компания: Яндекс
             </address>
-            <p><strong>Комментарии (3):</strong></p>
-            <article>
-                <header>
-                    - Mogaika <a href="mailto:mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a>
-                    &nbsp;<time datetime="2014-11-30">30 ноября 2014 в 17:05</time>
-                </header>
-                <p class="p10px">А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
-            </article>
-            <article>
-                <header>
-                    - JIguse <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a>
-                    &nbsp;<time datetime="2014-11-29">29 ноября 2014 в 21:30</time>
-                </header>
-                <p class="p10px">
-                    Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
-                    подробностями о внутренней работе сервисов.
-                </p>
-            </article>
-            <article>
-                <header>
-                    - Brister <a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru)</a>
-                    &nbsp;<time datetime="2014-11-24">24 ноября 2014 в 13:13</time>
-                </header>
-                <blockquote>
-                    <p class="p10px">
+            <section>
+                <p><strong>Комментарии (3):</strong></p>
+                <article>
+                    <header>
+                        - Mogaika <a href="mailto:mogaika@yandex-team.ru">(mogaika@yandex-team.ru)</a>
+                        &nbsp;<time datetime="2014-11-30">30 ноября 2014 в 17:05</time>
+                    </header>
+                    <p class="margin-left-ten">А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
+                </article>
+                <article>
+                    <header>
+                        - JIguse <a href="mailto:mrawesome@yandex.ru">(mrawesome@yandex.ru)</a>
+                        &nbsp;<time datetime="2014-11-29">29 ноября 2014 в 21:30</time>
+                    </header>
+                    <p class="margin-left-ten">
+                        Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+                        подробностями о внутренней работе сервисов.
+                    </p>
+                </article>
+                <article>
+                    <header>
+                        - Brister <a href="mailto:brist89@yandex-team.ru">(brist89@yandex-team.ru)</a>
+                        &nbsp;<time datetime="2014-11-24">24 ноября 2014 в 13:13</time>
+                    </header>
+                    <blockquote>
                         (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
                         Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                         хорошо или плохо работает почта.
+                    </blockquote>
+                    <p class="margin-left-ten">наверное все-таки от 0.5 до 1</p>
+                </article>
+                <article>
+                    <header>
+                        - alexeimois <a href="mailto:test@yandex.ru">(test@yandex.ru)</a>
+                        &nbsp;<time datetime="2014-11-22">22 ноября 2014 в 17:35</time>
+                    </header>
+                    <p class="margin-left-ten">
+                        Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                        help.yandex.ru/metrika/reports/monitoring_timing.xml
                     </p>
-                </blockquote>
-                <p class="p10px">наверное все-таки от 0.5 до 1</p>
-            </article>
-            <article>
-                <header>
-                    - alexeimois <a href="mailto:test@yandex.ru">(test@yandex.ru)</a>
-                    &nbsp;<time datetime="2014-11-22">22 ноября 2014 в 17:35</time>
-                </header>
-                <p class="p10px">
-                    Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-                    help.yandex.ru/metrika/reports/monitoring_timing.xml
-                </p>
-            </article>
+                </article>
+            </section>
         </main>
         <footer>
             © Яндекс, <a href="mailto:help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10
