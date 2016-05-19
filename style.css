@@ -1,0 +1,28 @@
+body
+{
+    width: 960px;
+}
+
+th,
+td,
+table
+{
+    border: 1px solid #000;
+    border-collapse: collapse; 
+}
+
+footer
+{
+    text-align: center;
+}
+
+span.bold
+{
+    font-weight: bold;
+}
+
+.big
+{
+    font-family: "Times New Roman", Arial;
+    font: 14px;
+}
