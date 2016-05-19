@@ -1,0 +1,61 @@
+body
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+li
+{
+    list-style-type: none;
+}
+
+li:before
+{
+    content: "* ";
+}
+
+.dash:before
+{
+    content: "- ";
+}
+
+table
+{
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+th,
+td
+{
+    padding: 10px;
+    text-align: center;
+}
+
+th
+{
+    border: 2px solid black;
+    text-align: center;
+}
+
+td
+{
+    border-right: 2px solid black;
+}
+
+.color
+{
+    padding: 10px;
+    background: lightgray;
+    width: 600px;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.tab
+{
+    padding-left: 30px;
+}
