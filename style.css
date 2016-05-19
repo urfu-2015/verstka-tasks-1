@@ -1,0 +1,80 @@
+html
+{
+    margin: 0;
+}
+
+body
+{
+    margin: 0;
+    background-color: #69c;
+}
+
+.content
+{
+    margin: 0 auto;
+    padding: 10px 25px;
+    width: 950px;
+    background-color: #f0f8ff;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.noMarkList
+{
+    list-style-type: none;
+}
+
+table,
+tr,
+td,
+th
+{
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.codeContent
+{
+    background-color: #d3d3d3;
+    padding: 0 10px;
+    margin-right: 100px;
+}
+
+.author
+{
+    margin-left: 500px;
+}
+
+article.comment
+{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+article.comment:nth-child(2n)
+{
+    background-color: #b0c4dE;
+}
+
+article.comment:nth-child(2n+1)
+{
+    background-color: #87ceeb;
+}
+
+.commenter
+{
+    text-align: right;
+    font-style: italic;
+}
+
+footer
+{
+    text-align: right;
+    margin-top: 60px;
+}
