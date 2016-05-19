@@ -1,0 +1,19 @@
+table
+{
+    width: 300px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td,
+th
+{
+    padding: 3px;
+    border: 1px solid black;
+}
+
+th
+{
+    background: #b0e0e6;
+}
