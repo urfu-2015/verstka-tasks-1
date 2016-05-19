@@ -1,0 +1,45 @@
+abbr
+{
+    border-bottom: 1px dashed blue; /* Нижнее пунктирное подчеркивание синего цвета в 1px */
+    color: #000080;
+}
+
+.margin-left-ten
+{
+    margin-left: 10px; /* Отступ слева в 10px */
+}
+
+.margin-left-twenty
+{
+    margin-left: 20px; /* Отступ слева в 20px */
+}
+
+table 
+{
+    margin-top: 20px; /* Отступ сверху в 20px */
+    border: 1px solid #000; /*  */
+}
+
+th
+{
+    text-align: left; /* Выравнивание текста по левому краю */
+    background: #add0f7; /* Цвет заднего фона */
+    padding: 5px; /* Поля вокруг текста */
+    border: 1px solid #000; /* Параметры рамки вокруг таблицы */
+}
+
+td
+{ 
+    padding: 5px; /* Поля вокруг текста */
+    border: 1px solid #000;  /* Параметры рамки вокруг таблицы */
+}
+
+q
+{
+    margin-left: 5px; /* Отступ слева в 5px */
+}
+
+.bold-font
+{
+    font-weight: bold; /* Жирный шрифт */
+}
