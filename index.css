@@ -1,0 +1,35 @@
+span 
+{
+    font-style: italic;
+    font-weight: bold;
+    font-family: "Comic Sans MS";
+}
+
+.new-step 
+{
+    margin-left: 25px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.increment 
+{
+    margin-left: 25px;
+}
+
+.reserved-words 
+{
+    font-weight: bold;
+    font-style: normal;
+}
+
+th 
+{
+    width: 100px;
+}
+
+tr 
+{
+    text-align: center;
+    width: 20px;
+}
