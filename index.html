@@ -1,3 +1,486 @@
 <html>
-    <!-- Ваш замечательный код -->
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset = "UTF-8">
+        <style type="text/css">
+            @font-face
+              {
+                font-family: InformaPro-Normal;
+                src: url(InformaPro-Normal.otf);
+              }
+
+            h3 
+              {
+                padding-left: 50px;
+                float: left;
+                color: #212121;
+              }
+            h2 
+              {
+                padding: 15px;
+                float: left;
+              }
+            h1 
+              {
+                margin-left: 40px;
+                margin-top: 1em;
+             
+              }
+
+            body 
+              {
+                text-decoration: none;
+                background-color: #FAFAFA;
+                font-family: InformaPro-Normal;
+              }
+
+            a 
+              {
+                text-decoration: none;
+              }
+            
+            th, td
+              {
+                border: 1px solid #CFD8DC;
+                padding:10px;
+              }
+            
+            table 
+              {
+                border-collapse: collapse;
+                border: 1px solid #CFD8DC;
+                width: 600px;
+                float: left;
+                background: #F5F5F5;
+                margin-left: 3em;
+                margin-bottom: 1em;
+                color: #424242;
+              }
+
+            #sidebar
+               {
+                position: absolute;
+                width: 200px;
+                margin-top: 140px;
+                height: auto;
+                margin-left: 220px;
+                background: #fff;
+                margin-top: 150px;
+              }
+
+            #tags
+                {
+                position: absolute;
+                width: 160px;
+                background: #FFF;
+                border-left: 1px solid #BDBDBD;
+                margin:50px;
+                float: right;
+                left: 880px;
+                top: 100px;
+              }
+
+            #bodycontent 
+              {
+                width: 1000px; 
+                margin: 0 auto;
+                position: relative;
+                min-width: 33px;
+                min-height: 33px;
+              }
+
+            #content 
+              {
+                position: relative;
+                float: left;
+                width:800px;
+                background: #FFF;
+                border-left: 1px solid #BDBDBD;
+                border-bottom: 2px solid #BDBDBD;
+                margin:50px;
+                padding-bottom: 50px;
+              }
+
+            #comments 
+              {
+                position: relative;
+                float: left;
+                width:800px;
+                background: #FFF;
+                top: 20px;
+                border-top: 2px solid #BDBDBD; 
+                margin: 50px;
+                border-left: 1px solid #BDBDBD;
+              }
+
+            #header 
+              {
+                position: absolute;
+                z-index: 0;
+                min-width: 1000px;
+                height: 100px;
+                width: 100%;
+                background: #E0E0E0;
+                border-bottom: 1px solid #BDBDBD;
+              }
+              #header1
+              { 
+                margin-left:50px;
+                background-color: #E0E0E0;
+              }
+
+            .block1 
+              {
+                position: relative;
+                float: left;
+                padding: 0em, 1em;
+                width: 600;
+                background: #FAFAFA;
+                border-right: 1px solid #CFD8DC;
+                margin-bottom: 1em;
+                margin-left: 50px;
+                color: #424242;
+              }
+
+            .block2 
+              {
+                padding: 0em, 1em;
+                width: 600;
+                float: left;
+                background: #ECEFF1;
+                border-style: none;
+                margin-bottom: 1em;
+                margin-top: 2em;
+                margin-left: 100px;
+                color: #607D8B;
+              }
+
+            .comments1 
+              {
+                padding: 0em, 1em;
+                width: 700;
+                background: #FFF;
+                border-top: 1px solid #CFD8DC;
+                float: left;
+                margin-bottom: 1em;
+                margin-left: 2em;
+              }
+              
+              .quotation 
+              {
+                padding: 0em, 1em;
+                width: auto;
+                background: #FFF;
+                border-bottom: 1px solid #CFD8DC;
+                border-top: 1px solid #CFD8DC;
+                float: left;
+                margin: 1em;
+                font-style: italic;
+              }
+
+            .text 
+              {
+                padding-left: 50px;
+                width: 700;
+                float: left;
+                color: #616161;
+              }
+              #title
+              {
+                float: left;
+                margin-left: 50px;
+                width: 600px
+              }
+
+            .author
+              {
+                padding: 1em;
+                width: 200px;
+                float: left;
+                border-right: 1px solid #CFD8DC; 
+                margin-left: 2em;
+                margin-top: 1em; 
+                color: #BDBDBD;
+              }
+       </style>
+       <title>Блог компании Яндекс</title>
+    </head>
+    <body>
+        <div id ="header">
+        </div>
+        <div id="bodycontent"> 
+        <div id="tags">
+            <h3> Тэги </h3>
+                <p class="text"> <a href="https://blog.yandex.ru/tags/13067549/"> Андроид </a> </p>
+                <p class="text"> <a href="https://blog.yandex.ru/tags/1767154/"> API </a> </p>
+                <p class="text"> <a href="https://blog.yandex.ru/tags/72255796/"> iOS </a> </p>
+                <p class="text"> <a href="https://blog.yandex.ru/tags/150008803/"> iPhone </a> </p>
+                <p class="text"> <a href="https://blog.yandex.ru/tags/1776655/"> yandex-team </a> </p>
+        </div>
+          <div id ="header1">
+            <h2 ><a href ="https://blog.yandex.ru/" style="color: black"> Блог 
+                компании <span style="color:red">Я</span>ндекс. </a></h2>
+        </div>
+           <div id="content">
+            <div class="author">
+               <dt>@doochik</dt>
+               <dt>С++ разработчик</dt>
+               <dt>doochik@yandex-team.ru</dt>
+               <dt>Компания: Яндекс</dt> 
+           </div> 
+               <h1 id="title"> <span style="color:red">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ 
+                   И УЛУЧШАЕМ ЕЁ </h1>
+           
+           <p class="text">Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
+               какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
+               тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
+               иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
+               и новая логика. Всё это напрямую влияет на скорость работы интерфейса.</p>
+           
+           <h3>Что мы измеряем </h3>
+           <div class="block1">
+               <ol> 
+                   <h4>Этапы первой загрузки: </h4>
+                       <li> подготовка; </li>
+                       <li> загрузка статики (HTTP-запрос и парсинг); </li>
+                       <li> исполнение модулей; </li>
+                       <li> инициализация базовых объектов; </li>
+                       <li> отрисовка. </li>
+               </ol>
+           </div>
+           <div class="block1">
+               <ol>
+                   <h4> Этапы отрисовки любой страницы: </h4>
+                       <li> подготовка к запросу на сервер; </li>
+                       <li> запрос данных с сервера; </li>
+                       <li> шаблонизация; </li>
+                       <li> обновление DOM. </li>
+              </ol>
+           </div>
+           <div class="block2">
+               <dt>&mdash;«Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы</dt>
+               <dt>&mdash;«Что же дальше?» - вопрошаете вы </dt>
+               <dt>&mdash;«А давай построим график!» - отвечаем мы </dt>
+               <dt>&mdash;«А что будем считать?» - уточняете вы</dt>
+           </div>
+           <p class="text"> Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
+               Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
+               В общем случае медиана отлично показывает, сколько грузится средний пользователь.</p>
+           <p class="text">В случае ускорения или замедления медиана, конечно, изменится. Но она не может
+               рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
+           <p class="text">APDEX – метрика, которая сразу говорит: хорошо или плохо. Метрика
+               работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
+               время показа страницы попало в него, то пользователь счастлив. Берем еще один
+               интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
+               показана за это время, то пользователь в целом удовлетворен скоростью работы,
+               но уже не настолько счастлив. И применяем формулу:</p>
+           <div class="block1">
+               <pre>
+         кол-во счастливых пользователей + кол-во удовлетворенных 
+         ________________________________________________________
+                                   2                                 
+   ____________________________________________________________________ 
+                              кол-во всех
+               </pre>
+           </div>
+           <p class="text">Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+               хорошо или плохо работает почта. </p>
+
+           <h3>Как мы измеряем </h3>
+           <p class="text">Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
+               причину замедления: медленнее стал отвечать сервер либо слишком долго
+               выполняется JavaScript. Выглядит это примерно так: </p>
+
+           <div class="block1"> 
+               <dt>this.timings['look-ma-im-start'] = Date.now();</dt>
+               <dt>this.timings['look-ma-finish'] = Date.now();</dt>
+           </div>
+           <p class="text">C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при
+               отправке рассчитываются. На этапах разница между “end” и “start” не считается,
+               а все вычисления производятся в конце: </p>
+           <div class="block1">
+               <p>var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];</p>
+           </div>
+           <p class="text">И на сервер прилетают подобные записи: </p>
+           <div class="block1">
+               <p>serverResponse=50&domUpdate=60</p>
+           </div>
+
+           <h3>Как мы ускоряем</h3>
+           <div class="block1">
+               <ol>
+                   <h4>Чтобы снизить время загрузки почты при выходе новых версий, 
+                       мы уже делаем следующее:</h4>
+                   <li>включаем gzip;</li>
+                   <li>выставляем заголовки кэширования;</li>
+                   <li>фризим CSS, JS, шаблоны и картинки;</li>
+                   <li>используем CDN;</li>
+               </ol>
+           </div>
+           <p class="text">Мы подумали: «А что если хранить где-то старую версию файлов, а при выходе новой
+               передавать только diff между ней и той, которая сохранена у пользователя?»
+               В браузере же останется просто наложить патч на клиенте.</p>
+           <p class="text">На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
+               RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разным причинам они
+               не получили должного распространения в браузерах и на серверах.</p>
+           <p class="text">Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
+               начали искать реализации diff на JS. На популярных хостингах кода нашли
+               библиотеки:</p>
+           <div class="block1">
+               <p>- VCDiff - google-diff-patch-match</p>
+           </div>
+           <p class="text">Для окончательного выбора библиотеки нам нужно сравнить: </p>
+           <table>
+               <tr>
+                   <th> Библиотека </th>
+                   <th> IE 9 </th>
+                   <th>Opera 12</th>
+               </tr>
+               <tr>
+                   <td>vcdiff</td>
+                   <td>8</td>
+                   <td>5</td>
+               </tr>
+               <tr>
+                   <td>google diff</td>
+                   <td> 1363</td>
+                   <td>76</td>
+               </tr>
+           </table>
+           <p class="text">После того как мы определились с библиотекой для диффа, нужно определиться с тем,
+               где и как хранить статику на клиенте.</p>
+           <p class="text">Формат файла с патчами для проекта выглядит так:</p>
+           <div class="block1">
+               <pre>
+  [
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    },
+    {
+        "k": "jane.css",
+        "p": [patch],
+        "s": 4554
+    }
+]
+               </pre>
+           </div>
+           
+           <p class="text">То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
+               каждого объекта есть три свойства. k — названия ключа в localStorage для этого
+               ресурса. p — патч для ресурса, который сгенерировал vcdiff. s — чексумма для
+               ресурса актуальной версии, чтобы потом можно было проверить правильность
+               наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера. </p>
+           <div class="block1">
+               <dt><strong>Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</strong></dt>
+               <dd>— итерационный метод численной оптимизации, предназначенный для
+                   нахождения локального максимума/минимума нелинейного функционала
+                   без ограничений.</dd>
+               <details>
+                   <summary>Алгоритм:</summary>
+                       <pre>
+    дано ε, x<sub><small>0</small></sub>
+    инициализировать H<sub><small>0</small></sub>
+    k = 0
+    while ||&nabla;f<sub>k</sub>|| > ε
+         найти направление p<sub><small>k</small></sub>=-C<sub><small>k</small></sub>&nabla;f<sub><small>k</small></sub>
+         вычислить x<sub><small>k+1</small></sub> = x<sub><small>k</small></sub>+α<sub><small>k</small></sub>p<sub><small>k</small></sub>
+         (α<sub><small>k</small></sub> удовлетворяет условиям Вольфе)
+         обозначить s<sub><small>k</small></sub>=x<sub><small>k+1</small></sub>-x<sub><small>k</small></sub> и
+                    y<sub><small>k</small></sub>=&nabla;f<sub><small>k+1</small></sub>-&nabla;f<sub><small>k</small></sub>
+         вычислить C<sub><small>k+1</small></sub>
+         k = k + 1
+    end
+                        </pre>
+               </details>
+           </div>
+
+           <h3>Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:</h3>
+           <div class="block1">
+               <dt><strong>CRC16/32</strong></dt>
+               <dd> - алгоритм нахождения контрольной суммы, предназначенный для проверки
+                   целостности данных</dd>
+               <dt><strong>md5</strong></dt>
+               <dd> - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
+                   или дайджестов сообщения произвольной длины и последующей проверки
+                   их подлинности.</dd>
+           </div>
+           <p class="text">Потому что он быстрый, компактный и легок в реализации.</p>
+
+          <h3> Итог</h3>
+          <p class="text">Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
+          <table>
+              <tr>
+                  <th>Релиз</th>
+                  <th>С патчем</th>
+                  <th>Без патча</th>
+              </tr>
+              <tr>
+                  <td>7.7.20</td>
+                  <td>397</td>
+                  <td>174 549</td>
+              </tr>
+              <tr>
+                  <td>7.7.21</td>
+                  <td> 383 </td>
+                  <td>53 995</td>
+              </tr>
+              <tr>
+                  <td>7.7.22</td>
+                  <td>483</td>
+                  <td>3 995</td>
+              </tr>
+         </table>
+
+
+        </div>
+        <div id="comments">
+            <h2>Комментарии (3):</h2>
+            <div class="comments1">
+                <dt style="text-align:left"><strong>Mogaika</strong></dt>
+                <dt style="color:#BDBDBD; text-align:left"><small>mogaika@yandex-team.ru</small></dt>
+                <p style="text-align:left">А можете привести сравнение, на сколько быстрее грузится lite 
+                    версия?</p>
+                <p style = "text-align:right; color:#757575"><small>30 ноября 2014 в 17:05</small></p>
+            </div>
+            <div class="comments1">
+                <dt style="text-align:left"><strong>JIguse</strong></dt>
+                <dt style="color:#BDBDBD; text-align:left"><small>mrawesome@yandex.ru</small></dt>
+                <p style="text-align:left">Спасибо за статью, познавательно. Здорово, что Яндекс делится 
+                    некоторыми подробностями о внутренней работе сервисов.</p>
+                <p style = "text-align:right; color:#757575"><small>29 ноября 2014 в 21:30</small></p>
+            </div>
+            <div class="comments1">
+                <dt style="text-align:left"><strong>Brister</strong></dt>
+                <dt style="color:#BDBDBD; text-align:left"><small>brist89@yandex-team.ru</small></dt>
+                <div class="quotation">
+                    <p style="text-align:left">
+                        <pre style="background-color:#FAFAFA">
+         кол-во счастливых пользователей + кол-во удовлетворенных 
+         ________________________________________________________
+                                   2                                 
+   ____________________________________________________________________ 
+                              кол-во всех
+                        </pre>
+                    Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+                    хорошо или плохо работает почта.</p>
+                </div>
+                <p style="text-align:left">наверное все-таки от 0.5 до 1</p>
+                <p style="text-align:right; color:#757575"><small>24 ноября 2014 в 13:13</small></p>
+            </div>
+            <div class="comments1">
+                <dt style="text-align:left"><strong>alexeimois</strong></dt>
+                <dt style="color:#BDBDBD; text-align:left"><small>test@yandex.ru</small></dt>
+                <p style="text-align:left">Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
+                    <a href="https://yandex.ru/support/metrika/reports/timing.xml">
+                        help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
+               <p style="text-align:right; color:#757575"><small>2 ноября 2014 в 17:35</small></p>
+            </div>
+            <p class="text">© <a href="https://www.yandex.ru/">Яндекс</a>, <a href="help@yandex.ru">
+                help@yandex.ru</a>, <a href ="https://maps.yandex.ru/-/CVsoiOj4">Хохрякова, 10</a></p> 
+            </div>
+        </div>
+    </body>
 </html>
