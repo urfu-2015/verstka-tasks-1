@@ -1,0 +1,23 @@
+{
+  "name": "verstka-tasks-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/urfu-2015/verstka-tasks-1.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urfu-2015/verstka-tasks-1/issues"
+  },
+  "homepage": "https://github.com/urfu-2015/verstka-tasks-1",
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "should": "^7.1.0"
+  }
+}
