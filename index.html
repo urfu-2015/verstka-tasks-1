@@ -1,3 +1,286 @@
-<html>
-    <!-- Ваш замечательный код -->
+<!DOCTYPE html>
+<html lang="ru">
+<!-- Ваш замечательный код -->
+<head>
+    <meta name="author" content="Копорушкин Данил"/>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <title>Блог компании Яндекс.</title>
+    <meta keywords="яндекс, верстка, УрФУ, задание">
+    <meta description="ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ. Полезная информация!">
+</head>
+<body style="background-color:navajowhite;">
+<header>
+<h1 style="text-align: center">Блог компании <span style="color:darkred;font-weight:bold">Я</span>ндекс.</h1>
+</header>
+    <header style="text-align: center">
+    <strong><span style="color:darkred;font-weight:bold">Я</span>НДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ</strong>
+    </header>
+<hr>
+<main style="text-align: left">
+<div>
+    Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,<br>
+    какой он красивый, ни то, какой он удобный. Никому не понравится, когда все<br>
+    тормозит. Мы регулярно добавляем в <a href="https://mail.yandex.ru">Яндекс.Почту</a> новую функциональность,<br>
+    иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код<br>
+    и новая логика. Всё это напрямую влияет на скорость работы интерфейса.<br>
+</div>
+<hr>
+<header>
+    <h3>Что мы измеряем</h3>
+    <strong>Этапы первой загрузки</strong>
+    <ol type="I">
+        <li>подготовка;</li>
+            <li>загрузка статики (HTTP-запрос и парсинг);</li>
+            <li>исполнение модулей;</li>
+            <li>инициализация базовых объектов;</li>
+            <li>отрисовка.</li>
+    </ol>
+    <strong>Этапы отрисовки любой страницы:</strong>
+    <ol type="1">
+        <li> подготовка к запросу на сервер;</li>
+        <li> запрос данных с сервера;</li>
+        <li> шаблонизация;</li>
+        <li> обновление DOM.</li>
+    </ol>
+<hr>
+<div>
+    <p>— <q>Ок, теперь у нас есть метрики, мы можем отправить их на сервер</q> - говорим мы<br>
+    — <q>Что же дальше?</q> - вопрошаете вы<br>
+    — <q>А давай построим график!</q> - отвечаем мы<br>
+    — <q>А что будем считать?</q> - уточняете вы<br>
+</div>
+<hr>
+<div>
+    <p>Как вы знаете, <strong><dfn>медиана</dfn></strong> <em>– это серединное, а не среднее значение в выборке.</em><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то <em>медиана – 3</em>, а <em>среднее – 6,5.</em><br>
+    В общем случае медиана отлично показывает, сколько грузится средний пользователь.<br>
+    В случае ускорения или замедления медиана, конечно, изменится. Но она не может<br>
+    рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
+</div>
+<div>
+    <p><em><strong><abbr title="Application Performance Index">APDEX</abbr></strong></em> – <em>метрика, которая сразу
+        говорит: хорошо или плохо</em>.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; Метрика работает очень просто. Мы выбираем временной интервал <em>[0; t]</em>, такой, что если<br>
+        время показа страницы попало в него, то пользователь счастлив. Берем еще один<br>
+        интервал, <em>(t; 4t]</em> (в четыре раза больше первого), и считаем, что если страница<br>
+        показана за это время, то пользователь в целом удовлетворен скоростью работы,<br>
+        но уже не настолько счастлив.</p>
+    <figure>
+        <figcaption>И применяем формулу:</figcaption>
+        (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
+        <p>Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
+            хорошо или плохо работает почта.</p>
+    </figure>
+</div>
+<hr>
+<div>
+    <strong>Как мы измеряем</strong><br>
+    Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять<br>
+    причину замедления: медленнее стал отвечать сервер либо слишком долго<br>
+    выполняется <em>JavaScript</em>.<br>
+    Выглядит это примерно так:<br>
+		<pre><code>
+                this.timings['look-ma-im-start'] = Date.now();
+                this.timings['look-ma-finish'] = Date.now();
+        </code></pre>
+    C помощью <code>Date.now()</code> мы получаем текущее время. Все тайминги собираются и при<br>
+    отправке рассчитываются. На этапах разница между <em>“end”</em> и <em>“start”</em> не считается,<br>
+    а все вычисления производятся в конце:<br>
+	<pre><code>
+            var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
+        </code></pre>
+    И на сервер прилетают подобные записи:
+			<pre><code>
+                    serverResponse=50&domUpdate=60
+            </code></pre>
+</div>
+<div>
+    <strong>Как мы ускоряем</strong>
+    <p>Чтобы снизить время загрузки почты при выходе новых версий, мы уже делаем следующее:</p>
+    <ol type="A">
+        <li> включаем gzip;</li>
+        <li> выставляем заголовки кэширования;</li>
+        <li> фризим CSS, JS, шаблоны и картинки;</li>
+        <li> используем CDN;</li>
+    </ol>
+</div>
+<hr>
+<div>
+    <p><strong><em>Мы подумали:</em></strong> <q>А что если хранить где-то старую версию файлов, а при выходе новой<br>
+        передавать только diff между ней и той, которая сохранена у пользователя?</q><br>
+        В браузере же останется просто наложить патч на клиенте.</p>
+    <p>На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,<br>
+        RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разным причинам они<br>
+        не получили должного распространения в браузерах и на серверах.</p>
+    <p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,<br>
+        начали искать реализации diff на JS. На популярных хостингах кода нашли<br>
+        библиотеки:</p>
+    - VCDiff<br>
+    - google-diff-patch-match<br>
+</div>
+<hr>
+<div style="text-align: center">
+    <figure>
+        <figcaption><strong>Для окончательного выбора библиотеки нам нужно сравнить:</strong></figcaption>
+        <table>
+            <thead>
+            <tr>
+                <th>Библиотека</th>
+                <th>IE 9</th>
+                <th>Opera 12</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>vcdiff
+                <td> 8</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>google diff</td>
+                <td>1363</td>
+                <td>76</td>
+            </tr>
+            </tbody>
+        </table>
+    </figure>
+</div>
+<div>
+    <p>После того как мы определились с библиотекой для диффа, нужно определиться с тем,<br>
+        где и как хранить статику на клиенте.</p>
+    <strong><em>Формат файла с патчами для проекта выглядит так:</em></strong>
+	<pre><code>
+            [
+                {
+                "k": "jane.css",
+                "p": [patch],
+                "s": 4554
+                },
+            {
+            "k": "jane.css",
+            "p": [patch],
+            "s": 4554
+               }
+            ]
+	</code></pre>
+</div>
+<hr>
+<div>
+    То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У<br>
+    каждого объекта есть три свойства. k — названия ключа в <em>localStorage</em> для этого<br>
+    ресурса. p — патч для ресурса, который сгенерировал <em>vcdiff</em>. s — чексумма для<br>
+    ресурса актуальной версии, чтобы потом можно было проверить правильность<br>
+    наложения патча на клиенте. Чексумма вычисляется по <em>алгоритму Флетчера</em>:
+    <figure>
+        <article>
+            <section>
+                <p>дано <strong><em>&epsilon;,x<sub>0</sub></em></strong></p>
+                <p>инициализировать <strong><em>H<sub>0</sub></em></strong></p>
+                <p><strong><em>k=0</em></strong></p>
+                <p>while<strong><em>||&nabla;&fnof;<sub>k</sub>|| > &epsilon; </em></strong></p>
+                <figure>
+                    <p>Найти направление <strong><em>p<sub>k </sub>=
+                        -C<sub>k</sub>&nabla;&fnof;<sub>k</sub></em></strong></p>
+                    <p>Вычислить<strong><em> x<sub>k+1</sub> = x<sub>k</sub> + &alpha;<sub>k</sub>p<sub>k</sub> ,&alpha;<sub>k </sub></em></strong>
+                        удовлетворяет условиям Вольфе</p>
+                    <p>Обозначить <em><strong>s<sub>k </sub>= x<sub>k+1 </sub>- x<sub>k</sub></strong></em> и
+                        <em><strong> y<sub>k </sub>= &nabla; &fnof;<sub>k+1 </sub>- &fnof;<sub>k</sub></strong></em></p>
+                    <p>Вычислсить <strong><em>C<sub>k+1</sub></em></strong></p>
+                    <p><strong><em>k = k + 1 </em></strong></p>
+                </figure>
+                <p><strong>end</strong></p>
+            </section>
+        </article>
+    </figure>
+</div>
+<hr>
+<div>
+    <p><dfn><strong>Алгоритм</strong> Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)</dfn><br>
+        <em>— итерационный метод численной оптимизации, предназначенный для<br>
+            нахождения локального максимума/минимума нелинейного функционала<br>
+            без ограничений.</em></p>
+    <strong>Почему именно <em>алгоритм Флетчера</em>, а не другие популярные алгоритмы вроде:</strong><br>
+    <p><strong><dfn>CRC16/32</dfn></strong> <em>- алгоритм нахождения контрольной суммы, предназначенный для проверки<br>
+        целостности данных md5 - 128-битный алгоритм хеширования.<br>
+        Предназначен для создания «отпечатков» или дайджестов<br>
+        сообщения произвольной длины и последующей проверки их подлинности.</em><br></p>
+    <h3><em>Потому что он быстрый, компактный и легок в реализации.</em></h3>
+</div>
+<hr>
+<em><strong>Итог</strong></em>
+<p>Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:</p>
+<div style="text-align: center">
+    <table>
+        <thead>
+        <tr>
+            <th>Релиз</th>
+            <th>С патчем</th>
+            <th>Без патча</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>7.7.20</td>
+            <td>397</td>
+            <td>174 549</td>
+        </tr>
+        <tr>
+            <td>7.7.21</td>
+            <td>383</td>
+            <td>53 995</td>
+        </tr>
+        <tr>
+            <td>7.7.22</td>
+            <td>483</td>
+            <td>3 995</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<address>
+    <p>Автор:<a href="https://twitter.com/doochik"> @doochik</a><br>
+       С++ разработик<br>
+       Электронная почта: (<a href="mailto:doochik@yandex-team.ru">doochik@yandex-team.ru</a>)<br>
+       Компания: Яндекс</p>
+</address>
+<hr>
+    <section>
+        <h1 class="button">Комментарии (3):</h1>
+        <article>
+            <strong><a href="mailto:mogaika@yandex-team.ru"> - Mogaika</a>(mogaika@yandex-team.ru) <time>30 ноября 2014</time> в
+                17:05</strong>
+            <p><em>    А можете привести сравнение, на сколько быстрее грузится lite версия?</em></p>
+        </article>
+        <article>
+            <strong><a href="mailto:mrawesome@yandex.ru"> - JIguse</a>(mrawesome@yandex.ru) <time>29 ноября 2014</time> в
+                21:30</strong>
+            <p><em>    Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
+                подробностями о внутренней работе сервисов.</em></p>
+        </article>
+        <article>
+            <strong><a href="mailto:brist89@yandex-team.ru"> - Brister</a>(brist89@yandex-team.ru)<time> 24 ноября 2014</time> в
+                13:13</strong>
+            <p><em>(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).<br>
+            Получается значение от нуля до единицы, которое, видимо, лучше всего показывает, хорошо или плохо
+                работает почта.<br>
+            наверное все-таки от 0.5 до 1</em></p>
+        </article>
+        <article>
+            <strong><a href="mailto:test@yandex.ru"> - alexeimois</a>(test@yandex.ru)
+                <time> 22 ноября 2014 в 17:35</time>
+            </strong>
+            <p><em> Мы измеряем скорость загрузки с помощью <a
+                    href="https://help.yandex.ru/metrika/reports/monitoring_timing.xml">Яндекс.Метрики</a>:
+                help.yandex.ru/metrika/reports/monitoring_timing.xml</em></p>
+        </article>
+    </section>
+<hr>
+</header>
+<footer>
+    © <a href="https://ya.ru">Яндекс</a>, <a href="mailto:help@yandex.ru">help@yandex.ru</a>,
+    <address>Хохрякова, 10.</address>
+</footer>
+    </main>
+</body>
 </html>
