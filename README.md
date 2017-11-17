@@ -1,6 +1,6 @@
 # Задача к лекции «HTML, I часть»
 
-:warning: При создании PullRequest'а не забудьте указать ваши имя и фамилию.   
+:warning: При создании PullRequest'а не забудьте указать ваши имя и фамилию.   !!!
 :warning: [Codestyle для HTML](https://github.com/urfu-2015/guides/blob/master/html-codestyle.md)  
 :sos: [Как создать Pull Request](https://github.com/urfu-2015/guides/blob/master/how-to-pull-request.md)
 
