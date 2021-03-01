@@ -1,0 +1,57 @@
+.one {
+	display: block;
+	position: absolute;
+	width: 370px;
+	height: 560px;
+	background-color: #fed700;
+	border: 1px solid black;
+
+}
+
+.two {
+	display: block;
+	position: absolute;
+	width: 370px;
+	height: 560px;
+	background-color: #fee4c3;
+	border: 1px solid black;
+	top: 95px;	
+	left: 95px;
+}
+
+.three {
+	display: block;
+	position: absolute;
+	width: 370px;
+	height: 560px;
+	background-color: #fea500;
+	border: 1px solid black;
+	top: 190px;	
+	left: 190px;
+}
+
+.four {
+	display: block;
+	position: absolute;
+	width: 370px;
+	height: 560px;
+	background-color: #fe0000;
+	border: 1px solid black;
+	top: 285px;	
+	left: 285px;
+}
+
+.five {
+	display: block;
+	position: absolute;
+	width: 370px;
+	height: 560px;
+	background-color: #008001;
+	border: 1px solid black;
+	top: 380px;	
+	left: 380px;
+}
+
+div:hover{
+	z-index: 1;
+}
