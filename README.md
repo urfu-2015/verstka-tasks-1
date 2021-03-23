@@ -1,191 +1,260 @@
-# Задача к лекции «HTML, I часть»
+#include <iostream>
+//================================================================== 1 задание =================================================================================
+using namespace std;
 
-:warning: При создании PullRequest'а не забудьте указать ваши имя и фамилию.   
-:warning: [Codestyle для HTML](https://github.com/urfu-2015/guides/blob/master/html-codestyle.md)  
-:sos: [Как создать Pull Request](https://github.com/urfu-2015/guides/blob/master/how-to-pull-request.md)
+class Figure
+{
+public:
+    virtual void area() = 0;
+};
 
-У нас есть интересный текст из блога Яндекса с комментариями.  
-Предлагается превратить его в HTML документ в файле index.html.
+class Parallelogram : public Figure
+{
+protected:
+    int base;       
+    int height;     
+public:
 
-Постарайтесь использовать как можно больше различных элементов.
-
-В тексте упоминается алгоритм Флетчера.
-Будет плюсом, если вы его тоже добавите в документ c помощью **текстовой разметки**:  
-<img src="https://img-fotki.yandex.ru/get/15487/32167648.0/0_13347f_349f618a_X5L" width="450">
-
-```text
-Блог компании Яндекс.
-
-ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ СКОРОСТЬ ЗАГРУЗКИ И УЛУЧШАЕМ ЕЁ
-
-Если ваш сайт медленно грузится, вы рискуете тем, что люди не оценят ни то,
-какой он красивый, ни то, какой он удобный. Никому не понравится, когда все
-тормозит. Мы регулярно добавляем в Яндекс.Почту новую функциональность,
-иногда — исправляем ошибки, а это значит, у нас постоянно появляются новый код
-и новая логика. Всё это напрямую влияет на скорость работы интерфейса.
-
-Что мы измеряем
-
-Этапы первой загрузки:
-* подготовка;
-* загрузка статики (HTTP-запрос и парсинг);
-* исполнение модулей;
-* инициализация базовых объектов;
-* отрисовка.
-
-Этапы отрисовки любой страницы:
-* подготовка к запросу на сервер;
-* запрос данных с сервера;
-* шаблонизация;
-* обновление DOM.
-
-— «Ок, теперь у нас есть метрики, мы можем отправить их на сервер» - говорим мы
-— «Что же дальше?» - вопрошаете вы
-— «А давай построим график!» - отвечаем мы
-— «А что будем считать?» - уточняете вы
-
-Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
-Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
-В общем случае медиана отлично показывает, сколько грузится средний пользователь.
-
-В случае ускорения или замедления медиана, конечно, изменится. Но она не может
-рассказать, сколько пользователей ускорилось, а сколько замедлилось.
-
-APDEX – метрика, которая сразу говорит: хорошо или плохо. Метрика
-работает очень просто. Мы выбираем временной интервал [0; t], такой, что если
-время показа страницы попало в него, то пользователь счастлив. Берем еще один
-интервал, (t; 4t] (в четыре раза больше первого), и считаем, что если страница
-показана за это время, то пользователь в целом удовлетворен скоростью работы,
-но уже не настолько счастлив. И применяем формулу:
-
-(кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-хорошо или плохо работает почта.
-
-Как мы измеряем
-
-Сейчас модуль обновления сам логирует все свои стадии, и можно легко понять
-причину замедления: медленнее стал отвечать сервер либо слишком долго
-выполняется JavaScript. Выглядит это примерно так:
-
-this.timings['look-ma-im-start'] = Date.now();
-this.timings['look-ma-finish'] = Date.now();
-
-C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при
-отправке рассчитываются. На этапах разница между “end” и “start” не считается,
-а все вычисления производятся в конце:
-
-var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
-
-И на сервер прилетают подобные записи:
-
-serverResponse=50&domUpdate=60
-
-Как мы ускоряем
-
-Чтобы снизить время загрузки почты при выходе новых версий,
-мы уже делаем следующее:
-
-* включаем gzip;
-* выставляем заголовки кэширования;
-* фризим CSS, JS, шаблоны и картинки;
-* используем CDN;
-
-Мы подумали: «А что если хранить где-то старую версию файлов, а при выходе новой
-передавать только diff между ней и той, которая сохранена у пользователя?»
-В браузере же останется просто наложить патч на клиенте.
-
-На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-RFC 3229 «Delta encoding in HTTP» и «Google SDHC», — но по разным причинам они
-не получили должного распространения в браузерах и на серверах.
-
-Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
-начали искать реализации diff на JS. На популярных хостингах кода нашли
-библиотеки:
-- VCDiff
-- google-diff-patch-match
-
-Для окончательного выбора библиотеки нам нужно сравнить:
-
-Библиотека      | IE 9          | Opera 12
-----------      | ----          | --------
-vcdiff          | 8             | 5
-google diff     | 1363          | 76
-
-После того как мы определились с библиотекой для диффа, нужно определиться с тем,
-где и как хранить статику на клиенте.
-
-Формат файла с патчами для проекта выглядит так:
-[
+    Parallelogram(int value_base, int value_height) :base(value_base), height(value_height)
     {
-        "k": "jane.css",
-        "p": [patch],
-        "s": 4554
-    },
-    {
-        "k": "jane.css",
-        "p": [patch],
-        "s": 4554
+
     }
-]
+    void area() override
+    {
+        cout << "The parallelogram area is " << base * height << endl;
+    }
+};
 
-То есть это обычный массив из объектов. Каждый объект — отдельный ресурс. У
-каждого объекта есть три свойства. k — названия ключа в localStorage для этого
-ресурса. p — патч для ресурса, который сгенерировал vcdiff. s — чексумма для
-ресурса актуальной версии, чтобы потом можно было проверить правильность
-наложения патча на клиенте. Чексумма вычисляется по алгоритму Флетчера.
+class Circle : public Figure
+{
+    double radius;
+    double P;
+public:
+    Circle(double value_radius) : radius(value_radius) 
+    {
+        P = 3.1415;
 
-Алгоритм Бройдена — Флетчера — Гольдфарба — Шанно (BFGS)
-— итерационный метод численной оптимизации, предназначенный для
-нахождения локального максимума/минимума нелинейного функционала
-без ограничений.
+    }
+    void area() override
+    {
+        cout << "The area of the circle is " << 3.1415 * (radius * radius) << endl;
+    }
+};
 
-Почему именно алгоритм Флетчера, а не другие популярные алгоритмы вроде:
-CRC16/32 - алгоритм нахождения контрольной суммы, предназначенный для проверки
-целостности данных
-md5 - 128-битный алгоритм хеширования. Предназначен для создания «отпечатков»
-или дайджестов сообщения произвольной длины и последующей проверки
-их подлинности.
+class Rectangle : public Parallelogram
+{
+public:
+    Rectangle(int value_base, int value_height) : Parallelogram(value_base, value_height) 
+    {
 
-Потому что он быстрый, компактный и легок в реализации.
+    }
+    void area() override
+    {
+        cout << "The area of the triangle is " << base * height << endl;
+    }
+};
 
-Итог
+class Square : public Parallelogram
+{
+public:
 
-Фактически мы экономим 80-90% трафика. Размер загружаемой статитки в байтах:
+    Square(int value_base, int value_height) : Parallelogram(value_base, value_height) 
+    {
 
-Релиз	| С патчем     | Без патча
-7.7.20  | 397          | 174 549
-7.7.21  | 383          | 53 995
-7.7.22  | 483          | 3 995
+    }
 
-Автор: @doochik
-С++ разработик
-Электронная почта: (doochik@yandex-team.ru)
-Компания: Яндекс
+    void area() override
+    {
+        cout << "The square area is " << base * height << endl;
+    }
+};
 
-Комментарии (3):
+class Rhombus : public Parallelogram
+{
+public:
+    Rhombus(int value_base, int value_height) : Parallelogram(value_base, value_height) 
+    {
 
-- Mogaika (mogaika@yandex-team.ru) 30 ноября 2014 в 17:05
+    }
+    void area() override
+    {
+        cout << "The area of the rhombus is " << base * height << endl;
+    }
+};
+//====================================================================== 2 задание ===================================================================================
+class  Car
+{
+protected:
+    string company;
+    string model;
+public:
+    Car() {
 
-  А можете привести сравнение, на сколько быстрее грузится lite версия?
+    }
+     Car(string c, string m) :company(c), model(m)
+    {
+        
+    }
+     string getcompany() 
+     { 
+         return company; 
+     }
+     string getmodel()
+     {
+         return model;
+     }
+};
 
-- JIguse (mrawesome@yandex.ru) 29 ноября 2014 в 21:30
+class PassengerCar : virtual public Car
+{
+public:
+    PassengerCar(string c, string m) : Car(c, m) 
+    {
+        
+    }
+    string getcompany()
+    {
+        return company;
+    }
+    string getmodel()
+    {
+        return model;
+    }
+};
 
-  Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
-  подробностями о внутренней работе сервисов.
+class Bus : virtual public Car
+{
+public:
+    Bus(string c, string m) : Car(c, m) 
+    {
+        
+    }
+    string getcompany()
+    {
+        return company;
+    }
+    string getmodel()
+    {
+        return model;
+    }
+};
+class Minivan : public PassengerCar, public Bus 
+{
+public: 
+    Minivan(string c, string m) : PassengerCar(c, m), Bus(c, m)
+    {
+        
+    }
+    string getcompany()
+    {
+        return company;
+    }
+    string getmodel()
+    {
+        return model;
+    }
+};
+//=============================================================== 3 задание =================================================================================
 
-- Brister (brist89@yandex-team.ru) 24 ноября 2014 в 13:13
+class Fraction 
+{
+private:
+    int numerator;
+    int denominator;
+public:
+    Fraction() :numerator(0), denominator(1) 
+    {
 
-  (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
-  Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
-  хорошо или плохо работает почта.
+    }
+    Fraction(int numerator, int denominator) 
+    {
+        this->numerator = numerator;
+        this->denominator = denominator;
+    }
+    double getValue() const 
+    {
+        return (double)numerator / denominator;
+    }
+    friend Fraction operator+ (const Fraction& f1, const Fraction& f2);
+};
 
-  наверное все-таки от 0.5 до 1
+Fraction operator+ (const Fraction& f1, const Fraction& f2) 
+{
+    int a = f2.denominator * f1.numerator;
+    int b = f1.denominator * f2.numerator;
+    int c = f1.denominator * f2.denominator;
+    return Fraction(a + b, c);
+}
+//========================================================= 4 задание ==============================================================================
+class Card
+{
+   
+    friend ostream& operator<< (ostream& os, const Card& aCard);
 
-- alexeimois (test@yandex.ru) 22 ноября 2014 в 17:35
+public:
+    enum rank 
+    {
+        ACE = 1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN,
+        JACK, QUEEN, KING
+    };
+    enum suit { CLUBS, DIAMONDS, HEARTS, SPADES };
 
-  Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-  help.yandex.ru/metrika/reports/monitoring_timing.xml
+    Card(rank r = ACE, suit s = SPADES, bool ifu = true);
 
-© Яндекс, help@yandex.ru, Хохрякова, 10
-```
+    
+    int GetValue() const;
+
+    void Flip();
+
+private:
+    rank m_Rank;
+    suit m_Suit;
+    bool m_IsFaceUp;
+};
+
+Card::Card(rank r, suit s, bool ifu) : m_Rank(r), m_Suit(s), m_IsFaceUp(ifu) 
+{
+
+}
+
+int Card::GetValue() const
+{
+    
+    int value = 0;
+    if (m_IsFaceUp)
+    {
+        
+        value = m_Rank;
+      
+        if (value > 10)
+        {
+            value = 10;
+        }
+    }
+
+    return value;
+}
+
+void Card::Flip()
+{
+    m_IsFaceUp = !(m_IsFaceUp);
+}
+int main()
+{
+    Rhombus rhombus(10, 15);
+    rhombus.area();
+    Circle circle(3.1415);
+    circle.area();
+    Car car("mercedes", "Maybach");
+    PassengerCar pcar("bmw", "x5");
+    Bus bus("Mercedes-Benz", "Sprinter");
+    Minivan minivan("Volkswagen", "Multivan T5");
+    cout << car.getcompany() << endl;
+    cout << pcar.getcompany() << endl;
+    Fraction f1(3, 7);
+    Fraction f2(9, 2);
+    Fraction f3 = f1 + f2;
+    cout << f3.getValue() << endl;
+
+
+}
